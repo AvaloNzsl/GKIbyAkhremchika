@@ -1,0 +1,1689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GKI_DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlbumPhoto">
+          <Key>
+            <PropertyRef Name="PhotosId" />
+          </Key>
+          <Property Name="PhotosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="url1" Type="nvarchar(max)" />
+          <Property Name="url2" Type="nvarchar(max)" />
+          <Property Name="url3" Type="nvarchar(max)" />
+          <Property Name="url4" Type="nvarchar(max)" />
+          <Property Name="url5" Type="nvarchar(max)" />
+          <Property Name="url6" Type="nvarchar(max)" />
+          <Property Name="url7" Type="nvarchar(max)" />
+          <Property Name="url8" Type="nvarchar(max)" />
+          <Property Name="url9" Type="nvarchar(max)" />
+          <Property Name="url10" Type="nvarchar(max)" />
+          <Property Name="url11" Type="nvarchar(max)" />
+          <Property Name="url12" Type="nvarchar(max)" />
+          <Property Name="url13" Type="nvarchar(max)" />
+          <Property Name="url14" Type="nvarchar(max)" />
+          <Property Name="url15" Type="nvarchar(max)" />
+          <Property Name="url16" Type="nvarchar(max)" />
+          <Property Name="url17" Type="nvarchar(max)" />
+          <Property Name="url18" Type="nvarchar(max)" />
+          <Property Name="url19" Type="nvarchar(max)" />
+          <Property Name="url20" Type="nvarchar(max)" />
+          <Property Name="url21" Type="nvarchar(max)" />
+          <Property Name="url22" Type="nvarchar(max)" />
+          <Property Name="url23" Type="nvarchar(max)" />
+          <Property Name="url24" Type="nvarchar(max)" />
+          <Property Name="url25" Type="nvarchar(max)" />
+          <Property Name="url26" Type="nvarchar(max)" />
+          <Property Name="url27" Type="nvarchar(max)" />
+          <Property Name="url28" Type="nvarchar(max)" />
+          <Property Name="url29" Type="nvarchar(max)" />
+          <Property Name="url30" Type="nvarchar(max)" />
+          <Property Name="url31" Type="nvarchar(max)" />
+          <Property Name="url32" Type="nvarchar(max)" />
+          <Property Name="url33" Type="nvarchar(max)" />
+          <Property Name="url34" Type="nvarchar(max)" />
+          <Property Name="url35" Type="nvarchar(max)" />
+          <Property Name="url36" Type="nvarchar(max)" />
+          <Property Name="url37" Type="nvarchar(max)" />
+          <Property Name="url38" Type="nvarchar(max)" />
+          <Property Name="url39" Type="nvarchar(max)" />
+          <Property Name="url40" Type="nvarchar(max)" />
+          <Property Name="url41" Type="nvarchar(max)" />
+          <Property Name="url42" Type="nvarchar(max)" />
+          <Property Name="url43" Type="nvarchar(max)" />
+          <Property Name="url44" Type="nvarchar(max)" />
+          <Property Name="url45" Type="nvarchar(max)" />
+          <Property Name="url46" Type="nvarchar(max)" />
+          <Property Name="url47" Type="nvarchar(max)" />
+          <Property Name="url48" Type="nvarchar(max)" />
+          <Property Name="url49" Type="nvarchar(max)" />
+          <Property Name="url50" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="GalleryPhotos">
+          <Key>
+            <PropertyRef Name="GalleryPhotoId" />
+            <PropertyRef Name="PhotosId" />
+          </Key>
+          <Property Name="GalleryPhotoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="120" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="PhotosId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GalleryVideo">
+          <Key>
+            <PropertyRef Name="GalleryVideoId" />
+          </Key>
+          <Property Name="GalleryVideoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="120" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Img" Type="varchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="gkiGraduates">
+          <Key>
+            <PropertyRef Name="GraduatesId" />
+          </Key>
+          <Property Name="GraduatesId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="20" />
+          <Property Name="Secondname" Type="nvarchar" MaxLength="20" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="Smalldescription" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="gkiParent">
+          <Key>
+            <PropertyRef Name="ParentId" />
+          </Key>
+          <Property Name="ParentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="int" />
+          <Property Name="ProfessionId" Type="int" />
+          <Property Name="WorkId" Type="int" />
+        </EntityType>
+        <EntityType Name="gkiProfile">
+          <Key>
+            <PropertyRef Name="ProfileId" />
+          </Key>
+          <Property Name="ProfileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Avatar" Type="nvarchar(max)" />
+          <Property Name="Thumb" Type="nvarchar(max)" />
+          <Property Name="Mobile" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Day" Type="int" />
+          <Property Name="About" Type="nvarchar(max)" />
+          <Property Name="Activity" Type="nvarchar(max)" />
+          <Property Name="LanguageId" Type="int" />
+          <Property Name="CityId" Type="int" />
+          <Property Name="SexId" Type="int" />
+        </EntityType>
+        <EntityType Name="gkiStudent">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="SpecializationId" Type="int" />
+        </EntityType>
+        <EntityType Name="gkiTeacher">
+          <Key>
+            <PropertyRef Name="TeacherId" />
+          </Key>
+          <Property Name="TeacherId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="DesciplineId" Type="int" />
+          <Property Name="ProfessionId" Type="int" />
+          <Property Name="WorkId" Type="int" />
+        </EntityType>
+        <EntityType Name="gkiUsers">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Secondname" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gkiWorker">
+          <Key>
+            <PropertyRef Name="WorkerId" />
+          </Key>
+          <Property Name="WorkerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ProfessionId" Type="int" />
+          <Property Name="WorkId" Type="int" />
+        </EntityType>
+        <EntityType Name="NewsArt">
+          <Key>
+            <PropertyRef Name="NewsArtId" />
+          </Key>
+          <Property Name="NewsArtId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="120" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Img_Title" Type="varchar(max)" />
+          <Property Name="SmallText" Type="nvarchar(max)" />
+          <Property Name="FullText" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NewsEvent">
+          <Key>
+            <PropertyRef Name="NewsEventId" />
+          </Key>
+          <Property Name="NewsEventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="120" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Img" Type="varchar(max)" />
+          <Property Name="DateStart" Type="datetime" />
+          <Property Name="DateFinish" Type="datetime" />
+          <Property Name="FullText" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NewsMusical">
+          <Key>
+            <PropertyRef Name="NewsMusicalId" />
+          </Key>
+          <Property Name="NewsMusicalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="120" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Img_Title" Type="varchar(max)" />
+          <Property Name="SmallText" Type="varchar(max)" />
+          <Property Name="FullText" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="NewsSchool">
+          <Key>
+            <PropertyRef Name="NewsSchoolId" />
+          </Key>
+          <Property Name="NewsSchoolId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="120" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Img_Title" Type="varchar(max)" />
+          <Property Name="SmallText" Type="nvarchar(max)" />
+          <Property Name="FullText" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="qCity">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="qDepartment">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="qDescipline">
+          <Key>
+            <PropertyRef Name="DesciplineId" />
+          </Key>
+          <Property Name="DesciplineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DesciplineName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="qGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="qLanguage">
+          <Key>
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+          <Property Name="LanguageName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="qProfession">
+          <Key>
+            <PropertyRef Name="ProfessionId" />
+          </Key>
+          <Property Name="ProfessionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfessionName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="qSex">
+          <Key>
+            <PropertyRef Name="SexId" />
+          </Key>
+          <Property Name="SexId" Type="int" Nullable="false" />
+          <Property Name="SexName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="qSpecialization">
+          <Key>
+            <PropertyRef Name="SpecializationId" />
+          </Key>
+          <Property Name="SpecializationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="SpecializationName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="qWork">
+          <Key>
+            <PropertyRef Name="WorkId" />
+          </Key>
+          <Property Name="WorkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_GalleryPhotos_Photos">
+          <End Role="AlbumPhoto" Type="Self.AlbumPhoto" Multiplicity="1" />
+          <End Role="GalleryPhotos" Type="Self.GalleryPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlbumPhoto">
+              <PropertyRef Name="PhotosId" />
+            </Principal>
+            <Dependent Role="GalleryPhotos">
+              <PropertyRef Name="PhotosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiParent_gkiParent">
+          <End Role="qProfession" Type="Self.qProfession" Multiplicity="0..1" />
+          <End Role="gkiParent" Type="Self.gkiParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qProfession">
+              <PropertyRef Name="ProfessionId" />
+            </Principal>
+            <Dependent Role="gkiParent">
+              <PropertyRef Name="ProfessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiParent_gkiStudent">
+          <End Role="gkiStudent" Type="Self.gkiStudent" Multiplicity="0..1" />
+          <End Role="gkiParent" Type="Self.gkiParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiStudent">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="gkiParent">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiParent_gkiUsers">
+          <End Role="gkiUsers" Type="Self.gkiUsers" Multiplicity="1" />
+          <End Role="gkiParent" Type="Self.gkiParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiUsers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="gkiParent">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiParent_qWork">
+          <End Role="qWork" Type="Self.qWork" Multiplicity="0..1" />
+          <End Role="gkiParent" Type="Self.gkiParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qWork">
+              <PropertyRef Name="WorkId" />
+            </Principal>
+            <Dependent Role="gkiParent">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiProfile_qCity">
+          <End Role="qCity" Type="Self.qCity" Multiplicity="0..1" />
+          <End Role="gkiProfile" Type="Self.gkiProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="gkiProfile">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiProfile_qLanguage">
+          <End Role="qLanguage" Type="Self.qLanguage" Multiplicity="0..1" />
+          <End Role="gkiProfile" Type="Self.gkiProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qLanguage">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="gkiProfile">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiProfile_qSex">
+          <End Role="qSex" Type="Self.qSex" Multiplicity="0..1" />
+          <End Role="gkiProfile" Type="Self.gkiProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qSex">
+              <PropertyRef Name="SexId" />
+            </Principal>
+            <Dependent Role="gkiProfile">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiStudent_gkiUsers">
+          <End Role="gkiUsers" Type="Self.gkiUsers" Multiplicity="1" />
+          <End Role="gkiStudent" Type="Self.gkiStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiUsers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="gkiStudent">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiStudent_qGroup">
+          <End Role="qGroup" Type="Self.qGroup" Multiplicity="0..1" />
+          <End Role="gkiStudent" Type="Self.gkiStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qGroup">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="gkiStudent">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiStudent_qSpecialization">
+          <End Role="qSpecialization" Type="Self.qSpecialization" Multiplicity="0..1" />
+          <End Role="gkiStudent" Type="Self.gkiStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qSpecialization">
+              <PropertyRef Name="SpecializationId" />
+            </Principal>
+            <Dependent Role="gkiStudent">
+              <PropertyRef Name="SpecializationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiTeacher_gkiUsers">
+          <End Role="gkiUsers" Type="Self.gkiUsers" Multiplicity="1" />
+          <End Role="gkiTeacher" Type="Self.gkiTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiUsers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="gkiTeacher">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiTeacher_qDescipline">
+          <End Role="qDescipline" Type="Self.qDescipline" Multiplicity="0..1" />
+          <End Role="gkiTeacher" Type="Self.gkiTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qDescipline">
+              <PropertyRef Name="DesciplineId" />
+            </Principal>
+            <Dependent Role="gkiTeacher">
+              <PropertyRef Name="DesciplineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiTeacher_qProfession">
+          <End Role="qProfession" Type="Self.qProfession" Multiplicity="0..1" />
+          <End Role="gkiTeacher" Type="Self.gkiTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qProfession">
+              <PropertyRef Name="ProfessionId" />
+            </Principal>
+            <Dependent Role="gkiTeacher">
+              <PropertyRef Name="ProfessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiTeacher_qWork">
+          <End Role="qWork" Type="Self.qWork" Multiplicity="0..1" />
+          <End Role="gkiTeacher" Type="Self.gkiTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qWork">
+              <PropertyRef Name="WorkId" />
+            </Principal>
+            <Dependent Role="gkiTeacher">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiUsers_gkiProfile">
+          <End Role="gkiProfile" Type="Self.gkiProfile" Multiplicity="1" />
+          <End Role="gkiUsers" Type="Self.gkiUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiProfile">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="gkiUsers">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiUsers_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="gkiUsers" Type="Self.gkiUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="gkiUsers">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiWorker_gkiUsers">
+          <End Role="gkiUsers" Type="Self.gkiUsers" Multiplicity="1" />
+          <End Role="gkiWorker" Type="Self.gkiWorker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiUsers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="gkiWorker">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiWorker_qProfession">
+          <End Role="qProfession" Type="Self.qProfession" Multiplicity="0..1" />
+          <End Role="gkiWorker" Type="Self.gkiWorker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qProfession">
+              <PropertyRef Name="ProfessionId" />
+            </Principal>
+            <Dependent Role="gkiWorker">
+              <PropertyRef Name="ProfessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiWorker_qWork">
+          <End Role="qWork" Type="Self.qWork" Multiplicity="0..1" />
+          <End Role="gkiWorker" Type="Self.gkiWorker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qWork">
+              <PropertyRef Name="WorkId" />
+            </Principal>
+            <Dependent Role="gkiWorker">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_qSpecialization_qDepartment">
+          <End Role="qDepartment" Type="Self.qDepartment" Multiplicity="1" />
+          <End Role="qSpecialization" Type="Self.qSpecialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qDepartment">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="qSpecialization">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GKI_DataModelStoreContainer">
+          <EntitySet Name="AlbumPhoto" EntityType="Self.AlbumPhoto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GalleryPhotos" EntityType="Self.GalleryPhotos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GalleryVideo" EntityType="Self.GalleryVideo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gkiGraduates" EntityType="Self.gkiGraduates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gkiParent" EntityType="Self.gkiParent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gkiProfile" EntityType="Self.gkiProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gkiStudent" EntityType="Self.gkiStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gkiTeacher" EntityType="Self.gkiTeacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gkiUsers" EntityType="Self.gkiUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gkiWorker" EntityType="Self.gkiWorker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsArt" EntityType="Self.NewsArt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsEvent" EntityType="Self.NewsEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsMusical" EntityType="Self.NewsMusical" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsSchool" EntityType="Self.NewsSchool" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="qCity" EntityType="Self.qCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="qDepartment" EntityType="Self.qDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="qDescipline" EntityType="Self.qDescipline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="qGroup" EntityType="Self.qGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="qLanguage" EntityType="Self.qLanguage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="qProfession" EntityType="Self.qProfession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="qSex" EntityType="Self.qSex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="qSpecialization" EntityType="Self.qSpecialization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="qWork" EntityType="Self.qWork" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_GalleryPhotos_Photos" Association="Self.FK_GalleryPhotos_Photos">
+            <End Role="AlbumPhoto" EntitySet="AlbumPhoto" />
+            <End Role="GalleryPhotos" EntitySet="GalleryPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiParent_gkiParent" Association="Self.FK_gkiParent_gkiParent">
+            <End Role="qProfession" EntitySet="qProfession" />
+            <End Role="gkiParent" EntitySet="gkiParent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiParent_gkiStudent" Association="Self.FK_gkiParent_gkiStudent">
+            <End Role="gkiStudent" EntitySet="gkiStudent" />
+            <End Role="gkiParent" EntitySet="gkiParent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiParent_gkiUsers" Association="Self.FK_gkiParent_gkiUsers">
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+            <End Role="gkiParent" EntitySet="gkiParent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiParent_qWork" Association="Self.FK_gkiParent_qWork">
+            <End Role="qWork" EntitySet="qWork" />
+            <End Role="gkiParent" EntitySet="gkiParent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiProfile_qCity" Association="Self.FK_gkiProfile_qCity">
+            <End Role="qCity" EntitySet="qCity" />
+            <End Role="gkiProfile" EntitySet="gkiProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiProfile_qLanguage" Association="Self.FK_gkiProfile_qLanguage">
+            <End Role="qLanguage" EntitySet="qLanguage" />
+            <End Role="gkiProfile" EntitySet="gkiProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiProfile_qSex" Association="Self.FK_gkiProfile_qSex">
+            <End Role="qSex" EntitySet="qSex" />
+            <End Role="gkiProfile" EntitySet="gkiProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiStudent_gkiUsers" Association="Self.FK_gkiStudent_gkiUsers">
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+            <End Role="gkiStudent" EntitySet="gkiStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiStudent_qGroup" Association="Self.FK_gkiStudent_qGroup">
+            <End Role="qGroup" EntitySet="qGroup" />
+            <End Role="gkiStudent" EntitySet="gkiStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiStudent_qSpecialization" Association="Self.FK_gkiStudent_qSpecialization">
+            <End Role="qSpecialization" EntitySet="qSpecialization" />
+            <End Role="gkiStudent" EntitySet="gkiStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiTeacher_gkiUsers" Association="Self.FK_gkiTeacher_gkiUsers">
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+            <End Role="gkiTeacher" EntitySet="gkiTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiTeacher_qDescipline" Association="Self.FK_gkiTeacher_qDescipline">
+            <End Role="qDescipline" EntitySet="qDescipline" />
+            <End Role="gkiTeacher" EntitySet="gkiTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiTeacher_qProfession" Association="Self.FK_gkiTeacher_qProfession">
+            <End Role="qProfession" EntitySet="qProfession" />
+            <End Role="gkiTeacher" EntitySet="gkiTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiTeacher_qWork" Association="Self.FK_gkiTeacher_qWork">
+            <End Role="qWork" EntitySet="qWork" />
+            <End Role="gkiTeacher" EntitySet="gkiTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiUsers_gkiProfile" Association="Self.FK_gkiUsers_gkiProfile">
+            <End Role="gkiProfile" EntitySet="gkiProfile" />
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiUsers_Role" Association="Self.FK_gkiUsers_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiWorker_gkiUsers" Association="Self.FK_gkiWorker_gkiUsers">
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+            <End Role="gkiWorker" EntitySet="gkiWorker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiWorker_qProfession" Association="Self.FK_gkiWorker_qProfession">
+            <End Role="qProfession" EntitySet="qProfession" />
+            <End Role="gkiWorker" EntitySet="gkiWorker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiWorker_qWork" Association="Self.FK_gkiWorker_qWork">
+            <End Role="qWork" EntitySet="qWork" />
+            <End Role="gkiWorker" EntitySet="gkiWorker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_qSpecialization_qDepartment" Association="Self.FK_qSpecialization_qDepartment">
+            <End Role="qDepartment" EntitySet="qDepartment" />
+            <End Role="qSpecialization" EntitySet="qSpecialization" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GKI_DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AlbumPhoto">
+          <Key>
+            <PropertyRef Name="PhotosId" />
+          </Key>
+          <Property Name="PhotosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url11" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url12" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url13" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url14" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url15" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url16" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url17" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url18" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url19" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url20" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url21" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url22" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url23" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url24" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url25" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url26" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url27" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url28" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url29" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url30" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url31" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url32" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url33" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url34" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url35" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url36" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url37" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url38" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url39" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url40" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url41" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url42" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url43" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url44" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url45" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url46" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url47" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url48" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url49" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url50" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GalleryPhotos" Relationship="Self.FK_GalleryPhotos_Photos" FromRole="AlbumPhoto" ToRole="GalleryPhotos" />
+        </EntityType>
+        <EntityType Name="GalleryPhoto">
+          <Key>
+            <PropertyRef Name="GalleryPhotoId" />
+            <PropertyRef Name="PhotosId" />
+          </Key>
+          <Property Name="GalleryPhotoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhotosId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlbumPhoto" Relationship="Self.FK_GalleryPhotos_Photos" FromRole="GalleryPhotos" ToRole="AlbumPhoto" />
+        </EntityType>
+        <EntityType Name="GalleryVideo">
+          <Key>
+            <PropertyRef Name="GalleryVideoId" />
+          </Key>
+          <Property Name="GalleryVideoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="gkiGraduate">
+          <Key>
+            <PropertyRef Name="GraduatesId" />
+          </Key>
+          <Property Name="GraduatesId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Secondname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Smalldescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="gkiParent">
+          <Key>
+            <PropertyRef Name="ParentId" />
+          </Key>
+          <Property Name="ParentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="Int32" />
+          <Property Name="ProfessionId" Type="Int32" />
+          <Property Name="WorkId" Type="Int32" />
+          <NavigationProperty Name="qProfession" Relationship="Self.FK_gkiParent_gkiParent" FromRole="gkiParent" ToRole="qProfession" />
+          <NavigationProperty Name="gkiStudent" Relationship="Self.FK_gkiParent_gkiStudent" FromRole="gkiParent" ToRole="gkiStudent" />
+          <NavigationProperty Name="gkiUser" Relationship="Self.FK_gkiParent_gkiUsers" FromRole="gkiParent" ToRole="gkiUsers" />
+          <NavigationProperty Name="qWork" Relationship="Self.FK_gkiParent_qWork" FromRole="gkiParent" ToRole="qWork" />
+        </EntityType>
+        <EntityType Name="gkiProfile">
+          <Key>
+            <PropertyRef Name="ProfileId" />
+          </Key>
+          <Property Name="ProfileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Thumb" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="Day" Type="Int32" />
+          <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Activity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LanguageId" Type="Int32" />
+          <Property Name="CityId" Type="Int32" />
+          <Property Name="SexId" Type="Int32" />
+          <NavigationProperty Name="qCity" Relationship="Self.FK_gkiProfile_qCity" FromRole="gkiProfile" ToRole="qCity" />
+          <NavigationProperty Name="qLanguage" Relationship="Self.FK_gkiProfile_qLanguage" FromRole="gkiProfile" ToRole="qLanguage" />
+          <NavigationProperty Name="qSex" Relationship="Self.FK_gkiProfile_qSex" FromRole="gkiProfile" ToRole="qSex" />
+          <NavigationProperty Name="gkiUsers" Relationship="Self.FK_gkiUsers_gkiProfile" FromRole="gkiProfile" ToRole="gkiUsers" />
+        </EntityType>
+        <EntityType Name="gkiStudent">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="SpecializationId" Type="Int32" />
+          <NavigationProperty Name="gkiParents" Relationship="Self.FK_gkiParent_gkiStudent" FromRole="gkiStudent" ToRole="gkiParent" />
+          <NavigationProperty Name="gkiUser" Relationship="Self.FK_gkiStudent_gkiUsers" FromRole="gkiStudent" ToRole="gkiUsers" />
+          <NavigationProperty Name="qGroup" Relationship="Self.FK_gkiStudent_qGroup" FromRole="gkiStudent" ToRole="qGroup" />
+          <NavigationProperty Name="qSpecialization" Relationship="Self.FK_gkiStudent_qSpecialization" FromRole="gkiStudent" ToRole="qSpecialization" />
+        </EntityType>
+        <EntityType Name="gkiTeacher">
+          <Key>
+            <PropertyRef Name="TeacherId" />
+          </Key>
+          <Property Name="TeacherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="DesciplineId" Type="Int32" />
+          <Property Name="ProfessionId" Type="Int32" />
+          <Property Name="WorkId" Type="Int32" />
+          <NavigationProperty Name="gkiUser" Relationship="Self.FK_gkiTeacher_gkiUsers" FromRole="gkiTeacher" ToRole="gkiUsers" />
+          <NavigationProperty Name="qDescipline" Relationship="Self.FK_gkiTeacher_qDescipline" FromRole="gkiTeacher" ToRole="qDescipline" />
+          <NavigationProperty Name="qProfession" Relationship="Self.FK_gkiTeacher_qProfession" FromRole="gkiTeacher" ToRole="qProfession" />
+          <NavigationProperty Name="qWork" Relationship="Self.FK_gkiTeacher_qWork" FromRole="gkiTeacher" ToRole="qWork" />
+        </EntityType>
+        <EntityType Name="gkiUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Secondname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="gkiParents" Relationship="Self.FK_gkiParent_gkiUsers" FromRole="gkiUsers" ToRole="gkiParent" />
+          <NavigationProperty Name="gkiProfile" Relationship="Self.FK_gkiUsers_gkiProfile" FromRole="gkiUsers" ToRole="gkiProfile" />
+          <NavigationProperty Name="gkiStudents" Relationship="Self.FK_gkiStudent_gkiUsers" FromRole="gkiUsers" ToRole="gkiStudent" />
+          <NavigationProperty Name="gkiTeachers" Relationship="Self.FK_gkiTeacher_gkiUsers" FromRole="gkiUsers" ToRole="gkiTeacher" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_gkiUsers_Role" FromRole="gkiUsers" ToRole="Role" />
+          <NavigationProperty Name="gkiWorkers" Relationship="Self.FK_gkiWorker_gkiUsers" FromRole="gkiUsers" ToRole="gkiWorker" />
+        </EntityType>
+        <EntityType Name="gkiWorker">
+          <Key>
+            <PropertyRef Name="WorkerId" />
+          </Key>
+          <Property Name="WorkerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ProfessionId" Type="Int32" />
+          <Property Name="WorkId" Type="Int32" />
+          <NavigationProperty Name="gkiUser" Relationship="Self.FK_gkiWorker_gkiUsers" FromRole="gkiWorker" ToRole="gkiUsers" />
+          <NavigationProperty Name="qProfession" Relationship="Self.FK_gkiWorker_qProfession" FromRole="gkiWorker" ToRole="qProfession" />
+          <NavigationProperty Name="qWork" Relationship="Self.FK_gkiWorker_qWork" FromRole="gkiWorker" ToRole="qWork" />
+        </EntityType>
+        <EntityType Name="NewsArt">
+          <Key>
+            <PropertyRef Name="NewsArtId" />
+          </Key>
+          <Property Name="NewsArtId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Img_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SmallText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NewsEvent">
+          <Key>
+            <PropertyRef Name="NewsEventId" />
+          </Key>
+          <Property Name="NewsEventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateStart" Type="DateTime" Precision="3" />
+          <Property Name="DateFinish" Type="DateTime" Precision="3" />
+          <Property Name="FullText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NewsMusical">
+          <Key>
+            <PropertyRef Name="NewsMusicalId" />
+          </Key>
+          <Property Name="NewsMusicalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Img_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SmallText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FullText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NewsSchool">
+          <Key>
+            <PropertyRef Name="NewsSchoolId" />
+          </Key>
+          <Property Name="NewsSchoolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Img_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SmallText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="qCity">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="gkiProfiles" Relationship="Self.FK_gkiProfile_qCity" FromRole="qCity" ToRole="gkiProfile" />
+        </EntityType>
+        <EntityType Name="qDepartment">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="qSpecializations" Relationship="Self.FK_qSpecialization_qDepartment" FromRole="qDepartment" ToRole="qSpecialization" />
+        </EntityType>
+        <EntityType Name="qDescipline">
+          <Key>
+            <PropertyRef Name="DesciplineId" />
+          </Key>
+          <Property Name="DesciplineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DesciplineName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="gkiTeachers" Relationship="Self.FK_gkiTeacher_qDescipline" FromRole="qDescipline" ToRole="gkiTeacher" />
+        </EntityType>
+        <EntityType Name="qGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="gkiStudents" Relationship="Self.FK_gkiStudent_qGroup" FromRole="qGroup" ToRole="gkiStudent" />
+        </EntityType>
+        <EntityType Name="qLanguage">
+          <Key>
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="LanguageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="gkiProfiles" Relationship="Self.FK_gkiProfile_qLanguage" FromRole="qLanguage" ToRole="gkiProfile" />
+        </EntityType>
+        <EntityType Name="qProfession">
+          <Key>
+            <PropertyRef Name="ProfessionId" />
+          </Key>
+          <Property Name="ProfessionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfessionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="gkiParents" Relationship="Self.FK_gkiParent_gkiParent" FromRole="qProfession" ToRole="gkiParent" />
+          <NavigationProperty Name="gkiTeachers" Relationship="Self.FK_gkiTeacher_qProfession" FromRole="qProfession" ToRole="gkiTeacher" />
+          <NavigationProperty Name="gkiWorkers" Relationship="Self.FK_gkiWorker_qProfession" FromRole="qProfession" ToRole="gkiWorker" />
+        </EntityType>
+        <EntityType Name="qSex">
+          <Key>
+            <PropertyRef Name="SexId" />
+          </Key>
+          <Property Name="SexId" Type="Int32" Nullable="false" />
+          <Property Name="SexName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="gkiProfiles" Relationship="Self.FK_gkiProfile_qSex" FromRole="qSex" ToRole="gkiProfile" />
+        </EntityType>
+        <EntityType Name="qSpecialization">
+          <Key>
+            <PropertyRef Name="SpecializationId" />
+          </Key>
+          <Property Name="SpecializationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="SpecializationName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="gkiStudents" Relationship="Self.FK_gkiStudent_qSpecialization" FromRole="qSpecialization" ToRole="gkiStudent" />
+          <NavigationProperty Name="qDepartment" Relationship="Self.FK_qSpecialization_qDepartment" FromRole="qSpecialization" ToRole="qDepartment" />
+        </EntityType>
+        <EntityType Name="qWork">
+          <Key>
+            <PropertyRef Name="WorkId" />
+          </Key>
+          <Property Name="WorkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="gkiParents" Relationship="Self.FK_gkiParent_qWork" FromRole="qWork" ToRole="gkiParent" />
+          <NavigationProperty Name="gkiTeachers" Relationship="Self.FK_gkiTeacher_qWork" FromRole="qWork" ToRole="gkiTeacher" />
+          <NavigationProperty Name="gkiWorkers" Relationship="Self.FK_gkiWorker_qWork" FromRole="qWork" ToRole="gkiWorker" />
+        </EntityType>
+        <EntityType Name="gkiRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="gkiUsers" Relationship="Self.FK_gkiUsers_Role" FromRole="Role" ToRole="gkiUsers" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_GalleryPhotos_Photos">
+          <End Role="AlbumPhoto" Type="Self.AlbumPhoto" Multiplicity="1" />
+          <End Role="GalleryPhotos" Type="Self.GalleryPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlbumPhoto">
+              <PropertyRef Name="PhotosId" />
+            </Principal>
+            <Dependent Role="GalleryPhotos">
+              <PropertyRef Name="PhotosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiParent_gkiParent">
+          <End Role="qProfession" Type="Self.qProfession" Multiplicity="0..1" />
+          <End Role="gkiParent" Type="Self.gkiParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qProfession">
+              <PropertyRef Name="ProfessionId" />
+            </Principal>
+            <Dependent Role="gkiParent">
+              <PropertyRef Name="ProfessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiParent_gkiStudent">
+          <End Role="gkiStudent" Type="Self.gkiStudent" Multiplicity="0..1" />
+          <End Role="gkiParent" Type="Self.gkiParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiStudent">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="gkiParent">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiParent_gkiUsers">
+          <End Role="gkiUsers" Type="Self.gkiUser" Multiplicity="1" />
+          <End Role="gkiParent" Type="Self.gkiParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiUsers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="gkiParent">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiParent_qWork">
+          <End Role="qWork" Type="Self.qWork" Multiplicity="0..1" />
+          <End Role="gkiParent" Type="Self.gkiParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qWork">
+              <PropertyRef Name="WorkId" />
+            </Principal>
+            <Dependent Role="gkiParent">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiProfile_qCity">
+          <End Role="qCity" Type="Self.qCity" Multiplicity="0..1" />
+          <End Role="gkiProfile" Type="Self.gkiProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="gkiProfile">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiProfile_qLanguage">
+          <End Role="qLanguage" Type="Self.qLanguage" Multiplicity="0..1" />
+          <End Role="gkiProfile" Type="Self.gkiProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qLanguage">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="gkiProfile">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiProfile_qSex">
+          <End Role="qSex" Type="Self.qSex" Multiplicity="0..1" />
+          <End Role="gkiProfile" Type="Self.gkiProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qSex">
+              <PropertyRef Name="SexId" />
+            </Principal>
+            <Dependent Role="gkiProfile">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiUsers_gkiProfile">
+          <End Role="gkiProfile" Type="Self.gkiProfile" Multiplicity="1" />
+          <End Role="gkiUsers" Type="Self.gkiUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiProfile">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="gkiUsers">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiStudent_gkiUsers">
+          <End Role="gkiUsers" Type="Self.gkiUser" Multiplicity="1" />
+          <End Role="gkiStudent" Type="Self.gkiStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiUsers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="gkiStudent">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiStudent_qGroup">
+          <End Role="qGroup" Type="Self.qGroup" Multiplicity="0..1" />
+          <End Role="gkiStudent" Type="Self.gkiStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qGroup">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="gkiStudent">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiStudent_qSpecialization">
+          <End Role="qSpecialization" Type="Self.qSpecialization" Multiplicity="0..1" />
+          <End Role="gkiStudent" Type="Self.gkiStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qSpecialization">
+              <PropertyRef Name="SpecializationId" />
+            </Principal>
+            <Dependent Role="gkiStudent">
+              <PropertyRef Name="SpecializationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiTeacher_gkiUsers">
+          <End Role="gkiUsers" Type="Self.gkiUser" Multiplicity="1" />
+          <End Role="gkiTeacher" Type="Self.gkiTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiUsers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="gkiTeacher">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiTeacher_qDescipline">
+          <End Role="qDescipline" Type="Self.qDescipline" Multiplicity="0..1" />
+          <End Role="gkiTeacher" Type="Self.gkiTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qDescipline">
+              <PropertyRef Name="DesciplineId" />
+            </Principal>
+            <Dependent Role="gkiTeacher">
+              <PropertyRef Name="DesciplineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiTeacher_qProfession">
+          <End Role="qProfession" Type="Self.qProfession" Multiplicity="0..1" />
+          <End Role="gkiTeacher" Type="Self.gkiTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qProfession">
+              <PropertyRef Name="ProfessionId" />
+            </Principal>
+            <Dependent Role="gkiTeacher">
+              <PropertyRef Name="ProfessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiTeacher_qWork">
+          <End Role="qWork" Type="Self.qWork" Multiplicity="0..1" />
+          <End Role="gkiTeacher" Type="Self.gkiTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qWork">
+              <PropertyRef Name="WorkId" />
+            </Principal>
+            <Dependent Role="gkiTeacher">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiUsers_Role">
+          <End Role="Role" Type="GKI_DataModel.gkiRole" Multiplicity="1" />
+          <End Role="gkiUsers" Type="Self.gkiUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="gkiUsers">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiWorker_gkiUsers">
+          <End Role="gkiUsers" Type="Self.gkiUser" Multiplicity="1" />
+          <End Role="gkiWorker" Type="Self.gkiWorker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiUsers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="gkiWorker">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiWorker_qProfession">
+          <End Role="qProfession" Type="Self.qProfession" Multiplicity="0..1" />
+          <End Role="gkiWorker" Type="Self.gkiWorker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qProfession">
+              <PropertyRef Name="ProfessionId" />
+            </Principal>
+            <Dependent Role="gkiWorker">
+              <PropertyRef Name="ProfessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiWorker_qWork">
+          <End Role="qWork" Type="Self.qWork" Multiplicity="0..1" />
+          <End Role="gkiWorker" Type="Self.gkiWorker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qWork">
+              <PropertyRef Name="WorkId" />
+            </Principal>
+            <Dependent Role="gkiWorker">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_qSpecialization_qDepartment">
+          <End Role="qDepartment" Type="Self.qDepartment" Multiplicity="1" />
+          <End Role="qSpecialization" Type="Self.qSpecialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qDepartment">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="qSpecialization">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GKI_DataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlbumPhotoes" EntityType="Self.AlbumPhoto" />
+          <EntitySet Name="GalleryPhotos" EntityType="Self.GalleryPhoto" />
+          <EntitySet Name="GalleryVideos" EntityType="Self.GalleryVideo" />
+          <EntitySet Name="gkiGraduates" EntityType="Self.gkiGraduate" />
+          <EntitySet Name="gkiParents" EntityType="Self.gkiParent" />
+          <EntitySet Name="gkiProfiles" EntityType="Self.gkiProfile" />
+          <EntitySet Name="gkiStudents" EntityType="Self.gkiStudent" />
+          <EntitySet Name="gkiTeachers" EntityType="Self.gkiTeacher" />
+          <EntitySet Name="gkiUsers" EntityType="Self.gkiUser" />
+          <EntitySet Name="gkiWorkers" EntityType="Self.gkiWorker" />
+          <EntitySet Name="NewsArts" EntityType="Self.NewsArt" />
+          <EntitySet Name="NewsEvents" EntityType="Self.NewsEvent" />
+          <EntitySet Name="NewsMusicals" EntityType="Self.NewsMusical" />
+          <EntitySet Name="NewsSchools" EntityType="Self.NewsSchool" />
+          <EntitySet Name="qCities" EntityType="Self.qCity" />
+          <EntitySet Name="qDepartments" EntityType="Self.qDepartment" />
+          <EntitySet Name="qDesciplines" EntityType="Self.qDescipline" />
+          <EntitySet Name="qGroups" EntityType="Self.qGroup" />
+          <EntitySet Name="qLanguages" EntityType="Self.qLanguage" />
+          <EntitySet Name="qProfessions" EntityType="Self.qProfession" />
+          <EntitySet Name="qSexes" EntityType="Self.qSex" />
+          <EntitySet Name="qSpecializations" EntityType="Self.qSpecialization" />
+          <EntitySet Name="qWorks" EntityType="Self.qWork" />
+          <EntitySet Name="gkiRoles" EntityType="GKI_DataModel.gkiRole" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_GalleryPhotos_Photos" Association="Self.FK_GalleryPhotos_Photos">
+            <End Role="AlbumPhoto" EntitySet="AlbumPhotoes" />
+            <End Role="GalleryPhotos" EntitySet="GalleryPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiParent_gkiParent" Association="Self.FK_gkiParent_gkiParent">
+            <End Role="qProfession" EntitySet="qProfessions" />
+            <End Role="gkiParent" EntitySet="gkiParents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiParent_gkiStudent" Association="Self.FK_gkiParent_gkiStudent">
+            <End Role="gkiStudent" EntitySet="gkiStudents" />
+            <End Role="gkiParent" EntitySet="gkiParents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiParent_gkiUsers" Association="Self.FK_gkiParent_gkiUsers">
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+            <End Role="gkiParent" EntitySet="gkiParents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiParent_qWork" Association="Self.FK_gkiParent_qWork">
+            <End Role="qWork" EntitySet="qWorks" />
+            <End Role="gkiParent" EntitySet="gkiParents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiProfile_qCity" Association="Self.FK_gkiProfile_qCity">
+            <End Role="qCity" EntitySet="qCities" />
+            <End Role="gkiProfile" EntitySet="gkiProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiProfile_qLanguage" Association="Self.FK_gkiProfile_qLanguage">
+            <End Role="qLanguage" EntitySet="qLanguages" />
+            <End Role="gkiProfile" EntitySet="gkiProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiProfile_qSex" Association="Self.FK_gkiProfile_qSex">
+            <End Role="qSex" EntitySet="qSexes" />
+            <End Role="gkiProfile" EntitySet="gkiProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiUsers_gkiProfile" Association="Self.FK_gkiUsers_gkiProfile">
+            <End Role="gkiProfile" EntitySet="gkiProfiles" />
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiStudent_gkiUsers" Association="Self.FK_gkiStudent_gkiUsers">
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+            <End Role="gkiStudent" EntitySet="gkiStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiStudent_qGroup" Association="Self.FK_gkiStudent_qGroup">
+            <End Role="qGroup" EntitySet="qGroups" />
+            <End Role="gkiStudent" EntitySet="gkiStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiStudent_qSpecialization" Association="Self.FK_gkiStudent_qSpecialization">
+            <End Role="qSpecialization" EntitySet="qSpecializations" />
+            <End Role="gkiStudent" EntitySet="gkiStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiTeacher_gkiUsers" Association="Self.FK_gkiTeacher_gkiUsers">
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+            <End Role="gkiTeacher" EntitySet="gkiTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiTeacher_qDescipline" Association="Self.FK_gkiTeacher_qDescipline">
+            <End Role="qDescipline" EntitySet="qDesciplines" />
+            <End Role="gkiTeacher" EntitySet="gkiTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiTeacher_qProfession" Association="Self.FK_gkiTeacher_qProfession">
+            <End Role="qProfession" EntitySet="qProfessions" />
+            <End Role="gkiTeacher" EntitySet="gkiTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiTeacher_qWork" Association="Self.FK_gkiTeacher_qWork">
+            <End Role="qWork" EntitySet="qWorks" />
+            <End Role="gkiTeacher" EntitySet="gkiTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiUsers_Role" Association="Self.FK_gkiUsers_Role">
+            <End Role="Role" EntitySet="gkiRoles" />
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiWorker_gkiUsers" Association="Self.FK_gkiWorker_gkiUsers">
+            <End Role="gkiUsers" EntitySet="gkiUsers" />
+            <End Role="gkiWorker" EntitySet="gkiWorkers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiWorker_qProfession" Association="Self.FK_gkiWorker_qProfession">
+            <End Role="qProfession" EntitySet="qProfessions" />
+            <End Role="gkiWorker" EntitySet="gkiWorkers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiWorker_qWork" Association="Self.FK_gkiWorker_qWork">
+            <End Role="qWork" EntitySet="qWorks" />
+            <End Role="gkiWorker" EntitySet="gkiWorkers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_qSpecialization_qDepartment" Association="Self.FK_qSpecialization_qDepartment">
+            <End Role="qDepartment" EntitySet="qDepartments" />
+            <End Role="qSpecialization" EntitySet="qSpecializations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GKI_DataModelStoreContainer" CdmEntityContainer="GKI_DataEntities">
+          <EntitySetMapping Name="AlbumPhotoes">
+            <EntityTypeMapping TypeName="GKI_DataModel.AlbumPhoto">
+              <MappingFragment StoreEntitySet="AlbumPhoto">
+                <ScalarProperty Name="PhotosId" ColumnName="PhotosId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="url1" ColumnName="url1" />
+                <ScalarProperty Name="url2" ColumnName="url2" />
+                <ScalarProperty Name="url3" ColumnName="url3" />
+                <ScalarProperty Name="url4" ColumnName="url4" />
+                <ScalarProperty Name="url5" ColumnName="url5" />
+                <ScalarProperty Name="url6" ColumnName="url6" />
+                <ScalarProperty Name="url7" ColumnName="url7" />
+                <ScalarProperty Name="url8" ColumnName="url8" />
+                <ScalarProperty Name="url9" ColumnName="url9" />
+                <ScalarProperty Name="url10" ColumnName="url10" />
+                <ScalarProperty Name="url11" ColumnName="url11" />
+                <ScalarProperty Name="url12" ColumnName="url12" />
+                <ScalarProperty Name="url13" ColumnName="url13" />
+                <ScalarProperty Name="url14" ColumnName="url14" />
+                <ScalarProperty Name="url15" ColumnName="url15" />
+                <ScalarProperty Name="url16" ColumnName="url16" />
+                <ScalarProperty Name="url17" ColumnName="url17" />
+                <ScalarProperty Name="url18" ColumnName="url18" />
+                <ScalarProperty Name="url19" ColumnName="url19" />
+                <ScalarProperty Name="url20" ColumnName="url20" />
+                <ScalarProperty Name="url21" ColumnName="url21" />
+                <ScalarProperty Name="url22" ColumnName="url22" />
+                <ScalarProperty Name="url23" ColumnName="url23" />
+                <ScalarProperty Name="url24" ColumnName="url24" />
+                <ScalarProperty Name="url25" ColumnName="url25" />
+                <ScalarProperty Name="url26" ColumnName="url26" />
+                <ScalarProperty Name="url27" ColumnName="url27" />
+                <ScalarProperty Name="url28" ColumnName="url28" />
+                <ScalarProperty Name="url29" ColumnName="url29" />
+                <ScalarProperty Name="url30" ColumnName="url30" />
+                <ScalarProperty Name="url31" ColumnName="url31" />
+                <ScalarProperty Name="url32" ColumnName="url32" />
+                <ScalarProperty Name="url33" ColumnName="url33" />
+                <ScalarProperty Name="url34" ColumnName="url34" />
+                <ScalarProperty Name="url35" ColumnName="url35" />
+                <ScalarProperty Name="url36" ColumnName="url36" />
+                <ScalarProperty Name="url37" ColumnName="url37" />
+                <ScalarProperty Name="url38" ColumnName="url38" />
+                <ScalarProperty Name="url39" ColumnName="url39" />
+                <ScalarProperty Name="url40" ColumnName="url40" />
+                <ScalarProperty Name="url41" ColumnName="url41" />
+                <ScalarProperty Name="url42" ColumnName="url42" />
+                <ScalarProperty Name="url43" ColumnName="url43" />
+                <ScalarProperty Name="url44" ColumnName="url44" />
+                <ScalarProperty Name="url45" ColumnName="url45" />
+                <ScalarProperty Name="url46" ColumnName="url46" />
+                <ScalarProperty Name="url47" ColumnName="url47" />
+                <ScalarProperty Name="url48" ColumnName="url48" />
+                <ScalarProperty Name="url49" ColumnName="url49" />
+                <ScalarProperty Name="url50" ColumnName="url50" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GalleryPhotos">
+            <EntityTypeMapping TypeName="GKI_DataModel.GalleryPhoto">
+              <MappingFragment StoreEntitySet="GalleryPhotos">
+                <ScalarProperty Name="GalleryPhotoId" ColumnName="GalleryPhotoId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PhotosId" ColumnName="PhotosId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GalleryVideos">
+            <EntityTypeMapping TypeName="GKI_DataModel.GalleryVideo">
+              <MappingFragment StoreEntitySet="GalleryVideo">
+                <ScalarProperty Name="GalleryVideoId" ColumnName="GalleryVideoId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gkiGraduates">
+            <EntityTypeMapping TypeName="GKI_DataModel.gkiGraduate">
+              <MappingFragment StoreEntitySet="gkiGraduates">
+                <ScalarProperty Name="GraduatesId" ColumnName="GraduatesId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Secondname" ColumnName="Secondname" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Smalldescription" ColumnName="Smalldescription" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gkiParents">
+            <EntityTypeMapping TypeName="GKI_DataModel.gkiParent">
+              <MappingFragment StoreEntitySet="gkiParent">
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gkiProfiles">
+            <EntityTypeMapping TypeName="GKI_DataModel.gkiProfile">
+              <MappingFragment StoreEntitySet="gkiProfile">
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="Activity" ColumnName="Activity" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="SexId" ColumnName="SexId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gkiStudents">
+            <EntityTypeMapping TypeName="GKI_DataModel.gkiStudent">
+              <MappingFragment StoreEntitySet="gkiStudent">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="SpecializationId" ColumnName="SpecializationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gkiTeachers">
+            <EntityTypeMapping TypeName="GKI_DataModel.gkiTeacher">
+              <MappingFragment StoreEntitySet="gkiTeacher">
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DesciplineId" ColumnName="DesciplineId" />
+                <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gkiUsers">
+            <EntityTypeMapping TypeName="GKI_DataModel.gkiUser">
+              <MappingFragment StoreEntitySet="gkiUsers">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Secondname" ColumnName="Secondname" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gkiWorkers">
+            <EntityTypeMapping TypeName="GKI_DataModel.gkiWorker">
+              <MappingFragment StoreEntitySet="gkiWorker">
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsArts">
+            <EntityTypeMapping TypeName="GKI_DataModel.NewsArt">
+              <MappingFragment StoreEntitySet="NewsArt">
+                <ScalarProperty Name="NewsArtId" ColumnName="NewsArtId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Img_Title" ColumnName="Img_Title" />
+                <ScalarProperty Name="SmallText" ColumnName="SmallText" />
+                <ScalarProperty Name="FullText" ColumnName="FullText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsEvents">
+            <EntityTypeMapping TypeName="GKI_DataModel.NewsEvent">
+              <MappingFragment StoreEntitySet="NewsEvent">
+                <ScalarProperty Name="NewsEventId" ColumnName="NewsEventId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateFinish" ColumnName="DateFinish" />
+                <ScalarProperty Name="FullText" ColumnName="FullText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsMusicals">
+            <EntityTypeMapping TypeName="GKI_DataModel.NewsMusical">
+              <MappingFragment StoreEntitySet="NewsMusical">
+                <ScalarProperty Name="NewsMusicalId" ColumnName="NewsMusicalId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Img_Title" ColumnName="Img_Title" />
+                <ScalarProperty Name="SmallText" ColumnName="SmallText" />
+                <ScalarProperty Name="FullText" ColumnName="FullText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsSchools">
+            <EntityTypeMapping TypeName="GKI_DataModel.NewsSchool">
+              <MappingFragment StoreEntitySet="NewsSchool">
+                <ScalarProperty Name="NewsSchoolId" ColumnName="NewsSchoolId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Img_Title" ColumnName="Img_Title" />
+                <ScalarProperty Name="SmallText" ColumnName="SmallText" />
+                <ScalarProperty Name="FullText" ColumnName="FullText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qCities">
+            <EntityTypeMapping TypeName="GKI_DataModel.qCity">
+              <MappingFragment StoreEntitySet="qCity">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qDepartments">
+            <EntityTypeMapping TypeName="GKI_DataModel.qDepartment">
+              <MappingFragment StoreEntitySet="qDepartment">
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qDesciplines">
+            <EntityTypeMapping TypeName="GKI_DataModel.qDescipline">
+              <MappingFragment StoreEntitySet="qDescipline">
+                <ScalarProperty Name="DesciplineId" ColumnName="DesciplineId" />
+                <ScalarProperty Name="DesciplineName" ColumnName="DesciplineName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qGroups">
+            <EntityTypeMapping TypeName="GKI_DataModel.qGroup">
+              <MappingFragment StoreEntitySet="qGroup">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qLanguages">
+            <EntityTypeMapping TypeName="GKI_DataModel.qLanguage">
+              <MappingFragment StoreEntitySet="qLanguage">
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qProfessions">
+            <EntityTypeMapping TypeName="GKI_DataModel.qProfession">
+              <MappingFragment StoreEntitySet="qProfession">
+                <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+                <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qSexes">
+            <EntityTypeMapping TypeName="GKI_DataModel.qSex">
+              <MappingFragment StoreEntitySet="qSex">
+                <ScalarProperty Name="SexId" ColumnName="SexId" />
+                <ScalarProperty Name="SexName" ColumnName="SexName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qSpecializations">
+            <EntityTypeMapping TypeName="GKI_DataModel.qSpecialization">
+              <MappingFragment StoreEntitySet="qSpecialization">
+                <ScalarProperty Name="SpecializationId" ColumnName="SpecializationId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="SpecializationName" ColumnName="SpecializationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qWorks">
+            <EntityTypeMapping TypeName="GKI_DataModel.qWork">
+              <MappingFragment StoreEntitySet="qWork">
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+                <ScalarProperty Name="WorkName" ColumnName="WorkName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gkiRoles">
+            <EntityTypeMapping TypeName="GKI_DataModel.gkiRole">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GKI_DataModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

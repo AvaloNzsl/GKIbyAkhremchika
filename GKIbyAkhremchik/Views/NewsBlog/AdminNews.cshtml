@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GKIbyAkhremchik.ViewModel.NewsModel.NewsModel>
+
+@{
+    ViewBag.Title = "AdminNews";
+}
+
+<h2>AdminNews</h2>
+
+<p>
+    @Html.ActionLink("Добавить новость", "AdminCreateNews")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Img_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SmallText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullText)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Img_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SmallText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullText)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

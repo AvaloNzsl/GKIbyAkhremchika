@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "AdminPage";
+}
+
+<h2>AdminPage</h2>
+@Html.ActionLink("GKI", "HomePage", "Home")
+
+
+
+@Html.ActionLink("Пользователи", "AdminUsersList", "Admin")
+@Html.ActionLink("Новости школы", "AdminNews", "NewsBlog")
+@Html.ActionLink("Новости музыкального направления", "AdminMusicNews", "Admin")
+@Html.ActionLink("Новости художественного направления", "AdminArtNews", "Admin")
+@Html.ActionLink("События", "AdminNewsEvent", "Admin")
+@Html.ActionLink("Видеогаллерея", "AdminGalleryPhoto", "Admin")
+@Html.ActionLink("Фотогаллерея", "AdminGalleryVideo", "Admin")
+
+
+@Html.ActionLink("Profile", "MyProfile", "Account")
