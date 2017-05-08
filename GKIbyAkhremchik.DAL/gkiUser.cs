@@ -11,8 +11,7 @@ namespace GKIbyAkhremchik.DAL
 {
     using System;
     using System.Collections.Generic;
-    using RolesTable;
-
+    
     public partial class gkiUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

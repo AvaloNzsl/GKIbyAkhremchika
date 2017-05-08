@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace GKIbyAkhremchik.DAL.Context
 {
-    public interface INewsContext
-    {
+    public interface INewsContext : IDisposable
+    { 
         IEnumerable<NewsSchool> GetAllNewsSchool();
-        void AddNews(NewsSchool news);
+        NewsSchool GetNewsById(int id);
+
+        void AddNews(NewsSchool addN);
+        void UpdateNews(NewsSchool updateN);
         void DeleteNews(int id);
+
+        void Save();
     }
 }

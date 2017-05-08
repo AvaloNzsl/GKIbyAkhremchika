@@ -235,6 +235,7 @@
     <Content Include="Views\Account\LogIn.cshtml" />
     <Content Include="Views\NewsBlog\AdminNews.cshtml" />
     <Content Include="Views\NewsBlog\AdminCreateNews.cshtml" />
+    <Content Include="Views\NewsBlog\AdminUpdateNews.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -249,6 +250,10 @@
     <ProjectReference Include="..\GKIbyAkhremchik.BL\GKIbyAkhremchik.BL.csproj">
       <Project>{C165D84B-572E-4C11-B7AC-5D98A2EF9C7D}</Project>
       <Name>GKIbyAkhremchik.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GKIbyAkhremchik.DAL\GKIbyAkhremchik.DAL.csproj">
+      <Project>{97FEC746-6D83-4024-8401-22AC80C8CD4B}</Project>
+      <Name>GKIbyAkhremchik.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\GKIbyAkhremchik.DependencyNinject\GKIbyAkhremchik.DependencyNinject.csproj">
       <Project>{6a876eae-66d8-4248-b126-2e2d2044bb25}</Project>
