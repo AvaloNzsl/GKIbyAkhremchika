@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<GKIbyAkhremchik.ViewModel.NewsModel.NewsModel>
 
 @{
-    ViewBag.Title = "AdminNews";
+    ViewBag.Title = "NewsPage";
 }
 
-<h2>AdminNews</h2>
+<h2>NewsPage</h2>
 
 <p>
-    @Html.ActionLink("Добавить новость", "AdminCreateNews")
+    @Html.ActionLink("Добавить Новость", "AdminCreateNews")
 </p>
 <table class="table">
     <tr>
@@ -53,8 +53,8 @@
             @Html.DisplayFor(modelItem => item.FullText)
         </td>
         <td>
-            @Html.ActionLink("Edit", "AdminUpdateNews", new { id=item.NewsId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.NewsId })
+            @Html.ActionLink("Редакция", "AdminUpdateNews", new { id = item.NewsId }) |
+            @Html.ActionLink("В Мусорку", "Delete", new { id = item.NewsId })
         </td>
     </tr>
 }

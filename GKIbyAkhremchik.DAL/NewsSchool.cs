@@ -10,8 +10,6 @@
 namespace GKIbyAkhremchik.DAL
 {
     using System;
-    using System.Collections.Generic;
-    
     public partial class NewsSchool
     {
         public int NewsSchoolId { get; set; }

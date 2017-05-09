@@ -12,7 +12,7 @@ namespace GKIbyAkhremchik.ViewModel.NewsViewModel
         [Display(Name = "Заголовок")]
         public string Title { get; set; }
         [Display(Name = "Дата")]
-        public DateTime Date { get; set; }
+        public Nullable<DateTime> Date { get; set; }
         [Display(Name = "Фото мероприятия")]
         public string Img_Title { get; set; }
         [Display(Name = "Краткое описание")]

@@ -2,6 +2,7 @@
 using GKIbyAkhremchik.DAL;
 using GKIbyAkhremchik.ViewModel.NewsModel;
 using GKIbyAkhremchik.ViewModel.NewsViewModel;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace GKIbyAkhremchik.Controllers
@@ -22,15 +23,14 @@ namespace GKIbyAkhremchik.Controllers
             _newsService = newsService;
         }
 
-        public ActionResult AdminNews()
+        public ActionResult NewsPage()
         {
             var news = _newsService.GetAll();
             return View(news);
         }
         public ActionResult AdminCreateNews()
         {
-            //var newsmodel = new NewsView();
-            return View(/*newsmodel*/);
+            return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -40,7 +40,7 @@ namespace GKIbyAkhremchik.Controllers
             {
                 _newsService.AddNews(news);
                 _newsService.Save();
-                return RedirectToAction("AdminNews");
+                return RedirectToAction("NewsPage");
             }
             return View(news);
         }
@@ -56,7 +56,8 @@ namespace GKIbyAkhremchik.Controllers
             if (ModelState.IsValid)
             {
                 _newsService.UpdateNews(news);
-                return RedirectToAction("AdminNews");
+                _newsService.Save();
+                return RedirectToAction("NewsPage");
             }
             return View(news);
         }
@@ -68,7 +69,7 @@ namespace GKIbyAkhremchik.Controllers
             _newsService.DeleteNews(id);
             _newsService.Save();
 
-            return RedirectToAction("AdminNews");
+            return RedirectToAction("NewsPage");
         }
     }
 }

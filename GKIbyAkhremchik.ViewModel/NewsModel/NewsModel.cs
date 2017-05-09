@@ -18,4 +18,5 @@ namespace GKIbyAkhremchik.ViewModel.NewsModel
         [Display(Name = "Мероприятие")]
         public string FullText { get; set; }
     }
+
 }

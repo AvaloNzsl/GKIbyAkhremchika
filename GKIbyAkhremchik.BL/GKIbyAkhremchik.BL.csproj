@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="News\INewsService.cs" />
     <Compile Include="News\NewsService.cs" />
+    <Compile Include="News\UnitNewsServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

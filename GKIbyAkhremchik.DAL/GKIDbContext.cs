@@ -29,6 +29,9 @@ namespace GKIbyAkhremchik.DAL
         public virtual DbSet<AdminRole> gkiRole { get; set; }
         // --->>><<<---
         public virtual DbSet<NewsSchool> SchoolNews { get; set; }
+        public virtual DbSet<NewsArt> ArtNews { get; set; }
+        public virtual DbSet<NewsMusical> MusicalNews { get; set; }
+        public virtual DbSet<NewsEvent> EvemtNews { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

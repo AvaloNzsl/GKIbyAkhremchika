@@ -1,5 +1,7 @@
 ﻿using GKIbyAkhremchik.BL.News;
+using GKIbyAkhremchik.DAL;
 using GKIbyAkhremchik.DAL.Context;
+using GKIbyAkhremchik.DAL.Repositories;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -29,14 +31,9 @@ namespace GKIbyAkhremchik.DependencyNinject.Infrastructure
 
         private void AddBindings()
         {
-            kernel.Bind<INewsContext>().To<NewsContext>();
+            kernel.Bind<INewsContext<NewsSchool>>().To<NewsSchoolRepository>();
+            kernel.Bind<INewsContext<NewsArt>>().To<NewsArtRepository>();
             kernel.Bind<INewsService>().To<NewsService>();
-            /*Мы создали цепочку зависимостей. Контроллер Home зависит от интерфейса IValueCalculator,
-             *  который библиотека Ninject должна распознавать с использованием класса LinqValueCalculator. 
-             *  Класс LinqValueCalculator зависит от интерфейса IDiscountHelper,
-             *  который библиотека Ninject должна распознавать с применением класса DefaultDiscountHelper.*/
-            //kernel.Bind<IDiscountHelper>().
-            //    To<DefaultDiscountHelper>().WithConstructorArgument("discountParam", 50m);
         }
     }
 }

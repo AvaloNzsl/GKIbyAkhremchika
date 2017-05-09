@@ -10,8 +10,8 @@ namespace GKIbyAkhremchik.BL.News
         IEnumerable<NewsModel> GetAll();
         NewsSchool GetNewsById(int id);
 
-        void AddNews(NewsView addNews);
-        void UpdateNews(NewsSchool updateN);
+        void AddNews(NewsView insert);
+        void UpdateNews(NewsSchool update);
         void DeleteNews(int id);
 
         void Save();

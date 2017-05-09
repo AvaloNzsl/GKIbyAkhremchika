@@ -100,7 +100,8 @@
     <Compile Include="Configurations\User\CityEntityTypeConfiguration.cs" />
     <Compile Include="Configurations\User\ProfileEntityTypeConfiguration.cs" />
     <Compile Include="Context\INewsContext.cs" />
-    <Compile Include="Context\NewsContext.cs" />
+    <Compile Include="Repositories\NewsArtRepository.cs" />
+    <Compile Include="Repositories\NewsSchoolRepository.cs" />
     <Compile Include="Context\UserContext.cs" />
     <Compile Include="GalleryPhoto.cs">
       <DependentUpon>GKIDataModel.tt</DependentUpon>
