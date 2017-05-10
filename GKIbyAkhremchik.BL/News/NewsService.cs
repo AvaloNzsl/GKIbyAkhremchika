@@ -67,30 +67,34 @@ namespace GKIbyAkhremchik.BL.News
                     });
                 }
             }
-            //if (nameNews == "event")
-            //{
-            //    var nEvent = _contextUnit.EventNews.GetAllNews();
-            //    foreach (var n in nEvent)
-            //    {
-            //        news.Add(new NewsModel
-            //        {
-            //            NewsId = n.NewsEventId,
-            //            Title = n.Title,
-            //            Img_Title = n.Img,
-            //            Date = n.DateStart,
-            //            SmallText = n.Description,
-            //            FullText = n.FullText
-            //        });
-            //    }
-            //}
 
             //else HttpNotFount();
+            return news;
+        }
+        public IEnumerable<NewsEventModel> GetEvent()
+        {
+            var news = new List<NewsEventModel>();
+            var nEvent = _contextUnit.EventNews.GetAllNews();
+            foreach (var n in nEvent)
+            {
+                news.Add(new NewsEventModel
+                {
+                    NewsEventId = n.NewsEventId,
+                    Title = n.Title,
+                    Img = n.Img,
+                    DateStart = n.DateStart,
+                    DateFinish = n.DateFinish,
+                    Description = n.Description,
+                    FullText = n.FullText
+                });
+            }
             return news;
         }
 
         public void AddNews(NewsView insert, string nameDepart)
         {
-            if (nameDepart == "school") {
+            if (nameDepart == "school")
+            {
                 NewsSchool news = new NewsSchool
                 {
                     Title = insert.Title,
@@ -101,6 +105,43 @@ namespace GKIbyAkhremchik.BL.News
                 };
                 _contextUnit.SchoolNews.AddNews(news);
             }
+            if (nameDepart == "art")
+            {
+                NewsArt news = new NewsArt
+                {
+                    Title = insert.Title,
+                    Img_Title = insert.Img_Title,
+                    Date = insert.Date,
+                    SmallText = insert.SmallText,
+                    FullText = insert.FullText
+                };
+                _contextUnit.ArtNews.AddNews(news);
+            }
+            if (nameDepart == "musical")
+            {
+                NewsMusical news = new NewsMusical
+                {
+                    Title = insert.Title,
+                    Img_Title = insert.Img_Title,
+                    Date = insert.Date,
+                    SmallText = insert.SmallText,
+                    FullText = insert.FullText
+                };
+                _contextUnit.MusicNews.AddNews(news);
+            }
+        }
+        public void AddEvent(NewsEventView insert)
+        {
+            NewsEvent news = new NewsEvent
+            {
+                Title = insert.Title,
+                Img = insert.Img,
+                DateStart = insert.DateStart,
+                DateFinish = insert.DateFinish,
+                Description = insert.Description,
+                FullText = insert.FullText
+            };
+            _contextUnit.EventNews.AddNews(news);
         }
 
         public NewsSchool GetNewsSchoolById(int id)
@@ -116,7 +157,6 @@ namespace GKIbyAkhremchik.BL.News
         {
             return _contextUnit.ArtNews.GetNewsById(id);
         }
-
         public void UpdateNews(NewsArt update)
         {
             _contextUnit.ArtNews.UpdateNews(update);
@@ -126,7 +166,6 @@ namespace GKIbyAkhremchik.BL.News
         {
             return _contextUnit.MusicNews.GetNewsById(id);
         }
-
         public void UpdateNews(NewsMusical update)
         {
             _contextUnit.MusicNews.UpdateNews(update);
@@ -136,18 +175,19 @@ namespace GKIbyAkhremchik.BL.News
         {
             return _contextUnit.EventNews.GetNewsById(id);
         }
-
         public void UpdateNews(NewsEvent update)
         {
             _contextUnit.EventNews.UpdateNews(update);
         }
+
         public void DeleteNews(int id, string nameDepart)
         {
             if (nameDepart == "school") _contextUnit.SchoolNews.DeleteNews(id);
+            if (nameDepart == "art") _contextUnit.ArtNews.DeleteNews(id);
+            if (nameDepart == "musical") _contextUnit.MusicNews.DeleteNews(id);
+            if (nameDepart == "event") _contextUnit.EventNews.DeleteNews(id);
         }
 
         public void Save() { _contextUnit.Save(); }
-
-
     }
 }

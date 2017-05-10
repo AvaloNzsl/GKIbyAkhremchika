@@ -5,59 +5,59 @@ using System.Web.Mvc;
 
 namespace GKIbyAkhremchik.Controllers.NewsArea
 {
-    public class NewsSchoolController : Controller
+    public class NewsEventController : Controller
     {
-        protected internal string school = "school";
-        // GET: NewsBlog
+        // GET: NewsEvent
+        protected internal string nEvent = "event";
         //see user
-        public ActionResult NewsSchool()
+        public ActionResult NewsArt()
         {
             return View();
         }
 
         //see admin
         private INewsService _newsService;
-        public NewsSchoolController(INewsService newsService)
+        public NewsEventController(INewsService newsService)
         {
             _newsService = newsService;
         }
 
-        public ActionResult NewsSchoolPage()
+        public ActionResult NewsEventPage()
         {
-            var news = _newsService.GetAll(school);
+            var news = _newsService.GetEvent();
             return View(news);
         }
 
-        public ActionResult InsertNewsSchool()
+        public ActionResult InsertNewsEvent()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult InsertNewsSchool(NewsView news)
+        public ActionResult InsertNewsEvent(NewsEventView news)
         {
             if (ModelState.IsValid)
             {
-                _newsService.AddNews(news, school);
+                _newsService.AddEvent(news);
                 _newsService.Save();
-                return RedirectToAction("NewsSchoolPage");
+                return RedirectToAction("NewsEventPage");
             }
             return View(news);
         }
 
-        public ActionResult UpdateNewsSchool(int id)
+        public ActionResult UpdateNewsEvent(int id)
         {
-            var newsmodel = _newsService.GetNewsSchoolById(id);
+            var newsmodel = _newsService.GetNewsEventById(id);
             return View(newsmodel);
         }
         [HttpPost]
-        public ActionResult UpdateNewsSchool(NewsSchool news)
+        public ActionResult UpdateNewsEvent(NewsEvent news)
         {
             if (ModelState.IsValid)
             {
                 _newsService.UpdateNews(news);
                 _newsService.Save();
-                return RedirectToAction("NewsSchoolPage");
+                return RedirectToAction("NewsEventPage");
             }
             return View(news);
         }
@@ -65,11 +65,11 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
 
         public ActionResult Delete(int id)
         {
-            NewsSchool delete = _newsService.GetNewsSchoolById(id);
-            _newsService.DeleteNews(id, school);
+            NewsEvent delete = _newsService.GetNewsEventById(id);
+            _newsService.DeleteNews(id, nEvent);
             _newsService.Save();
 
-            return RedirectToAction("NewsSchoolPage");
+            return RedirectToAction("NewsEventPage");
         }
     }
 }

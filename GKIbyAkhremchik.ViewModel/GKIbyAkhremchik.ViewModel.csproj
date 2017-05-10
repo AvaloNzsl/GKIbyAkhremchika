@@ -48,6 +48,7 @@
     <Compile Include="Model\gkiUserModel.cs" />
     <Compile Include="Model\gkiWorker.cs" />
     <Compile Include="NewsModel\dataNewsModelSch.cs" />
+    <Compile Include="NewsModel\NewsEventModel.cs" />
     <Compile Include="NewsModel\NewsModel.cs" />
     <Compile Include="NewsViewModel\NewsEventView.cs" />
     <Compile Include="NewsViewModel\NewsView.cs" />
