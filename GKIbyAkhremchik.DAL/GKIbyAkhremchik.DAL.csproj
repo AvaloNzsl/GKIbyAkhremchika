@@ -100,7 +100,12 @@
     <Compile Include="Configurations\User\CityEntityTypeConfiguration.cs" />
     <Compile Include="Configurations\User\ProfileEntityTypeConfiguration.cs" />
     <Compile Include="Context\INewsContext.cs" />
+    <Compile Include="NewsTable\ArtNews.cs" />
+    <Compile Include="NewsTable\EventNews.cs" />
+    <Compile Include="NewsTable\MusicalNews.cs" />
     <Compile Include="Repositories\NewsArtRepository.cs" />
+    <Compile Include="Repositories\NewsEventRepository.cs" />
+    <Compile Include="Repositories\NewsMusicalRepository.cs" />
     <Compile Include="Repositories\NewsSchoolRepository.cs" />
     <Compile Include="Context\UserContext.cs" />
     <Compile Include="GalleryPhoto.cs">

@@ -1,19 +1,21 @@
-﻿@model GKIbyAkhremchik.ViewModel.NewsViewModel.NewsView
+﻿@model GKIbyAkhremchik.DAL.NewsSchool
 
 @{
-    ViewBag.Title = "AdminCreateNews";
+    ViewBag.Title = "UpdateNewsSchool";
 }
 
-<h2>AdminCreateNews</h2>
+<h2>UpdateNewsSchool</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>NewsView</h4>
+        <h4>NewsSchool</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.NewsSchoolId)
+
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -56,12 +58,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Вернуться к списку новостей", "NewsPage")
+    @Html.ActionLink("Вернуться", "NewsSchoolPage")
 </div>

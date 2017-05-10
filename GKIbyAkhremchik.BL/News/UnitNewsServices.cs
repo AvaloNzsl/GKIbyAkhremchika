@@ -25,16 +25,26 @@ namespace GKIbyAkhremchik.BL.News
                 return artNewsRepository;
             }
         }
-        //private NewsGenericRepository<NewsMusical> musicNewsRepository;
-        //private NewsGenericRepository<NewsMusical> MusicNewsRepository
-        //{
-        //    get
-        //    {
-        //        if (musicNewsRepository == null)
-        //        { musicNewsRepository = new NewsGenericRepository<NewsMusical>(_contextDbNews); }
-        //        return musicNewsRepository;
-        //    }
-        //}
+        public NewsMusicalRepository musicNewsRepository;
+        public NewsMusicalRepository MusicNews
+        {
+            get
+            {
+                if (musicNewsRepository == null)
+                { musicNewsRepository = new NewsMusicalRepository(_contextDbNews); }
+                return musicNewsRepository;
+            }
+        }
+        public NewsEventRepository eventNewsRepository;
+        public NewsEventRepository EventNews
+        {
+            get
+            {
+                if (eventNewsRepository == null)
+                { eventNewsRepository = new NewsEventRepository(_contextDbNews); }
+                return eventNewsRepository;
+            }
+        }
 
 
         public void Save() { _contextDbNews.SaveChanges(); }

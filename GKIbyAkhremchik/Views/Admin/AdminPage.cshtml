@@ -6,13 +6,19 @@
 <h2>AdminPage</h2>
 @Html.ActionLink("GKI", "HomePage", "Home")
 
-
+<br>
 
 @Html.ActionLink("Пользователи", "AdminUsersList", "Admin")
-@Html.ActionLink("Новости школы", "NewsPage", "NewsBlog")
-@Html.ActionLink("Новости музыкального направления", "AdminMusicNews", "Admin")
-@Html.ActionLink("Новости художественного направления", "AdminArtNews", "Admin")
-@Html.ActionLink("События", "AdminNewsEvent", "Admin")
+<br>
+@Html.ActionLink("Новости школы", "NewsSchoolPage", "NewsSchool")
+<br>
+@Html.ActionLink("Новости музыкального направления", "NewsMusicalPage", "NewsBlog")
+<br>
+@Html.ActionLink("Новости художественного направления", "NewsArtPage", "NewsBlog")
+<br>
+@Html.ActionLink("События", "NewsEventPage", "NewsBlog")
+<br>
+
 @Html.ActionLink("Видеогаллерея", "AdminGalleryPhoto", "Admin")
 @Html.ActionLink("Фотогаллерея", "AdminGalleryVideo", "Admin")
 @Html.ActionLink("Выпускники", "GraduatesList", "Graduates")

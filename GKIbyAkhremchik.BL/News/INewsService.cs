@@ -7,12 +7,19 @@ namespace GKIbyAkhremchik.BL.News
 {
     public interface INewsService
     {
-        IEnumerable<NewsModel> GetAll();
-        NewsSchool GetNewsById(int id);
+        IEnumerable<NewsModel> GetAll(string nNews);
 
-        void AddNews(NewsView insert);
+        NewsSchool GetNewsSchoolById(int id);
         void UpdateNews(NewsSchool update);
-        void DeleteNews(int id);
+        NewsArt GetNewsArtById(int id);
+        void UpdateNews(NewsArt update);
+        NewsMusical GetNewsMusicalById(int id);
+        void UpdateNews(NewsMusical update);
+        NewsEvent GetNewsEventById(int id);
+        void UpdateNews(NewsEvent update);
+
+        void AddNews(NewsView insert, string nameDepart);
+        void DeleteNews(int id, string nameDepart);
 
         void Save();
     }

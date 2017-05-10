@@ -33,6 +33,8 @@ namespace GKIbyAkhremchik.DependencyNinject.Infrastructure
         {
             kernel.Bind<INewsContext<NewsSchool>>().To<NewsSchoolRepository>();
             kernel.Bind<INewsContext<NewsArt>>().To<NewsArtRepository>();
+            kernel.Bind<INewsContext<NewsMusical>>().To<NewsMusicalRepository>();
+            kernel.Bind<INewsContext<NewsEvent>>().To<NewsEventRepository>();
             kernel.Bind<INewsService>().To<NewsService>();
         }
     }
