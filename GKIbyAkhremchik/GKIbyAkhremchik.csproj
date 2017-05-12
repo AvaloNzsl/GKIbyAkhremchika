@@ -220,7 +220,6 @@
     <Compile Include="Controllers\NewsArea\NewsEventController.cs" />
     <Compile Include="Controllers\NewsArea\NewsMusicalController.cs" />
     <Compile Include="Controllers\NewsArea\NewsSchoolController.cs" />
-    <Compile Include="Controllers\TestNewsSchoolsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -250,11 +249,6 @@
     <Content Include="Views\NewsEvent\NewsEventPage.cshtml" />
     <Content Include="Views\NewsEvent\InsertNewsEvent.cshtml" />
     <Content Include="Views\NewsEvent\UpdateNewsEvent.cshtml" />
-    <Content Include="Views\TestNewsSchools\Create.cshtml" />
-    <Content Include="Views\TestNewsSchools\Delete.cshtml" />
-    <Content Include="Views\TestNewsSchools\Details.cshtml" />
-    <Content Include="Views\TestNewsSchools\Edit.cshtml" />
-    <Content Include="Views\TestNewsSchools\Index.cshtml" />
     <Content Include="Views\GalleryVideo\VideoGalleryPage.cshtml" />
     <Content Include="Views\GalleryVideo\InsertVideoGallery.cshtml" />
     <Content Include="Views\GalleryVideo\UpdateVideoGallery.cshtml" />
