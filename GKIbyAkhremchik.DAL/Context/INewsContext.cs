@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GKIbyAkhremchik.DAL.Context
 {
     public interface INewsContext<TEntity> where TEntity : class
     {
+        IQueryable<TEntity> GetSchool();
+
         IEnumerable<TEntity> GetAllNews();
         TEntity GetNewsById(int id);
 

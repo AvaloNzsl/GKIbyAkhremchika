@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GKIbyAkhremchik.DAL.Repositories
 {
@@ -11,6 +12,11 @@ namespace GKIbyAkhremchik.DAL.Repositories
         public NewsSchoolRepository(GKIDbContext contextDbNews)
         {
             _contextDbNews = contextDbNews;
+        }
+
+        public IQueryable<NewsSchool> GetSchool()
+        {
+            return _contextDbNews.SchoolNews;
         }
 
         public IEnumerable<NewsSchool> GetAllNews()

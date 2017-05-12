@@ -41,15 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GalleryViewModel\GalleryVideoView.cs" />
+    <Compile Include="GalleryViewModel\GalleryPhotoView.cs" />
+    <Compile Include="Gallery\AlbumPhotoModel.cs" />
+    <Compile Include="Gallery\GalleryPhotoModel.cs" />
+    <Compile Include="Gallery\GalleryVideoModel.cs" />
     <Compile Include="Model\gkiParent.cs" />
     <Compile Include="Model\gkiProfileModel.cs" />
     <Compile Include="Model\gkiStudent.cs" />
     <Compile Include="Model\gkiTeacher.cs" />
     <Compile Include="Model\gkiUserModel.cs" />
     <Compile Include="Model\gkiWorker.cs" />
-    <Compile Include="NewsModel\dataNewsModelSch.cs" />
-    <Compile Include="NewsModel\NewsEventModel.cs" />
-    <Compile Include="NewsModel\NewsModel.cs" />
+    <Compile Include="NewsModels\NewsEventModel.cs" />
+    <Compile Include="NewsModels\NewsModel.cs" />
     <Compile Include="NewsViewModel\NewsEventView.cs" />
     <Compile Include="NewsViewModel\NewsView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

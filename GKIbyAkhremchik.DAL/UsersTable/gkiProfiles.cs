@@ -2,13 +2,13 @@
 
 namespace GKIbyAkhremchik.DAL.UsersTable
 {
-    public partial class gkiProfile
+    public partial class gkiProfiles
     {
-        public gkiProfile()
+        public gkiProfiles()
         {
-            gkiUsers = new HashSet<gkiUser>();
+            gkiUsers = new HashSet<gkiUsers>();
         }
-        public virtual ICollection<gkiUser> gkiUsers { get; set; }
+        public virtual ICollection<gkiUsers> gkiUsers { get; set; }
 
         public int ProfileId { get; set; }
         public string Avatar { get; set; }

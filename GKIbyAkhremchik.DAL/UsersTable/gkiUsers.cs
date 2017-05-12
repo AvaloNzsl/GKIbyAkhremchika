@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace GKIbyAkhremchik.DAL.UsersTable
 {
-    public partial class gkiUser
+    public partial class gkiUsers
     {
-        public gkiUser()
+        public gkiUsers()
         {
             this.gkiParents = new HashSet<gkiParent>();
             this.gkiStudents = new HashSet<gkiStudent>();
@@ -23,7 +23,7 @@ namespace GKIbyAkhremchik.DAL.UsersTable
         public int ProfileId { get; set; }
         public int RoleId { get; set; }
 
-        public virtual gkiProfile gkiProfiles { get; set; }
+        public virtual gkiProfiles gkiProfiles { get; set; }
         public virtual AdminRole gkiRole { get; set; }
 
         public virtual ICollection<gkiParent> gkiParents { get; set; }

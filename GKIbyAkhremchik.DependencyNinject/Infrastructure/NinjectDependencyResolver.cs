@@ -1,4 +1,5 @@
-﻿using GKIbyAkhremchik.BL.News;
+﻿using GKIbyAkhremchik.BL.Gallery;
+using GKIbyAkhremchik.BL.News;
 using GKIbyAkhremchik.DAL;
 using GKIbyAkhremchik.DAL.Context;
 using GKIbyAkhremchik.DAL.Repositories;
@@ -31,11 +32,16 @@ namespace GKIbyAkhremchik.DependencyNinject.Infrastructure
 
         private void AddBindings()
         {
+            kernel.Bind<INewsService>().To<NewsService>();
             kernel.Bind<INewsContext<NewsSchool>>().To<NewsSchoolRepository>();
             kernel.Bind<INewsContext<NewsArt>>().To<NewsArtRepository>();
             kernel.Bind<INewsContext<NewsMusical>>().To<NewsMusicalRepository>();
             kernel.Bind<INewsContext<NewsEvent>>().To<NewsEventRepository>();
-            kernel.Bind<INewsService>().To<NewsService>();
+            // --->>><<<---
+            kernel.Bind<IGalleryService>().To<GalleryService>();
+            kernel.Bind<IGalleryContext<GalleryPhoto>>().To<GalleryPhotoRepository>();
+            kernel.Bind<IGalleryContext<GalleryVideo>>().To<GalleryVideoRepository>();
+            kernel.Bind<IGalleryContext<AlbumPhoto>>().To<AlbumPhotoRepository>();
         }
     }
 }

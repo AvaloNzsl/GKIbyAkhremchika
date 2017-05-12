@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GKIbyAkhremchik.DAL.Repositories
 {
@@ -44,6 +45,11 @@ namespace GKIbyAkhremchik.DAL.Repositories
         public void Save()
         {
             _contextDbNews.SaveChanges();
+        }
+
+        public IQueryable<NewsArt> GetSchool()
+        {
+            throw new NotImplementedException();
         }
     }
 }

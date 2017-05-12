@@ -40,8 +40,8 @@ namespace GKIbyAkhremchik.DAL
         public virtual ICollection<gkiStudent> gkiStudents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<gkiTeacher> gkiTeachers { get; set; }
-        public virtual gkiRole Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<gkiWorker> gkiWorkers { get; set; }
+        public virtual gkiRole gkiRole { get; set; }
     }
 }

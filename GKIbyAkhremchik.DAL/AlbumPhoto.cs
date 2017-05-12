@@ -17,7 +17,7 @@ namespace GKIbyAkhremchik.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AlbumPhoto()
         {
-            this.GalleryPhotos = new HashSet<GalleryPhoto>();
+            this.GalleryPhotoes = new HashSet<GalleryPhoto>();
         }
     
         public int PhotosId { get; set; }
@@ -74,6 +74,6 @@ namespace GKIbyAkhremchik.DAL
         public string url50 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GalleryPhoto> GalleryPhotos { get; set; }
+        public virtual ICollection<GalleryPhoto> GalleryPhotoes { get; set; }
     }
 }

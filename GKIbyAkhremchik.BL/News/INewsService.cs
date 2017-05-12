@@ -1,12 +1,15 @@
 ﻿using GKIbyAkhremchik.DAL;
-using GKIbyAkhremchik.ViewModel.NewsModel;
+using GKIbyAkhremchik.ViewModel.NewsModels;
 using GKIbyAkhremchik.ViewModel.NewsViewModel;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GKIbyAkhremchik.BL.News
 {
     public interface INewsService
     {
+        IQueryable<NewsModel> GetSchool();
+
         IEnumerable<NewsModel> GetAll(string nNews);
         IEnumerable<NewsEventModel> GetEvent();
 

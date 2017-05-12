@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using GKIbyAkhremchik.ViewModel.NewsModel;
+using GKIbyAkhremchik.ViewModel.NewsModels;
 using GKIbyAkhremchik.ViewModel.NewsViewModel;
-using GKIbyAkhremchik.DAL.Context;
 using GKIbyAkhremchik.DAL;
+using System.Linq;
+using GKIbyAkhremchik.ViewModel.Gallery;
 
 namespace GKIbyAkhremchik.BL.News
 {
@@ -15,6 +16,25 @@ namespace GKIbyAkhremchik.BL.News
             _contextUnit = contextUnit;
         }
 
+        public IQueryable<NewsModel> GetSchool()
+        {
+            var news = new List<NewsModel>();
+            var school = _contextUnit.SchoolNews.GetSchool();
+            foreach (var n in school)
+            {
+                news.Add(new NewsModel
+                {
+                    NewsId = n.NewsSchoolId,
+                    Title = n.Title,
+                    Img_Title = n.Img_Title,
+                    Date = n.Date,
+                    SmallText = n.SmallText,
+                    FullText = n.FullText
+                });
+            }
+            return news.AsQueryable()/*.Include(n => n.GalleryVideo).Include(n => n.GalleryPhoto)*/;
+        }
+
         public IEnumerable<NewsModel> GetAll(string nameNews)
         {
             var news = new List<NewsModel>();
@@ -24,6 +44,9 @@ namespace GKIbyAkhremchik.BL.News
                 var school = _contextUnit.SchoolNews.GetAllNews();
                 foreach (var n in school)
                 {
+                    Nullable<int> galleryVideoId = n.GalleryVideoId;
+                    var gallery = _contextUnit.VideoGallery.GetGalleryById(1);
+                    var g = new GalleryVideoModel { Title = gallery.Title };
                     news.Add(new NewsModel
                     {
                         NewsId = n.NewsSchoolId,
@@ -31,7 +54,9 @@ namespace GKIbyAkhremchik.BL.News
                         Img_Title = n.Img_Title,
                         Date = n.Date,
                         SmallText = n.SmallText,
-                        FullText = n.FullText
+                        FullText = n.FullText,
+                        GalleryVideoId = n.GalleryVideoId,
+                        GalleryVideo = g
                     });
                 }
             }
@@ -47,7 +72,9 @@ namespace GKIbyAkhremchik.BL.News
                         Img_Title = n.Img_Title,
                         Date = n.Date,
                         SmallText = n.SmallText,
-                        FullText = n.FullText
+                        FullText = n.FullText,
+                        GalleryPhotoId = n.GalleryPhotoId,
+                        GalleryVideoId = n.GalleryVideoId
                     });
                 }
             }
@@ -63,7 +90,9 @@ namespace GKIbyAkhremchik.BL.News
                         Img_Title = n.Img_Title,
                         Date = n.Date,
                         SmallText = n.SmallText,
-                        FullText = n.FullText
+                        FullText = n.FullText,
+                        GalleryPhotoId = n.GalleryPhotoId,
+                        GalleryVideoId = n.GalleryVideoId
                     });
                 }
             }
@@ -85,7 +114,9 @@ namespace GKIbyAkhremchik.BL.News
                     DateStart = n.DateStart,
                     DateFinish = n.DateFinish,
                     Description = n.Description,
-                    FullText = n.FullText
+                    FullText = n.FullText,
+                    GalleryPhotoId = n.GalleryPhotoId,
+                    GalleryVideoId = n.GalleryVideoId
                 });
             }
             return news;
@@ -93,6 +124,8 @@ namespace GKIbyAkhremchik.BL.News
 
         public void AddNews(NewsView insert, string nameDepart)
         {
+            GalleryPhoto gp = new GalleryPhoto { Title = insert.Title };
+            //var gv = new SelectList(_contextUnit., "GalleryVideoId", "Title", insert.GalleryVideoId);
             if (nameDepart == "school")
             {
                 NewsSchool news = new NewsSchool
@@ -102,6 +135,7 @@ namespace GKIbyAkhremchik.BL.News
                     Date = insert.Date,
                     SmallText = insert.SmallText,
                     FullText = insert.FullText
+                    //GalleryVideo = gv
                 };
                 _contextUnit.SchoolNews.AddNews(news);
             }
@@ -113,7 +147,9 @@ namespace GKIbyAkhremchik.BL.News
                     Img_Title = insert.Img_Title,
                     Date = insert.Date,
                     SmallText = insert.SmallText,
-                    FullText = insert.FullText
+                    FullText = insert.FullText,
+                    GalleryPhotoId = insert.GalleryPhotoId,
+                    GalleryVideoId = insert.GalleryVideoId
                 };
                 _contextUnit.ArtNews.AddNews(news);
             }
@@ -125,7 +161,9 @@ namespace GKIbyAkhremchik.BL.News
                     Img_Title = insert.Img_Title,
                     Date = insert.Date,
                     SmallText = insert.SmallText,
-                    FullText = insert.FullText
+                    FullText = insert.FullText,
+                    GalleryPhotoId = insert.GalleryPhotoId,
+                    GalleryVideoId = insert.GalleryVideoId
                 };
                 _contextUnit.MusicNews.AddNews(news);
             }
@@ -139,7 +177,9 @@ namespace GKIbyAkhremchik.BL.News
                 DateStart = insert.DateStart,
                 DateFinish = insert.DateFinish,
                 Description = insert.Description,
-                FullText = insert.FullText
+                FullText = insert.FullText,
+                GalleryPhotoId = insert.GalleryPhotoId,
+                GalleryVideoId = insert.GalleryVideoId
             };
             _contextUnit.EventNews.AddNews(news);
         }

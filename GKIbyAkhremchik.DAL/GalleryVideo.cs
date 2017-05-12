@@ -14,10 +14,29 @@ namespace GKIbyAkhremchik.DAL
     
     public partial class GalleryVideo
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public GalleryVideo()
+        {
+            this.NewsArts = new HashSet<NewsArt>();
+            this.NewsEvents = new HashSet<NewsEvent>();
+            this.NewsMusicals = new HashSet<NewsMusical>();
+            this.NewsSchools = new HashSet<NewsSchool>();
+        }
+    
         public int GalleryVideoId { get; set; }
         public string Title { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public string Img { get; set; }
         public string Description { get; set; }
+        public string Url { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NewsArt> NewsArts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NewsEvent> NewsEvents { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NewsMusical> NewsMusicals { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NewsSchool> NewsSchools { get; set; }
     }
 }

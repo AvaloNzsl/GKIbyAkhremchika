@@ -20,5 +20,10 @@ namespace GKIbyAkhremchik.DAL
         public string Img_Title { get; set; }
         public string SmallText { get; set; }
         public string FullText { get; set; }
+        public Nullable<int> GalleryPhotoId { get; set; }
+        public Nullable<int> GalleryVideoId { get; set; }
+    
+        public virtual GalleryVideo GalleryVideo { get; set; }
+        public virtual GalleryPhoto GalleryPhoto { get; set; }
     }
 }

@@ -6,9 +6,9 @@ namespace GKIbyAkhremchik.DAL.UsersTable
     {
         public Sex()
         {
-            gkiProfiles = new HashSet<gkiProfile>();
+            gkiProfiles = new HashSet<gkiProfiles>();
         }
-        public virtual ICollection<gkiProfile> gkiProfiles { get; set; }
+        public virtual ICollection<gkiProfiles> gkiProfiles { get; set; }
 
         public int SexId { get; set; }
         public string SexName { get; set; }

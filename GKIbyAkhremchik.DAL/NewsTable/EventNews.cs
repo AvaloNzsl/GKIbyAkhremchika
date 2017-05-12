@@ -15,5 +15,10 @@ namespace GKIbyAkhremchik.DAL.NewsTable
         public Nullable<System.DateTime> DateStart { get; set; }
         public Nullable<System.DateTime> DateFinish { get; set; }
         public string FullText { get; set; }
+        public Nullable<int> GalleryPhotoId { get; set; }
+        public Nullable<int> GalleryVideoId { get; set; }
+
+        public virtual GalleryVideo GalleryVideo { get; set; }
+        public virtual GalleryPhoto GalleryPhoto { get; set; }
     }
 }

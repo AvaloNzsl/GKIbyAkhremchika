@@ -4,6 +4,7 @@ using GKIbyAkhremchik.DAL.UsersTable;
 namespace GKIbyAkhremchik.DAL
 {
     using Configurations;
+    using Configurations.NewsContent;
     using RolesTable;
     using System.Data.Entity;
 
@@ -22,20 +23,25 @@ namespace GKIbyAkhremchik.DAL
         // --->>><<<---
         public virtual DbSet<gkiProfile> gkiProfiles { get; set; }
         // --->>><<<---
-        public virtual DbSet<City> qCities { get; set; }
-        public virtual DbSet<Language> qLanguages { get; set; }
-        public virtual DbSet<Sex> qSexes { get; set; }
+        public virtual DbSet<qCity> qCities { get; set; }
+        public virtual DbSet<qLanguage> qLanguages { get; set; }
+        public virtual DbSet<qSex> qSexes { get; set; }
         // --->>><<<---
-        public virtual DbSet<AdminRole> gkiRole { get; set; }
+        public virtual DbSet<gkiRole> gkiRoles { get; set; }
         // --->>><<<---
         public virtual DbSet<NewsSchool> SchoolNews { get; set; }
         public virtual DbSet<NewsArt> ArtNews { get; set; }
         public virtual DbSet<NewsMusical> MusicalNews { get; set; }
         public virtual DbSet<NewsEvent> EvemtNews { get; set; }
+        // --->>><<<---
+        public virtual DbSet<AlbumPhoto> AlbumPhotoes { get; set; }
+        public virtual DbSet<GalleryVideo> GalleryVideos { get; set; }
+        public virtual DbSet<GalleryPhoto> GalleryPhotoes { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Configurations.Add(new RoleEntityTypeConfiguration());
             // --->>><<<---
@@ -43,8 +49,10 @@ namespace GKIbyAkhremchik.DAL
             modelBuilder.Configurations.Add(new SexEntityTypeConfiguration());
             modelBuilder.Configurations.Add(new LanguageEntityTypeConfiguration());
             modelBuilder.Configurations.Add(new CityEntityTypeConfiguration());
-            // --->>><<<---
-
+            // --->>><<< ---
+            modelBuilder.Configurations.Add(new GalleryPhotoEntityTypeConfiguration());
+            modelBuilder.Configurations.Add(new GalleryVideoEntityTypeConfiguration());
+            modelBuilder.Configurations.Add(new AlbumPhotoEntityTypeConfiguration());
         }
     }
 }

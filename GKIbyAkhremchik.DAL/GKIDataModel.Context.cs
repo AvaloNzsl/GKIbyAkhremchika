@@ -26,7 +26,6 @@ namespace GKIbyAkhremchik.DAL
         }
     
         public virtual DbSet<AlbumPhoto> AlbumPhotoes { get; set; }
-        public virtual DbSet<GalleryPhoto> GalleryPhotos { get; set; }
         public virtual DbSet<GalleryVideo> GalleryVideos { get; set; }
         public virtual DbSet<gkiGraduate> gkiGraduates { get; set; }
         public virtual DbSet<gkiParent> gkiParents { get; set; }
@@ -48,7 +47,8 @@ namespace GKIbyAkhremchik.DAL
         public virtual DbSet<qSex> qSexes { get; set; }
         public virtual DbSet<qSpecialization> qSpecializations { get; set; }
         public virtual DbSet<qWork> qWorks { get; set; }
-        public virtual DbSet<gkiRole> gkiRoles { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<GalleryPhoto> GalleryPhotoes { get; set; }
+        public virtual DbSet<gkiRole> gkiRoles { get; set; }
     }
 }

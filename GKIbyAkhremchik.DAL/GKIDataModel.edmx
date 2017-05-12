@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GKI_DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="GKI_DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AlbumPhoto">
           <Key>
             <PropertyRef Name="PhotosId" />
@@ -62,14 +62,14 @@
           <Property Name="url49" Type="nvarchar(max)" />
           <Property Name="url50" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="GalleryPhotos">
+        <EntityType Name="GalleryPhoto">
           <Key>
             <PropertyRef Name="GalleryPhotoId" />
-            <PropertyRef Name="PhotosId" />
           </Key>
           <Property Name="GalleryPhotoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="120" />
           <Property Name="Date" Type="date" />
+          <Property Name="Img" Type="varchar(max)" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="PhotosId" Type="int" Nullable="false" />
         </EntityType>
@@ -82,6 +82,7 @@
           <Property Name="Date" Type="date" />
           <Property Name="Img" Type="varchar(max)" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Url" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="gkiGraduates">
           <Key>
@@ -121,6 +122,13 @@
           <Property Name="LanguageId" Type="int" />
           <Property Name="CityId" Type="int" />
           <Property Name="SexId" Type="int" />
+        </EntityType>
+        <EntityType Name="gkiRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="gkiStudent">
           <Key>
@@ -174,6 +182,8 @@
           <Property Name="Img_Title" Type="varchar(max)" />
           <Property Name="SmallText" Type="nvarchar(max)" />
           <Property Name="FullText" Type="nvarchar(max)" />
+          <Property Name="GalleryPhotoId" Type="int" />
+          <Property Name="GalleryVideoId" Type="int" />
         </EntityType>
         <EntityType Name="NewsEvent">
           <Key>
@@ -186,6 +196,8 @@
           <Property Name="DateStart" Type="datetime" />
           <Property Name="DateFinish" Type="datetime" />
           <Property Name="FullText" Type="nvarchar(max)" />
+          <Property Name="GalleryPhotoId" Type="int" />
+          <Property Name="GalleryVideoId" Type="int" />
         </EntityType>
         <EntityType Name="NewsMusical">
           <Key>
@@ -197,6 +209,8 @@
           <Property Name="Img_Title" Type="varchar(max)" />
           <Property Name="SmallText" Type="varchar(max)" />
           <Property Name="FullText" Type="varchar(max)" />
+          <Property Name="GalleryPhotoId" Type="int" />
+          <Property Name="GalleryVideoId" Type="int" />
         </EntityType>
         <EntityType Name="NewsSchool">
           <Key>
@@ -208,6 +222,8 @@
           <Property Name="Img_Title" Type="varchar(max)" />
           <Property Name="SmallText" Type="nvarchar(max)" />
           <Property Name="FullText" Type="varchar(max)" />
+          <Property Name="GalleryPhotoId" Type="int" />
+          <Property Name="GalleryVideoId" Type="int" />
         </EntityType>
         <EntityType Name="qCity">
           <Key>
@@ -273,13 +289,6 @@
           <Property Name="WorkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="WorkName" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -290,14 +299,14 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_GalleryPhotos_Photos">
+        <Association Name="FK_GalleryPhoto_AlbumPhoto1">
           <End Role="AlbumPhoto" Type="Self.AlbumPhoto" Multiplicity="1" />
-          <End Role="GalleryPhotos" Type="Self.GalleryPhotos" Multiplicity="*" />
+          <End Role="GalleryPhoto" Type="Self.GalleryPhoto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AlbumPhoto">
               <PropertyRef Name="PhotosId" />
             </Principal>
-            <Dependent Role="GalleryPhotos">
+            <Dependent Role="GalleryPhoto">
               <PropertyRef Name="PhotosId" />
             </Dependent>
           </ReferentialConstraint>
@@ -482,11 +491,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_gkiUsers_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+        <Association Name="FK_gkiUsers_gkiRole">
+          <End Role="gkiRole" Type="Self.gkiRole" Multiplicity="1" />
           <End Role="gkiUsers" Type="Self.gkiUsers" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Role">
+            <Principal Role="gkiRole">
               <PropertyRef Name="RoleId" />
             </Principal>
             <Dependent Role="gkiUsers">
@@ -530,6 +539,102 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NewsArt_GalleryPhoto">
+          <End Role="GalleryPhoto" Type="Self.GalleryPhoto" Multiplicity="0..1" />
+          <End Role="NewsArt" Type="Self.NewsArt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryPhoto">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Principal>
+            <Dependent Role="NewsArt">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsArt_GalleryVideo">
+          <End Role="GalleryVideo" Type="Self.GalleryVideo" Multiplicity="0..1" />
+          <End Role="NewsArt" Type="Self.NewsArt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryVideo">
+              <PropertyRef Name="GalleryVideoId" />
+            </Principal>
+            <Dependent Role="NewsArt">
+              <PropertyRef Name="GalleryVideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsEvent_GalleryPhoto">
+          <End Role="GalleryPhoto" Type="Self.GalleryPhoto" Multiplicity="0..1" />
+          <End Role="NewsEvent" Type="Self.NewsEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryPhoto">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Principal>
+            <Dependent Role="NewsEvent">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsEvent_GalleryVideo">
+          <End Role="GalleryVideo" Type="Self.GalleryVideo" Multiplicity="0..1" />
+          <End Role="NewsEvent" Type="Self.NewsEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryVideo">
+              <PropertyRef Name="GalleryVideoId" />
+            </Principal>
+            <Dependent Role="NewsEvent">
+              <PropertyRef Name="GalleryVideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsMusical_GalleryPhoto">
+          <End Role="GalleryPhoto" Type="Self.GalleryPhoto" Multiplicity="0..1" />
+          <End Role="NewsMusical" Type="Self.NewsMusical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryPhoto">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Principal>
+            <Dependent Role="NewsMusical">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsMusical_GalleryVideo">
+          <End Role="GalleryVideo" Type="Self.GalleryVideo" Multiplicity="0..1" />
+          <End Role="NewsMusical" Type="Self.NewsMusical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryVideo">
+              <PropertyRef Name="GalleryVideoId" />
+            </Principal>
+            <Dependent Role="NewsMusical">
+              <PropertyRef Name="GalleryVideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsSchool_GalleryPhoto">
+          <End Role="GalleryPhoto" Type="Self.GalleryPhoto" Multiplicity="0..1" />
+          <End Role="NewsSchool" Type="Self.NewsSchool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryPhoto">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Principal>
+            <Dependent Role="NewsSchool">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsSchool_GalleryVideo">
+          <End Role="GalleryVideo" Type="Self.GalleryVideo" Multiplicity="0..1" />
+          <End Role="NewsSchool" Type="Self.NewsSchool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryVideo">
+              <PropertyRef Name="GalleryVideoId" />
+            </Principal>
+            <Dependent Role="NewsSchool">
+              <PropertyRef Name="GalleryVideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_qSpecialization_qDepartment">
           <End Role="qDepartment" Type="Self.qDepartment" Multiplicity="1" />
           <End Role="qSpecialization" Type="Self.qSpecialization" Multiplicity="*" />
@@ -544,11 +649,12 @@
         </Association>
         <EntityContainer Name="GKI_DataModelStoreContainer">
           <EntitySet Name="AlbumPhoto" EntityType="Self.AlbumPhoto" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GalleryPhotos" EntityType="Self.GalleryPhotos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GalleryPhoto" EntityType="Self.GalleryPhoto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GalleryVideo" EntityType="Self.GalleryVideo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gkiGraduates" EntityType="Self.gkiGraduates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gkiParent" EntityType="Self.gkiParent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gkiProfile" EntityType="Self.gkiProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gkiRole" EntityType="Self.gkiRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gkiStudent" EntityType="Self.gkiStudent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gkiTeacher" EntityType="Self.gkiTeacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gkiUsers" EntityType="Self.gkiUsers" Schema="dbo" store:Type="Tables" />
@@ -566,11 +672,10 @@
           <EntitySet Name="qSex" EntityType="Self.qSex" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="qSpecialization" EntityType="Self.qSpecialization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="qWork" EntityType="Self.qWork" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_GalleryPhotos_Photos" Association="Self.FK_GalleryPhotos_Photos">
+          <AssociationSet Name="FK_GalleryPhoto_AlbumPhoto1" Association="Self.FK_GalleryPhoto_AlbumPhoto1">
             <End Role="AlbumPhoto" EntitySet="AlbumPhoto" />
-            <End Role="GalleryPhotos" EntitySet="GalleryPhotos" />
+            <End Role="GalleryPhoto" EntitySet="GalleryPhoto" />
           </AssociationSet>
           <AssociationSet Name="FK_gkiParent_gkiParent" Association="Self.FK_gkiParent_gkiParent">
             <End Role="qProfession" EntitySet="qProfession" />
@@ -632,8 +737,8 @@
             <End Role="gkiProfile" EntitySet="gkiProfile" />
             <End Role="gkiUsers" EntitySet="gkiUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK_gkiUsers_Role" Association="Self.FK_gkiUsers_Role">
-            <End Role="Role" EntitySet="Role" />
+          <AssociationSet Name="FK_gkiUsers_gkiRole" Association="Self.FK_gkiUsers_gkiRole">
+            <End Role="gkiRole" EntitySet="gkiRole" />
             <End Role="gkiUsers" EntitySet="gkiUsers" />
           </AssociationSet>
           <AssociationSet Name="FK_gkiWorker_gkiUsers" Association="Self.FK_gkiWorker_gkiUsers">
@@ -648,13 +753,44 @@
             <End Role="qWork" EntitySet="qWork" />
             <End Role="gkiWorker" EntitySet="gkiWorker" />
           </AssociationSet>
+          <AssociationSet Name="FK_NewsArt_GalleryPhoto" Association="Self.FK_NewsArt_GalleryPhoto">
+            <End Role="GalleryPhoto" EntitySet="GalleryPhoto" />
+            <End Role="NewsArt" EntitySet="NewsArt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsArt_GalleryVideo" Association="Self.FK_NewsArt_GalleryVideo">
+            <End Role="GalleryVideo" EntitySet="GalleryVideo" />
+            <End Role="NewsArt" EntitySet="NewsArt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsEvent_GalleryPhoto" Association="Self.FK_NewsEvent_GalleryPhoto">
+            <End Role="GalleryPhoto" EntitySet="GalleryPhoto" />
+            <End Role="NewsEvent" EntitySet="NewsEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsEvent_GalleryVideo" Association="Self.FK_NewsEvent_GalleryVideo">
+            <End Role="GalleryVideo" EntitySet="GalleryVideo" />
+            <End Role="NewsEvent" EntitySet="NewsEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsMusical_GalleryPhoto" Association="Self.FK_NewsMusical_GalleryPhoto">
+            <End Role="GalleryPhoto" EntitySet="GalleryPhoto" />
+            <End Role="NewsMusical" EntitySet="NewsMusical" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsMusical_GalleryVideo" Association="Self.FK_NewsMusical_GalleryVideo">
+            <End Role="GalleryVideo" EntitySet="GalleryVideo" />
+            <End Role="NewsMusical" EntitySet="NewsMusical" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsSchool_GalleryPhoto" Association="Self.FK_NewsSchool_GalleryPhoto">
+            <End Role="GalleryPhoto" EntitySet="GalleryPhoto" />
+            <End Role="NewsSchool" EntitySet="NewsSchool" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsSchool_GalleryVideo" Association="Self.FK_NewsSchool_GalleryVideo">
+            <End Role="GalleryVideo" EntitySet="GalleryVideo" />
+            <End Role="NewsSchool" EntitySet="NewsSchool" />
+          </AssociationSet>
           <AssociationSet Name="FK_qSpecialization_qDepartment" Association="Self.FK_qSpecialization_qDepartment">
             <End Role="qDepartment" EntitySet="qDepartment" />
             <End Role="qSpecialization" EntitySet="qSpecialization" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GKI_DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -714,19 +850,7 @@
           <Property Name="url48" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="url49" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="url50" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="GalleryPhotos" Relationship="Self.FK_GalleryPhotos_Photos" FromRole="AlbumPhoto" ToRole="GalleryPhotos" />
-        </EntityType>
-        <EntityType Name="GalleryPhoto">
-          <Key>
-            <PropertyRef Name="GalleryPhotoId" />
-            <PropertyRef Name="PhotosId" />
-          </Key>
-          <Property Name="GalleryPhotoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhotosId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AlbumPhoto" Relationship="Self.FK_GalleryPhotos_Photos" FromRole="GalleryPhotos" ToRole="AlbumPhoto" />
+          <NavigationProperty Name="GalleryPhotoes" Relationship="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1" FromRole="AlbumPhoto" ToRole="GalleryPhoto" />
         </EntityType>
         <EntityType Name="GalleryVideo">
           <Key>
@@ -737,6 +861,11 @@
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NewsArts" Relationship="GKI_DataModel.FK_NewsArt_GalleryVideo" FromRole="GalleryVideo" ToRole="NewsArt" />
+          <NavigationProperty Name="NewsEvents" Relationship="GKI_DataModel.FK_NewsEvent_GalleryVideo" FromRole="GalleryVideo" ToRole="NewsEvent" />
+          <NavigationProperty Name="NewsMusicals" Relationship="GKI_DataModel.FK_NewsMusical_GalleryVideo" FromRole="GalleryVideo" ToRole="NewsMusical" />
+          <NavigationProperty Name="NewsSchools" Relationship="GKI_DataModel.FK_NewsSchool_GalleryVideo" FromRole="GalleryVideo" ToRole="NewsSchool" />
         </EntityType>
         <EntityType Name="gkiGraduate">
           <Key>
@@ -829,8 +958,8 @@
           <NavigationProperty Name="gkiProfile" Relationship="Self.FK_gkiUsers_gkiProfile" FromRole="gkiUsers" ToRole="gkiProfile" />
           <NavigationProperty Name="gkiStudents" Relationship="Self.FK_gkiStudent_gkiUsers" FromRole="gkiUsers" ToRole="gkiStudent" />
           <NavigationProperty Name="gkiTeachers" Relationship="Self.FK_gkiTeacher_gkiUsers" FromRole="gkiUsers" ToRole="gkiTeacher" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_gkiUsers_Role" FromRole="gkiUsers" ToRole="Role" />
           <NavigationProperty Name="gkiWorkers" Relationship="Self.FK_gkiWorker_gkiUsers" FromRole="gkiUsers" ToRole="gkiWorker" />
+          <NavigationProperty Name="gkiRole" Relationship="GKI_DataModel.FK_gkiUsers_gkiRole" FromRole="gkiUser" ToRole="gkiRole" />
         </EntityType>
         <EntityType Name="gkiWorker">
           <Key>
@@ -854,6 +983,10 @@
           <Property Name="Img_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="SmallText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FullText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GalleryPhotoId" Type="Int32" />
+          <Property Name="GalleryVideoId" Type="Int32" />
+          <NavigationProperty Name="GalleryVideo" Relationship="GKI_DataModel.FK_NewsArt_GalleryVideo" FromRole="NewsArt" ToRole="GalleryVideo" />
+          <NavigationProperty Name="GalleryPhoto" Relationship="GKI_DataModel.FK_NewsArt_GalleryPhoto" FromRole="NewsArt" ToRole="GalleryPhoto" />
         </EntityType>
         <EntityType Name="NewsEvent">
           <Key>
@@ -866,6 +999,10 @@
           <Property Name="DateStart" Type="DateTime" Precision="3" />
           <Property Name="DateFinish" Type="DateTime" Precision="3" />
           <Property Name="FullText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GalleryPhotoId" Type="Int32" />
+          <Property Name="GalleryVideoId" Type="Int32" />
+          <NavigationProperty Name="GalleryVideo" Relationship="GKI_DataModel.FK_NewsEvent_GalleryVideo" FromRole="NewsEvent" ToRole="GalleryVideo" />
+          <NavigationProperty Name="GalleryPhoto" Relationship="GKI_DataModel.FK_NewsEvent_GalleryPhoto" FromRole="NewsEvent" ToRole="GalleryPhoto" />
         </EntityType>
         <EntityType Name="NewsMusical">
           <Key>
@@ -877,6 +1014,10 @@
           <Property Name="Img_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="SmallText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="FullText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GalleryPhotoId" Type="Int32" />
+          <Property Name="GalleryVideoId" Type="Int32" />
+          <NavigationProperty Name="GalleryVideo" Relationship="GKI_DataModel.FK_NewsMusical_GalleryVideo" FromRole="NewsMusical" ToRole="GalleryVideo" />
+          <NavigationProperty Name="GalleryPhoto" Relationship="GKI_DataModel.FK_NewsMusical_GalleryPhoto" FromRole="NewsMusical" ToRole="GalleryPhoto" />
         </EntityType>
         <EntityType Name="NewsSchool">
           <Key>
@@ -888,6 +1029,10 @@
           <Property Name="Img_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="SmallText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FullText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GalleryPhotoId" Type="Int32" />
+          <Property Name="GalleryVideoId" Type="Int32" />
+          <NavigationProperty Name="GalleryVideo" Relationship="GKI_DataModel.FK_NewsSchool_GalleryVideo" FromRole="NewsSchool" ToRole="GalleryVideo" />
+          <NavigationProperty Name="GalleryPhoto" Relationship="GKI_DataModel.FK_NewsSchool_GalleryPhoto" FromRole="NewsSchool" ToRole="GalleryPhoto" />
         </EntityType>
         <EntityType Name="qCity">
           <Key>
@@ -967,14 +1112,6 @@
           <NavigationProperty Name="gkiTeachers" Relationship="Self.FK_gkiTeacher_qWork" FromRole="qWork" ToRole="gkiTeacher" />
           <NavigationProperty Name="gkiWorkers" Relationship="Self.FK_gkiWorker_qWork" FromRole="qWork" ToRole="gkiWorker" />
         </EntityType>
-        <EntityType Name="gkiRole">
-          <Key>
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="gkiUsers" Relationship="Self.FK_gkiUsers_Role" FromRole="Role" ToRole="gkiUsers" />
-        </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -985,18 +1122,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_GalleryPhotos_Photos">
-          <End Role="AlbumPhoto" Type="Self.AlbumPhoto" Multiplicity="1" />
-          <End Role="GalleryPhotos" Type="Self.GalleryPhoto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AlbumPhoto">
-              <PropertyRef Name="PhotosId" />
-            </Principal>
-            <Dependent Role="GalleryPhotos">
-              <PropertyRef Name="PhotosId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_gkiParent_gkiParent">
           <End Role="qProfession" Type="Self.qProfession" Multiplicity="0..1" />
           <End Role="gkiParent" Type="Self.gkiParent" Multiplicity="*" />
@@ -1177,18 +1302,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_gkiUsers_Role">
-          <End Role="Role" Type="GKI_DataModel.gkiRole" Multiplicity="1" />
-          <End Role="gkiUsers" Type="Self.gkiUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="RoleId" />
-            </Principal>
-            <Dependent Role="gkiUsers">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_gkiWorker_gkiUsers">
           <End Role="gkiUsers" Type="Self.gkiUser" Multiplicity="1" />
           <End Role="gkiWorker" Type="Self.gkiWorker" Multiplicity="*" />
@@ -1239,7 +1352,6 @@
         </Association>
         <EntityContainer Name="GKI_DataEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AlbumPhotoes" EntityType="Self.AlbumPhoto" />
-          <EntitySet Name="GalleryPhotos" EntityType="Self.GalleryPhoto" />
           <EntitySet Name="GalleryVideos" EntityType="Self.GalleryVideo" />
           <EntitySet Name="gkiGraduates" EntityType="Self.gkiGraduate" />
           <EntitySet Name="gkiParents" EntityType="Self.gkiParent" />
@@ -1261,12 +1373,7 @@
           <EntitySet Name="qSexes" EntityType="Self.qSex" />
           <EntitySet Name="qSpecializations" EntityType="Self.qSpecialization" />
           <EntitySet Name="qWorks" EntityType="Self.qWork" />
-          <EntitySet Name="gkiRoles" EntityType="GKI_DataModel.gkiRole" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_GalleryPhotos_Photos" Association="Self.FK_GalleryPhotos_Photos">
-            <End Role="AlbumPhoto" EntitySet="AlbumPhotoes" />
-            <End Role="GalleryPhotos" EntitySet="GalleryPhotos" />
-          </AssociationSet>
           <AssociationSet Name="FK_gkiParent_gkiParent" Association="Self.FK_gkiParent_gkiParent">
             <End Role="qProfession" EntitySet="qProfessions" />
             <End Role="gkiParent" EntitySet="gkiParents" />
@@ -1327,10 +1434,6 @@
             <End Role="qWork" EntitySet="qWorks" />
             <End Role="gkiTeacher" EntitySet="gkiTeachers" />
           </AssociationSet>
-          <AssociationSet Name="FK_gkiUsers_Role" Association="Self.FK_gkiUsers_Role">
-            <End Role="Role" EntitySet="gkiRoles" />
-            <End Role="gkiUsers" EntitySet="gkiUsers" />
-          </AssociationSet>
           <AssociationSet Name="FK_gkiWorker_gkiUsers" Association="Self.FK_gkiWorker_gkiUsers">
             <End Role="gkiUsers" EntitySet="gkiUsers" />
             <End Role="gkiWorker" EntitySet="gkiWorkers" />
@@ -1347,8 +1450,194 @@
             <End Role="qDepartment" EntitySet="qDepartments" />
             <End Role="qSpecialization" EntitySet="qSpecializations" />
           </AssociationSet>
-        </EntityContainer>
-      </Schema>
+          <AssociationSet Name="FK_NewsArt_GalleryVideo" Association="GKI_DataModel.FK_NewsArt_GalleryVideo">
+            <End Role="GalleryVideo" EntitySet="GalleryVideos" />
+            <End Role="NewsArt" EntitySet="NewsArts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsEvent_GalleryVideo" Association="GKI_DataModel.FK_NewsEvent_GalleryVideo">
+            <End Role="GalleryVideo" EntitySet="GalleryVideos" />
+            <End Role="NewsEvent" EntitySet="NewsEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsMusical_GalleryVideo" Association="GKI_DataModel.FK_NewsMusical_GalleryVideo">
+            <End Role="GalleryVideo" EntitySet="GalleryVideos" />
+            <End Role="NewsMusical" EntitySet="NewsMusicals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsSchool_GalleryVideo" Association="GKI_DataModel.FK_NewsSchool_GalleryVideo">
+            <End Role="GalleryVideo" EntitySet="GalleryVideos" />
+            <End Role="NewsSchool" EntitySet="NewsSchools" />
+          </AssociationSet>
+          <EntitySet Name="GalleryPhotoes" EntityType="GKI_DataModel.GalleryPhoto" />
+          <EntitySet Name="gkiRoles" EntityType="GKI_DataModel.gkiRole" />
+          <AssociationSet Name="FK_GalleryPhoto_AlbumPhoto1" Association="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1">
+            <End Role="AlbumPhoto" EntitySet="AlbumPhotoes" />
+            <End Role="GalleryPhoto" EntitySet="GalleryPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsArt_GalleryPhoto" Association="GKI_DataModel.FK_NewsArt_GalleryPhoto">
+            <End Role="GalleryPhoto" EntitySet="GalleryPhotoes" />
+            <End Role="NewsArt" EntitySet="NewsArts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsEvent_GalleryPhoto" Association="GKI_DataModel.FK_NewsEvent_GalleryPhoto">
+            <End Role="GalleryPhoto" EntitySet="GalleryPhotoes" />
+            <End Role="NewsEvent" EntitySet="NewsEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsMusical_GalleryPhoto" Association="GKI_DataModel.FK_NewsMusical_GalleryPhoto">
+            <End Role="GalleryPhoto" EntitySet="GalleryPhotoes" />
+            <End Role="NewsMusical" EntitySet="NewsMusicals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsSchool_GalleryPhoto" Association="GKI_DataModel.FK_NewsSchool_GalleryPhoto">
+            <End Role="GalleryPhoto" EntitySet="GalleryPhotoes" />
+            <End Role="NewsSchool" EntitySet="NewsSchools" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gkiUsers_gkiRole" Association="GKI_DataModel.FK_gkiUsers_gkiRole">
+            <End Role="gkiRole" EntitySet="gkiRoles" />
+            <End Role="gkiUser" EntitySet="gkiUsers" />
+          </AssociationSet>
+          </EntityContainer>
+        <Association Name="FK_NewsArt_GalleryVideo">
+          <End Type="GKI_DataModel.GalleryVideo" Role="GalleryVideo" Multiplicity="0..1" />
+          <End Type="GKI_DataModel.NewsArt" Role="NewsArt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryVideo">
+              <PropertyRef Name="GalleryVideoId" />
+            </Principal>
+            <Dependent Role="NewsArt">
+              <PropertyRef Name="GalleryVideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsEvent_GalleryVideo">
+          <End Type="GKI_DataModel.GalleryVideo" Role="GalleryVideo" Multiplicity="0..1" />
+          <End Type="GKI_DataModel.NewsEvent" Role="NewsEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryVideo">
+              <PropertyRef Name="GalleryVideoId" />
+            </Principal>
+            <Dependent Role="NewsEvent">
+              <PropertyRef Name="GalleryVideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsMusical_GalleryVideo">
+          <End Type="GKI_DataModel.GalleryVideo" Role="GalleryVideo" Multiplicity="0..1" />
+          <End Type="GKI_DataModel.NewsMusical" Role="NewsMusical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryVideo">
+              <PropertyRef Name="GalleryVideoId" />
+            </Principal>
+            <Dependent Role="NewsMusical">
+              <PropertyRef Name="GalleryVideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsSchool_GalleryVideo">
+          <End Type="GKI_DataModel.GalleryVideo" Role="GalleryVideo" Multiplicity="0..1" />
+          <End Type="GKI_DataModel.NewsSchool" Role="NewsSchool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryVideo">
+              <PropertyRef Name="GalleryVideoId" />
+            </Principal>
+            <Dependent Role="NewsSchool">
+              <PropertyRef Name="GalleryVideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GalleryPhoto">
+          <Key>
+            <PropertyRef Name="GalleryPhotoId" />
+          </Key>
+          <Property Name="GalleryPhotoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhotosId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlbumPhoto" Relationship="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1" FromRole="GalleryPhoto" ToRole="AlbumPhoto" />
+          <NavigationProperty Name="NewsArts" Relationship="GKI_DataModel.FK_NewsArt_GalleryPhoto" FromRole="GalleryPhoto" ToRole="NewsArt" />
+          <NavigationProperty Name="NewsEvents" Relationship="GKI_DataModel.FK_NewsEvent_GalleryPhoto" FromRole="GalleryPhoto" ToRole="NewsEvent" />
+          <NavigationProperty Name="NewsMusicals" Relationship="GKI_DataModel.FK_NewsMusical_GalleryPhoto" FromRole="GalleryPhoto" ToRole="NewsMusical" />
+          <NavigationProperty Name="NewsSchools" Relationship="GKI_DataModel.FK_NewsSchool_GalleryPhoto" FromRole="GalleryPhoto" ToRole="NewsSchool" />
+        </EntityType>
+        <EntityType Name="gkiRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="gkiUsers" Relationship="GKI_DataModel.FK_gkiUsers_gkiRole" FromRole="gkiRole" ToRole="gkiUser" />
+        </EntityType>
+        <Association Name="FK_GalleryPhoto_AlbumPhoto1">
+          <End Type="GKI_DataModel.AlbumPhoto" Role="AlbumPhoto" Multiplicity="1" />
+          <End Type="GKI_DataModel.GalleryPhoto" Role="GalleryPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlbumPhoto">
+              <PropertyRef Name="PhotosId" />
+            </Principal>
+            <Dependent Role="GalleryPhoto">
+              <PropertyRef Name="PhotosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsArt_GalleryPhoto">
+          <End Type="GKI_DataModel.GalleryPhoto" Role="GalleryPhoto" Multiplicity="0..1" />
+          <End Type="GKI_DataModel.NewsArt" Role="NewsArt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryPhoto">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Principal>
+            <Dependent Role="NewsArt">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsEvent_GalleryPhoto">
+          <End Type="GKI_DataModel.GalleryPhoto" Role="GalleryPhoto" Multiplicity="0..1" />
+          <End Type="GKI_DataModel.NewsEvent" Role="NewsEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryPhoto">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Principal>
+            <Dependent Role="NewsEvent">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsMusical_GalleryPhoto">
+          <End Type="GKI_DataModel.GalleryPhoto" Role="GalleryPhoto" Multiplicity="0..1" />
+          <End Type="GKI_DataModel.NewsMusical" Role="NewsMusical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryPhoto">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Principal>
+            <Dependent Role="NewsMusical">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsSchool_GalleryPhoto">
+          <End Type="GKI_DataModel.GalleryPhoto" Role="GalleryPhoto" Multiplicity="0..1" />
+          <End Type="GKI_DataModel.NewsSchool" Role="NewsSchool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryPhoto">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Principal>
+            <Dependent Role="NewsSchool">
+              <PropertyRef Name="GalleryPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gkiUsers_gkiRole">
+          <End Type="GKI_DataModel.gkiRole" Role="gkiRole" Multiplicity="1" />
+          <End Type="GKI_DataModel.gkiUser" Role="gkiUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gkiRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="gkiUser">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1412,20 +1701,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GalleryPhotos">
-            <EntityTypeMapping TypeName="GKI_DataModel.GalleryPhoto">
-              <MappingFragment StoreEntitySet="GalleryPhotos">
-                <ScalarProperty Name="GalleryPhotoId" ColumnName="GalleryPhotoId" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="PhotosId" ColumnName="PhotosId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="GalleryVideos">
             <EntityTypeMapping TypeName="GKI_DataModel.GalleryVideo">
               <MappingFragment StoreEntitySet="GalleryVideo">
+                <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="GalleryVideoId" ColumnName="GalleryVideoId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1525,6 +1804,8 @@
           <EntitySetMapping Name="NewsArts">
             <EntityTypeMapping TypeName="GKI_DataModel.NewsArt">
               <MappingFragment StoreEntitySet="NewsArt">
+                <ScalarProperty Name="GalleryVideoId" ColumnName="GalleryVideoId" />
+                <ScalarProperty Name="GalleryPhotoId" ColumnName="GalleryPhotoId" />
                 <ScalarProperty Name="NewsArtId" ColumnName="NewsArtId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1537,6 +1818,8 @@
           <EntitySetMapping Name="NewsEvents">
             <EntityTypeMapping TypeName="GKI_DataModel.NewsEvent">
               <MappingFragment StoreEntitySet="NewsEvent">
+                <ScalarProperty Name="GalleryVideoId" ColumnName="GalleryVideoId" />
+                <ScalarProperty Name="GalleryPhotoId" ColumnName="GalleryPhotoId" />
                 <ScalarProperty Name="NewsEventId" ColumnName="NewsEventId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1550,6 +1833,8 @@
           <EntitySetMapping Name="NewsMusicals">
             <EntityTypeMapping TypeName="GKI_DataModel.NewsMusical">
               <MappingFragment StoreEntitySet="NewsMusical">
+                <ScalarProperty Name="GalleryVideoId" ColumnName="GalleryVideoId" />
+                <ScalarProperty Name="GalleryPhotoId" ColumnName="GalleryPhotoId" />
                 <ScalarProperty Name="NewsMusicalId" ColumnName="NewsMusicalId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1562,6 +1847,8 @@
           <EntitySetMapping Name="NewsSchools">
             <EntityTypeMapping TypeName="GKI_DataModel.NewsSchool">
               <MappingFragment StoreEntitySet="NewsSchool">
+                <ScalarProperty Name="GalleryVideoId" ColumnName="GalleryVideoId" />
+                <ScalarProperty Name="GalleryPhotoId" ColumnName="GalleryPhotoId" />
                 <ScalarProperty Name="NewsSchoolId" ColumnName="NewsSchoolId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1644,14 +1931,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="gkiRoles">
-            <EntityTypeMapping TypeName="GKI_DataModel.gkiRole">
-              <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="GKI_DataModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -1663,7 +1942,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="GalleryPhotoes">
+            <EntityTypeMapping TypeName="GKI_DataModel.GalleryPhoto">
+              <MappingFragment StoreEntitySet="GalleryPhoto">
+                <ScalarProperty Name="PhotosId" ColumnName="PhotosId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="GalleryPhotoId" ColumnName="GalleryPhotoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gkiRoles">
+            <EntityTypeMapping TypeName="GKI_DataModel.gkiRole">
+              <MappingFragment StoreEntitySet="gkiRole">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

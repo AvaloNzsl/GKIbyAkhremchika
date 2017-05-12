@@ -6,9 +6,9 @@ namespace GKIbyAkhremchik.DAL.UsersTable
     {
         public Language()
         {
-            gkiProfiles = new HashSet<gkiProfile>();
+            gkiProfiles = new HashSet<gkiProfiles>();
         }
-        public virtual ICollection<gkiProfile> gkiProfiles { get; set; }
+        public virtual ICollection<gkiProfiles> gkiProfiles { get; set; }
 
         public int LanguageId { get; set; }
         public string LanguageName { get; set; }

@@ -1,8 +1,9 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using GKIbyAkhremchik.DAL.RolesTable;
+using System.Data.Entity.ModelConfiguration;
 
 namespace GKIbyAkhremchik.DAL.Configurations
 {
-    public class RoleEntityTypeConfiguration : EntityTypeConfiguration<RolesTable.AdminRole>
+    public class RoleEntityTypeConfiguration : EntityTypeConfiguration<AdminRole>
     {
         public RoleEntityTypeConfiguration()
         {

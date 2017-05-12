@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GKIbyAkhremchik.ViewModel.Gallery;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,5 +20,9 @@ namespace GKIbyAkhremchik.ViewModel.NewsViewModel
         public string SmallText { get; set; }
         [Display(Name = "Мероприятие")]
         public string FullText { get; set; }
+        public Nullable<int> GalleryPhotoId { get; set; }
+        public virtual GalleryPhotoModel GalleryPhoto { get; set; }
+        public Nullable<int> GalleryVideoId { get; set; }
+        public virtual GalleryVideoModel GalleryVideo { get; set; }
     }
 }

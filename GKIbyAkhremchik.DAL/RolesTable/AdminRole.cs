@@ -6,9 +6,9 @@ namespace GKIbyAkhremchik.DAL.RolesTable
     {
         public AdminRole()
         {
-            gkiUsers = new HashSet<UsersTable.gkiUser>();
+            gkiUsers = new HashSet<UsersTable.gkiUsers>();
         }
-        public virtual ICollection<UsersTable.gkiUser> gkiUsers { get; set; }
+        public virtual ICollection<UsersTable.gkiUsers> gkiUsers { get; set; }
         
         public int RoleId { get; set; }
         public string RoleName { get; set; }

@@ -94,15 +94,25 @@
     <Compile Include="AlbumPhoto.cs">
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Configurations\NewsContent\AlbumPhotoEntityTypeConfiguration.cs" />
+    <Compile Include="Configurations\NewsContent\GalleryPhotoEntityTypeConfiguration.cs" />
+    <Compile Include="Configurations\NewsContent\GalleryVideoEntityTypeConfiguration.cs" />
     <Compile Include="Configurations\RoleEntityTypeConfiguration.cs" />
     <Compile Include="Configurations\User\LanguageEntityTypeConfiguration.cs" />
     <Compile Include="Configurations\User\SexEntityTypeConfiguration.cs" />
     <Compile Include="Configurations\User\CityEntityTypeConfiguration.cs" />
     <Compile Include="Configurations\User\ProfileEntityTypeConfiguration.cs" />
+    <Compile Include="Context\IGalleryContext.cs" />
     <Compile Include="Context\INewsContext.cs" />
+    <Compile Include="Gallery\PhotoAlbum.cs" />
+    <Compile Include="Gallery\PhotoGallery.cs" />
+    <Compile Include="Gallery\VideoGallery.cs" />
     <Compile Include="NewsTable\ArtNews.cs" />
     <Compile Include="NewsTable\EventNews.cs" />
     <Compile Include="NewsTable\MusicalNews.cs" />
+    <Compile Include="Repositories\AlbumPhotoRepository.cs" />
+    <Compile Include="Repositories\GalleryPhotoRepository.cs" />
+    <Compile Include="Repositories\GalleryVideoRepository.cs" />
     <Compile Include="Repositories\NewsArtRepository.cs" />
     <Compile Include="Repositories\NewsEventRepository.cs" />
     <Compile Include="Repositories\NewsMusicalRepository.cs" />
@@ -200,9 +210,9 @@
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UsersTable\City.cs" />
-    <Compile Include="UsersTable\gkiUser.cs" />
+    <Compile Include="UsersTable\gkiUsers.cs" />
     <Compile Include="UsersTable\Language.cs" />
-    <Compile Include="UsersTable\gkiProfile.cs" />
+    <Compile Include="UsersTable\gkiProfiles.cs" />
     <Compile Include="UsersTable\Sex.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,9 +243,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Configurations\Photos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

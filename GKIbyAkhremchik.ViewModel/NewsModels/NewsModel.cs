@@ -1,10 +1,11 @@
-﻿using System;
+﻿using GKIbyAkhremchik.ViewModel.Gallery;
+using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace GKIbyAkhremchik.ViewModel.NewsModel
+namespace GKIbyAkhremchik.ViewModel.NewsModels
 {
     public class NewsModel
-    {//for Admin Panel to see the View
+    {
         [Display(Name = "ID")]
         public int NewsId { get; set; }
         [Display(Name = "Заголовок")]
@@ -17,6 +18,11 @@ namespace GKIbyAkhremchik.ViewModel.NewsModel
         public string SmallText { get; set; }
         [Display(Name = "Мероприятие")]
         public string FullText { get; set; }
+
+        public Nullable<int> GalleryPhotoId { get; set; }
+        public virtual GalleryPhotoModel GalleryPhoto { get; set; }
+        public Nullable<int> GalleryVideoId { get; set; }
+        public virtual GalleryVideoModel GalleryVideo { get; set; }
     }
 
 }

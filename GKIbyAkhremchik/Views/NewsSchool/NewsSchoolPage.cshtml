@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GKIbyAkhremchik.ViewModel.NewsModel.NewsModel>
+﻿@model IEnumerable<GKIbyAkhremchik.ViewModel.NewsModels.NewsModel>
 
 @{
     ViewBag.Title = "NewsSchoolPage";
@@ -30,36 +30,51 @@
         <th>
             @Html.DisplayNameFor(model => model.FullText)
         </th>
+        <th>
+            #@Html.DisplayNameFor(model => model.GalleryVideoId) |
+            @Html.DisplayNameFor(model => model.GalleryVideo.Title)
+        </th>
+        @*<th>
+                #@Html.DisplayNameFor(model => model.GalleryPhoto.GalleryPhotoId) |
+                @Html.DisplayNameFor(model => model.GalleryPhoto.Title)
+            </th>*@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NewsId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Img_Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SmallText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullText)
-        </td>
-        <td>
-            @*@Html.ActionLink("Фотогаллерея", "GalleryPhoto", new { id = item.GalleryPhotoId }) |*@
-            @*@Html.ActionLink("Видеогаллерея", "GalleryVideo", new { id = item.GalleryVideoId }) |*@
-            @Html.ActionLink("Редактирование", "UpdateNewsSchool", new {  id=item.NewsId }) |
-            @Html.ActionLink("В мусорку", "Delete", new { id = item.NewsId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewsId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Img_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SmallText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullText)
+            </td>
+            <td>
+                #@Html.DisplayFor(modelItem => item.GalleryVideoId) |
+                @Html.DisplayFor(modelItem => item.GalleryVideo.Title)
+            </td>
+            @*<td>
+                    #@Html.DisplayFor(modelItem => item.GalleryPhoto.GalleryPhotoId) |
+                    @Html.DisplayFor(modelItem => item.GalleryPhoto.Title)
+                </td>*@
+            <td>
+                @Html.ActionLink("Редактирование", "UpdateNewsSchool", new { id = item.NewsId })<br>
+                @Html.ActionLink("В мусорку", "Delete", new { id = item.NewsId })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -1,6 +1,9 @@
-﻿using GKIbyAkhremchik.BL.News;
+﻿using GKIbyAkhremchik.BL.Gallery;
+using GKIbyAkhremchik.BL.News;
 using GKIbyAkhremchik.DAL;
 using GKIbyAkhremchik.ViewModel.NewsViewModel;
+using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace GKIbyAkhremchik.Controllers.NewsArea
@@ -17,11 +20,11 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
 
         //see admin
         private INewsService _newsService;
+        //private IGalleryService _galleryService;
         public NewsSchoolController(INewsService newsService)
         {
             _newsService = newsService;
         }
-
         public ActionResult NewsSchoolPage()
         {
             var news = _newsService.GetAll(school);
@@ -30,6 +33,8 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
 
         public ActionResult InsertNewsSchool()
         {
+            //ViewBag.GalleryVideoId = new SelectList(_galleryService.GetGalleryVideo(), "GalleryVideoId", "Title");
+            //ViewBag.GalleryPhotoId = new SelectList(db.GalleryPhotoes, "GalleryPhotoId", "Title");
             return View();
         }
         [HttpPost]
@@ -42,6 +47,8 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
                 _newsService.Save();
                 return RedirectToAction("NewsSchoolPage");
             }
+            //ViewBag.GalleryVideoId = new SelectList(_galleryService.GetGalleryVideo(), "GalleryVideoId", "Title", _galleryService.GetGalleryVideo());
+            //ViewBag.GalleryPhotoId = new SelectList(db.GalleryPhotoes, "GalleryPhotoId", "Title", newsSchool.GalleryPhotoId);
             return View(news);
         }
 

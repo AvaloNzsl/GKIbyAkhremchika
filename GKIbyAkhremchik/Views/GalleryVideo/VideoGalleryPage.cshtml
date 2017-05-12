@@ -1,0 +1,62 @@
+﻿@model IEnumerable<GKIbyAkhremchik.ViewModel.Gallery.GalleryVideoModel>
+
+@{
+    ViewBag.Title = "VideoGalleryPage";
+}
+
+<h2>VideoGalleryPage</h2>
+
+<p>
+    @Html.ActionLink("Добавить видео", "InsertVideoGallery")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GalleryVideoId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GalleryVideoId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Img)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.ActionLink("Редактирование", "UpdateVideoGallery", new { id = item.GalleryVideoId }) |
+            @Html.ActionLink("В Мусорку", "Delete", new { id = item.GalleryVideoId })
+        </td>
+    </tr>
+}
+
+</table>

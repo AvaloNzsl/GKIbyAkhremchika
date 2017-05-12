@@ -1,0 +1,74 @@
+﻿@model IEnumerable<GKIbyAkhremchik.DAL.NewsSchool>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsSchoolId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Img_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SmallText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullText)
+        </th>
+        <th>
+            ID# @Html.DisplayNameFor(model => model.GalleryVideo.GalleryVideoId) |
+            @Html.DisplayNameFor(model => model.GalleryVideo.Title)
+        </th>
+        <th>
+            ID# @Html.DisplayNameFor(model => model.GalleryPhoto.GalleryPhotoId) |
+            @Html.DisplayNameFor(model => model.GalleryPhoto.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Img_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SmallText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GalleryVideo.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GalleryPhoto.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NewsSchoolId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NewsSchoolId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NewsSchoolId })
+        </td>
+    </tr>
+}
+
+</table>
