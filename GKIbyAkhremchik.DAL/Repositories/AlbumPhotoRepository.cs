@@ -17,7 +17,7 @@ namespace GKIbyAkhremchik.DAL.Repositories
             return _contextDbGallery.AlbumPhotoes;
         }
 
-        public AlbumPhoto GetGalleryById(int? id)
+        public AlbumPhoto GetGalleryById(int id)
         {
             return _contextDbGallery.AlbumPhotoes.Find(id);
         }

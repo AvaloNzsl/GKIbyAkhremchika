@@ -44,9 +44,16 @@ namespace GKIbyAkhremchik.BL.News
                 var school = _contextUnit.SchoolNews.GetAllNews();
                 foreach (var n in school)
                 {
-                    Nullable<int> galleryVideoId = n.GalleryVideoId;
-                    var gallery = _contextUnit.VideoGallery.GetGalleryById(1);
-                    var g = new GalleryVideoModel { Title = gallery.Title };
+                    //int galleryVideoId = 0;
+                    //if (n.GalleryVideoId.HasValue)
+                    //    galleryVideoId = n.GalleryVideoId.Value;
+                    ////if (_gallery.)
+                    var video = _contextUnit.VideoGallery.GetGalleryById(1);
+                    var photo = _contextUnit.PhotoesGallery.GetGalleryById(1);
+                    //var gallery = _contextUnit.VideoGallery.GetGalleryById();
+
+                    var vi = new GalleryVideoModel { Title = video.Title };
+                    var pho = new GalleryPhotoModel { Title = photo.Title };
                     news.Add(new NewsModel
                     {
                         NewsId = n.NewsSchoolId,
@@ -56,7 +63,8 @@ namespace GKIbyAkhremchik.BL.News
                         SmallText = n.SmallText,
                         FullText = n.FullText,
                         GalleryVideoId = n.GalleryVideoId,
-                        GalleryVideo = g
+                        GalleryPhoto = pho,
+                        GalleryVideo = vi
                     });
                 }
             }

@@ -1,0 +1,74 @@
+﻿@model GKIbyAkhremchik.ViewModel.NewsViewModel.NewsView
+
+@{
+    ViewBag.Title = "DetailNewsSchool";
+}
+
+<h2>DetailNewsSchool</h2>
+
+<div>
+    <h4>NewsView</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Img_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Img_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SmallText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmallText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GalleryPhotoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GalleryPhotoId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GalleryVideoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GalleryVideoId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

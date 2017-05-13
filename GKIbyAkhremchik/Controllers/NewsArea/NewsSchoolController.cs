@@ -69,6 +69,11 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
             return View(news);
         }
 
+        public ActionResult DetailNewsSchool(int id)
+        {
+            var newsmodel = _newsService.GetNewsSchoolById(id);
+            return View(newsmodel);
+        }
 
         public ActionResult Delete(int id)
         {

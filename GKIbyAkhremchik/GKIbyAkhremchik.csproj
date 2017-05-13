@@ -252,6 +252,7 @@
     <Content Include="Views\GalleryVideo\VideoGalleryPage.cshtml" />
     <Content Include="Views\GalleryVideo\InsertVideoGallery.cshtml" />
     <Content Include="Views\GalleryVideo\UpdateVideoGallery.cshtml" />
+    <Content Include="Views\NewsSchool\DetailNewsSchool.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
