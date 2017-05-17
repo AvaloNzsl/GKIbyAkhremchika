@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using GKIbyAkhremchik.DAL;
 using GKIbyAkhremchik.ViewModel.Gallery;
-using GKIbyAkhremchik.BL.News;
 using GKIbyAkhremchik.ViewModel.GalleryViewModel;
+using GKIbyAkhremchik.DAL.UnitService;
 
 namespace GKIbyAkhremchik.BL.Gallery
 {
     public class GalleryService : IGalleryService
     {
-        private UnitNewsServices _contextUnit;
-        public GalleryService(UnitNewsServices contextUnit)
+        private UnitOfWork _contextUnit;
+        public GalleryService(UnitOfWork contextUnit)
         {
             _contextUnit = contextUnit;
         }

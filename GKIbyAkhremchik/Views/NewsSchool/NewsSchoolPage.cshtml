@@ -78,10 +78,10 @@
         <td>
             <a href="~/GalleryVideo/DetailVideoGallery/@item.GalleryVideoId">
              @Html.DisplayFor(modelItem => item.GalleryVideo.Title) 
-            </a>
+            </a>    
         </td>
         <td>
-            @Html.ActionLink("Редактирование", "UpdateNewsSchool", new { id=item.NewsId }) |
+            @Html.ActionLink("Редактирование", "UpdateNewsSchoolS", new { id=item.NewsId }) |
             @Html.ActionLink("Просмотр новости", "DetailNewsSchool", new { id = item.NewsId }) |
             @Html.ActionLink("В Мусорку", "Delete", new { id = item.NewsId })
         </td>

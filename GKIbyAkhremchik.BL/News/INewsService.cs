@@ -8,8 +8,6 @@ namespace GKIbyAkhremchik.BL.News
 {
     public interface INewsService
     {
-        IQueryable<NewsModel> GetSchool();
-
         IEnumerable<NewsModel> GetAll(string nNews);
         IEnumerable<NewsEventModel> GetEvent();
 
@@ -27,5 +25,8 @@ namespace GKIbyAkhremchik.BL.News
         void DeleteNews(int id, string nameDepart);
 
         void Save();
+
+        NewsModel GetNewsSchoolByIdWithModel(int id);
+        void UpdateNewsWithModel(NewsModel update);
     }
 }

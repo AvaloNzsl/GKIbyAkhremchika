@@ -209,6 +209,7 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UnitService\UnitOfWork.cs" />
     <Compile Include="UsersTable\City.cs" />
     <Compile Include="UsersTable\gkiUsers.cs" />
     <Compile Include="UsersTable\Language.cs" />

@@ -1,6 +1,7 @@
 ﻿using GKIbyAkhremchik.BL.Gallery;
 using GKIbyAkhremchik.BL.News;
 using GKIbyAkhremchik.DAL;
+using GKIbyAkhremchik.ViewModel.NewsModels;
 using GKIbyAkhremchik.ViewModel.NewsViewModel;
 using System.Data.Entity;
 using System.Linq;
@@ -12,13 +13,12 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
     {
         protected internal string school = "school";
         // GET: NewsBlog
-        //see user
         public ActionResult NewsSchool()
         {
             return View();
         }
 
-        //see admin
+        // GET: NewsBlog by Admin
         private INewsService _newsService;
         //private IGalleryService _galleryService;
         public NewsSchoolController(INewsService newsService)
@@ -52,17 +52,17 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
             return View(news);
         }
 
-        public ActionResult UpdateNewsSchool(int id)
+        public ActionResult UpdateNewsSchoolS(int id)
         {
-            var newsmodel = _newsService.GetNewsSchoolById(id);
+            var newsmodel = _newsService.GetNewsSchoolByIdWithModel(id);/*GetNewsSchoolById*/
             return View(newsmodel);
         }
         [HttpPost]
-        public ActionResult UpdateNewsSchool(NewsSchool news)
+        public ActionResult UpdateNewsSchoolS(/*NewsSchool*/NewsModel news)
         {
             if (ModelState.IsValid)
             {
-                _newsService.UpdateNews(news);
+                _newsService.UpdateNewsWithModel(news);/*UpdateNews*/
                 _newsService.Save();
                 return RedirectToAction("NewsSchoolPage");
             }

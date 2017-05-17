@@ -1,17 +1,18 @@
-﻿using GKIbyAkhremchik.DAL;
-using GKIbyAkhremchik.DAL.Repositories;
+﻿using GKIbyAkhremchik.DAL.Repositories;
 using System;
 
-namespace GKIbyAkhremchik.BL.News
+namespace GKIbyAkhremchik.DAL.UnitService
 {
-    public class UnitNewsServices : IDisposable //pattern unit of work
+    public class UnitOfWork : IDisposable //pattern unit of work
     {
         private GKIDbContext _contextDbNews = new GKIDbContext();
         // --->>><<<---
         private NewsSchoolRepository schoolNewsRepository;
         public NewsSchoolRepository SchoolNews
         {
-            get { if (schoolNewsRepository == null)
+            get
+            {
+                if (schoolNewsRepository == null)
                 { schoolNewsRepository = new NewsSchoolRepository(_contextDbNews); }
                 return schoolNewsRepository;
             }
@@ -85,8 +86,10 @@ namespace GKIbyAkhremchik.BL.News
         public void Dispose() { Dispose(true); GC.SuppressFinalize(this); }
         public virtual void Dispose(bool disposing)
         {
-            if (!this.disposed){
-                if (disposing){
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
                     _contextDbNews.Dispose();
                 }
             }

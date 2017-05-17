@@ -5,34 +5,17 @@ using GKIbyAkhremchik.ViewModel.NewsViewModel;
 using GKIbyAkhremchik.DAL;
 using System.Linq;
 using GKIbyAkhremchik.ViewModel.Gallery;
+using GKIbyAkhremchik.DAL.UnitService;
+using AutoMapper;
 
 namespace GKIbyAkhremchik.BL.News
 {
     public class NewsService : INewsService
     {
-        private UnitNewsServices _contextUnit;
-        public NewsService(UnitNewsServices contextUnit)
+        private UnitOfWork _contextUnit;
+        public NewsService(UnitOfWork contextUnit)
         {
             _contextUnit = contextUnit;
-        }
-
-        public IQueryable<NewsModel> GetSchool()
-        {
-            var news = new List<NewsModel>();
-            var school = _contextUnit.SchoolNews.GetSchool();
-            foreach (var n in school)
-            {
-                news.Add(new NewsModel
-                {
-                    NewsId = n.NewsSchoolId,
-                    Title = n.Title,
-                    Img_Title = n.Img_Title,
-                    Date = n.Date,
-                    SmallText = n.SmallText,
-                    FullText = n.FullText
-                });
-            }
-            return news.AsQueryable()/*.Include(n => n.GalleryVideo).Include(n => n.GalleryPhoto)*/;
         }
 
         public IEnumerable<NewsModel> GetAll(string nameNews)
@@ -44,16 +27,26 @@ namespace GKIbyAkhremchik.BL.News
                 var school = _contextUnit.SchoolNews.GetAllNews();
                 foreach (var n in school)
                 {
-                    //int galleryVideoId = 0;
-                    //if (n.GalleryVideoId.HasValue)
-                    //    galleryVideoId = n.GalleryVideoId.Value;
-                    ////if (_gallery.)
-                    var video = _contextUnit.VideoGallery.GetGalleryById(1);
-                    var photo = _contextUnit.PhotoesGallery.GetGalleryById(1);
-                    //var gallery = _contextUnit.VideoGallery.GetGalleryById();
+                    GalleryVideo video;
+                    GalleryVideoModel vi;
+                    if (n.GalleryVideoId != null)
+                    {
+                        video = _contextUnit.VideoGallery.GetGalleryById(n.GalleryVideoId.Value);
+                        vi = new GalleryVideoModel { Title = video.Title };
+                    }
+                    else
+                        vi = new GalleryVideoModel { Title = "" };
 
-                    var vi = new GalleryVideoModel { Title = video.Title };
-                    var pho = new GalleryPhotoModel { Title = photo.Title };
+                    GalleryPhoto photo;
+                    GalleryPhotoModel pho;
+                    if (n.GalleryVideoId != null)
+                    {
+                        photo = _contextUnit.PhotoesGallery.GetGalleryById(n.GalleryPhotoId.Value);
+                        pho = new GalleryPhotoModel { Title = photo.Title };
+                    }
+                    else
+                        pho = new GalleryPhotoModel { Title = "" };
+
                     news.Add(new NewsModel
                     {
                         NewsId = n.NewsSchoolId,
@@ -62,8 +55,9 @@ namespace GKIbyAkhremchik.BL.News
                         Date = n.Date,
                         SmallText = n.SmallText,
                         FullText = n.FullText,
-                        GalleryVideoId = n.GalleryVideoId,
+                        GalleryPhotoId = n.GalleryPhotoId,
                         GalleryPhoto = pho,
+                        GalleryVideoId = n.GalleryVideoId,
                         GalleryVideo = vi
                     });
                 }
@@ -237,5 +231,24 @@ namespace GKIbyAkhremchik.BL.News
         }
 
         public void Save() { _contextUnit.Save(); }
+
+
+
+        public NewsModel GetNewsSchoolByIdWithModel(int id)
+        {
+            var school = _contextUnit.SchoolNews.GetNewsById(id);
+            Mapper.Initialize(config => {
+            config.CreateMap<NewsSchool, NewsModel>();
+                config.CreateMap<GalleryPhoto, GalleryPhotoModel>();
+                    config.CreateMap<GalleryVideo, GalleryVideoModel>();
+            });
+            var model = Mapper.Map<NewsSchool, NewsModel>(school);
+            return model;
+        }
+        public void UpdateNewsWithModel(NewsModel update)
+        {
+             
+            _contextUnit.SchoolNews.UpdateNews(Mapper.Map<NewsModel, NewsSchool>(update));
+        }
     }
 }
