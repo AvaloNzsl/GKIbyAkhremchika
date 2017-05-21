@@ -1,7 +1,10 @@
 ﻿using GKIbyAkhremchik.DAL;
 using GKIbyAkhremchik.ViewModel.Gallery;
 using GKIbyAkhremchik.ViewModel.GalleryViewModel;
+using GKIbyAkhremchik.ViewModel.NewsModels;
+using GKIbyAkhremchik.ViewModel.NewsViewModel;
 using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace GKIbyAkhremchik.BL.Gallery
 {
@@ -24,5 +27,8 @@ namespace GKIbyAkhremchik.BL.Gallery
         void DeleteGallery(int id, string nameDepart);
 
         void Save();
+
+        SelectList GetVideosList(NewsModel news);
+        SelectList GetPhotosList(NewsModel news);
     }
 }

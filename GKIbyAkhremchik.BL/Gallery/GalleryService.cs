@@ -4,6 +4,9 @@ using GKIbyAkhremchik.DAL;
 using GKIbyAkhremchik.ViewModel.Gallery;
 using GKIbyAkhremchik.ViewModel.GalleryViewModel;
 using GKIbyAkhremchik.DAL.UnitService;
+using System.Web.Mvc;
+using GKIbyAkhremchik.ViewModel.NewsModels;
+using GKIbyAkhremchik.ViewModel.NewsViewModel;
 
 namespace GKIbyAkhremchik.BL.Gallery
 {
@@ -59,7 +62,7 @@ namespace GKIbyAkhremchik.BL.Gallery
                 Img = insert.Img,
                 Date = insert.Date,
                 Description = insert.Description
-                
+
             };
             _contextUnit.PhotoesGallery.AddGallery(gallery);
         }
@@ -110,5 +113,37 @@ namespace GKIbyAkhremchik.BL.Gallery
         }
 
         public void Save() { _contextUnit.Save(); }
+
+
+        public SelectList GetVideosList(NewsModel news)
+        {
+            SelectList gallery = new SelectList(
+                _contextUnit.VideoGallery.GetAllGallery(),
+                "GalleryVideoId",
+                "Title",
+                news.GalleryVideoId);
+            return gallery;
+
+        }
+        public SelectList GetPhotosList(NewsModel news)
+        {
+            var photo = _contextUnit.PhotoesGallery.GetAllGallery();
+            //var list = new List<GalleryPhoto>();
+            //foreach (var item in photo)
+            //{
+            //    list.Add(new GalleryPhoto
+            //    {
+            //        GalleryPhotoId = item.GalleryPhotoId,
+            //        Title = item.Title
+            //    });
+            //}
+            //list.Add(new GalleryPhoto { GalleryPhotoId = 0, Title = "" });
+            SelectList gallery = new SelectList(
+                photo,
+                "GalleryPhotoId",
+                "Title",
+                news.GalleryPhotoId);
+            return gallery;
+        }
     }
 }

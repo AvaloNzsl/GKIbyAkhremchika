@@ -15,6 +15,8 @@ namespace GKIbyAkhremchik.ViewModel.Gallery
         [Display(Name = "Заголовок")]
         public string Title { get; set; }
         [Display(Name = "Дата")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Date { get; set; }
         [Display(Name = "Фотография для галереи")]
         public string Img { get; set; }

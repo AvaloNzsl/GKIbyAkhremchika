@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NewsId)
+            @Html.DisplayNameFor(model => model.NewsSchoolId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -30,13 +30,13 @@
             @Html.DisplayNameFor(model => model.FullText)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GalleryPhotoId)
+            @Html.DisplayNameFor(model => model.GalleryPhoto.GalleryPhotoId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.GalleryPhoto.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GalleryVideoId)
+            @Html.DisplayNameFor(model => model.GalleryVideo.GalleryVideoId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.GalleryVideo.Title)
@@ -44,48 +44,49 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NewsId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Img_Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SmallText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GalleryPhotoId)
-        </td>
-        <td>
-            <a href="~/GalleryPhoto/DetailPhotoGallery/@item.GalleryVideoId">
-             @Html.DisplayFor(modelItem => item.GalleryPhoto.Title) 
-            </a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GalleryVideoId)
-        </td>
-        <td>
-            <a href="~/GalleryVideo/DetailVideoGallery/@item.GalleryVideoId">
-             @Html.DisplayFor(modelItem => item.GalleryVideo.Title) 
-            </a>    
-        </td>
-        <td>
-            @Html.ActionLink("Редактирование", "UpdateNewsSchoolS", new { id=item.NewsId }) |
-            @Html.ActionLink("Просмотр новости", "DetailNewsSchool", new { id = item.NewsId }) |
-            @Html.ActionLink("В Мусорку", "Delete", new { id = item.NewsId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewsSchoolId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Img_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SmallText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GalleryPhoto.GalleryPhotoId)
+            </td>
+            <td>
+                <a href="~/GalleryPhoto/DetailPhotoGallery/@item.GalleryVideoId">
+                    @Html.DisplayFor(modelItem => item.GalleryPhoto.Title)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GalleryVideo.GalleryVideoId)
+            </td>
+            <td>
+                <a href="~/GalleryVideo/DetailVideoGallery/@item.GalleryVideoId">
+                    @Html.DisplayFor(modelItem => item.GalleryVideo.Title)
+                </a>
+            </td>
+            <td>
+                @Html.ActionLink("Редактирование", "UpdateNewsSchool", new { id = item.NewsSchoolId }) |
+                @Html.ActionLink("Просмотр новости", "DetailNewsSchool", new { id = item.NewsSchoolId }) |
+                @Html.ActionLink("В Мусорку", "Delete", new { id = item.NewsSchoolId })
+            </td>
+        </tr>
+    }
 
 </table>

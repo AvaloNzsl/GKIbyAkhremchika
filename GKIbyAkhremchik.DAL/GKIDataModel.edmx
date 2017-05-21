@@ -12,55 +12,6 @@
           <Property Name="PhotosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="url1" Type="nvarchar(max)" />
-          <Property Name="url2" Type="nvarchar(max)" />
-          <Property Name="url3" Type="nvarchar(max)" />
-          <Property Name="url4" Type="nvarchar(max)" />
-          <Property Name="url5" Type="nvarchar(max)" />
-          <Property Name="url6" Type="nvarchar(max)" />
-          <Property Name="url7" Type="nvarchar(max)" />
-          <Property Name="url8" Type="nvarchar(max)" />
-          <Property Name="url9" Type="nvarchar(max)" />
-          <Property Name="url10" Type="nvarchar(max)" />
-          <Property Name="url11" Type="nvarchar(max)" />
-          <Property Name="url12" Type="nvarchar(max)" />
-          <Property Name="url13" Type="nvarchar(max)" />
-          <Property Name="url14" Type="nvarchar(max)" />
-          <Property Name="url15" Type="nvarchar(max)" />
-          <Property Name="url16" Type="nvarchar(max)" />
-          <Property Name="url17" Type="nvarchar(max)" />
-          <Property Name="url18" Type="nvarchar(max)" />
-          <Property Name="url19" Type="nvarchar(max)" />
-          <Property Name="url20" Type="nvarchar(max)" />
-          <Property Name="url21" Type="nvarchar(max)" />
-          <Property Name="url22" Type="nvarchar(max)" />
-          <Property Name="url23" Type="nvarchar(max)" />
-          <Property Name="url24" Type="nvarchar(max)" />
-          <Property Name="url25" Type="nvarchar(max)" />
-          <Property Name="url26" Type="nvarchar(max)" />
-          <Property Name="url27" Type="nvarchar(max)" />
-          <Property Name="url28" Type="nvarchar(max)" />
-          <Property Name="url29" Type="nvarchar(max)" />
-          <Property Name="url30" Type="nvarchar(max)" />
-          <Property Name="url31" Type="nvarchar(max)" />
-          <Property Name="url32" Type="nvarchar(max)" />
-          <Property Name="url33" Type="nvarchar(max)" />
-          <Property Name="url34" Type="nvarchar(max)" />
-          <Property Name="url35" Type="nvarchar(max)" />
-          <Property Name="url36" Type="nvarchar(max)" />
-          <Property Name="url37" Type="nvarchar(max)" />
-          <Property Name="url38" Type="nvarchar(max)" />
-          <Property Name="url39" Type="nvarchar(max)" />
-          <Property Name="url40" Type="nvarchar(max)" />
-          <Property Name="url41" Type="nvarchar(max)" />
-          <Property Name="url42" Type="nvarchar(max)" />
-          <Property Name="url43" Type="nvarchar(max)" />
-          <Property Name="url44" Type="nvarchar(max)" />
-          <Property Name="url45" Type="nvarchar(max)" />
-          <Property Name="url46" Type="nvarchar(max)" />
-          <Property Name="url47" Type="nvarchar(max)" />
-          <Property Name="url48" Type="nvarchar(max)" />
-          <Property Name="url49" Type="nvarchar(max)" />
-          <Property Name="url50" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="GalleryPhoto">
           <Key>
@@ -647,6 +598,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="GKI_DataModelStoreContainer">
           <EntitySet Name="AlbumPhoto" EntityType="Self.AlbumPhoto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GalleryPhoto" EntityType="Self.GalleryPhoto" Schema="dbo" store:Type="Tables" />
@@ -794,64 +776,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GKI_DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AlbumPhoto">
-          <Key>
-            <PropertyRef Name="PhotosId" />
-          </Key>
-          <Property Name="PhotosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url11" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url12" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url13" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url14" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url15" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url16" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url17" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url18" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url19" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url20" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url21" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url22" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url23" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url24" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url25" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url26" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url27" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url28" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url29" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url30" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url31" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url32" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url33" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url34" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url35" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url36" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url37" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url38" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url39" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url40" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url41" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url42" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url43" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url44" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url45" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url46" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url47" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url48" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url49" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="url50" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="GalleryPhotoes" Relationship="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1" FromRole="AlbumPhoto" ToRole="GalleryPhoto" />
-        </EntityType>
         <EntityType Name="GalleryVideo">
           <Key>
             <PropertyRef Name="GalleryVideoId" />
@@ -1351,7 +1275,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="GKI_DataEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AlbumPhotoes" EntityType="Self.AlbumPhoto" />
           <EntitySet Name="GalleryVideos" EntityType="Self.GalleryVideo" />
           <EntitySet Name="gkiGraduates" EntityType="Self.gkiGraduate" />
           <EntitySet Name="gkiParents" EntityType="Self.gkiParent" />
@@ -1468,10 +1391,6 @@
           </AssociationSet>
           <EntitySet Name="GalleryPhotoes" EntityType="GKI_DataModel.GalleryPhoto" />
           <EntitySet Name="gkiRoles" EntityType="GKI_DataModel.gkiRole" />
-          <AssociationSet Name="FK_GalleryPhoto_AlbumPhoto1" Association="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1">
-            <End Role="AlbumPhoto" EntitySet="AlbumPhotoes" />
-            <End Role="GalleryPhoto" EntitySet="GalleryPhotoes" />
-          </AssociationSet>
           <AssociationSet Name="FK_NewsArt_GalleryPhoto" Association="GKI_DataModel.FK_NewsArt_GalleryPhoto">
             <End Role="GalleryPhoto" EntitySet="GalleryPhotoes" />
             <End Role="NewsArt" EntitySet="NewsArts" />
@@ -1491,6 +1410,41 @@
           <AssociationSet Name="FK_gkiUsers_gkiRole" Association="GKI_DataModel.FK_gkiUsers_gkiRole">
             <End Role="gkiRole" EntitySet="gkiRoles" />
             <End Role="gkiUser" EntitySet="gkiUsers" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(GKI_DataModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(GKI_DataModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="AlbumPhotoes" EntityType="GKI_DataModel.AlbumPhoto" />
+          <AssociationSet Name="FK_GalleryPhoto_AlbumPhoto1" Association="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1">
+            <End Role="AlbumPhoto" EntitySet="AlbumPhotoes" />
+            <End Role="GalleryPhoto" EntitySet="GalleryPhotoes" />
           </AssociationSet>
           </EntityContainer>
         <Association Name="FK_NewsArt_GalleryVideo">
@@ -1551,11 +1505,11 @@
           <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PhotosId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AlbumPhoto" Relationship="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1" FromRole="GalleryPhoto" ToRole="AlbumPhoto" />
           <NavigationProperty Name="NewsArts" Relationship="GKI_DataModel.FK_NewsArt_GalleryPhoto" FromRole="GalleryPhoto" ToRole="NewsArt" />
           <NavigationProperty Name="NewsEvents" Relationship="GKI_DataModel.FK_NewsEvent_GalleryPhoto" FromRole="GalleryPhoto" ToRole="NewsEvent" />
           <NavigationProperty Name="NewsMusicals" Relationship="GKI_DataModel.FK_NewsMusical_GalleryPhoto" FromRole="GalleryPhoto" ToRole="NewsMusical" />
           <NavigationProperty Name="NewsSchools" Relationship="GKI_DataModel.FK_NewsSchool_GalleryPhoto" FromRole="GalleryPhoto" ToRole="NewsSchool" />
+          <NavigationProperty Name="AlbumPhoto" Relationship="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1" FromRole="GalleryPhoto" ToRole="AlbumPhoto" />
         </EntityType>
         <EntityType Name="gkiRole">
           <Key>
@@ -1565,18 +1519,6 @@
           <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="gkiUsers" Relationship="GKI_DataModel.FK_gkiUsers_gkiRole" FromRole="gkiRole" ToRole="gkiUser" />
         </EntityType>
-        <Association Name="FK_GalleryPhoto_AlbumPhoto1">
-          <End Type="GKI_DataModel.AlbumPhoto" Role="AlbumPhoto" Multiplicity="1" />
-          <End Type="GKI_DataModel.GalleryPhoto" Role="GalleryPhoto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AlbumPhoto">
-              <PropertyRef Name="PhotosId" />
-            </Principal>
-            <Dependent Role="GalleryPhoto">
-              <PropertyRef Name="PhotosId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_NewsArt_GalleryPhoto">
           <End Type="GKI_DataModel.GalleryPhoto" Role="GalleryPhoto" Multiplicity="0..1" />
           <End Type="GKI_DataModel.NewsArt" Role="NewsArt" Multiplicity="*" />
@@ -1637,70 +1579,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="AlbumPhoto">
+          <Key>
+            <PropertyRef Name="PhotosId" />
+          </Key>
+          <Property Name="PhotosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GalleryPhotoes" Relationship="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1" FromRole="AlbumPhoto" ToRole="GalleryPhoto" />
+        </EntityType>
+        <Association Name="FK_GalleryPhoto_AlbumPhoto1">
+          <End Type="GKI_DataModel.AlbumPhoto" Role="AlbumPhoto" Multiplicity="1" />
+          <End Type="GKI_DataModel.GalleryPhoto" Role="GalleryPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlbumPhoto">
+              <PropertyRef Name="PhotosId" />
+            </Principal>
+            <Dependent Role="GalleryPhoto">
+              <PropertyRef Name="PhotosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="GKI_DataModelStoreContainer" CdmEntityContainer="GKI_DataEntities">
-          <EntitySetMapping Name="AlbumPhotoes">
-            <EntityTypeMapping TypeName="GKI_DataModel.AlbumPhoto">
-              <MappingFragment StoreEntitySet="AlbumPhoto">
-                <ScalarProperty Name="PhotosId" ColumnName="PhotosId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="url1" ColumnName="url1" />
-                <ScalarProperty Name="url2" ColumnName="url2" />
-                <ScalarProperty Name="url3" ColumnName="url3" />
-                <ScalarProperty Name="url4" ColumnName="url4" />
-                <ScalarProperty Name="url5" ColumnName="url5" />
-                <ScalarProperty Name="url6" ColumnName="url6" />
-                <ScalarProperty Name="url7" ColumnName="url7" />
-                <ScalarProperty Name="url8" ColumnName="url8" />
-                <ScalarProperty Name="url9" ColumnName="url9" />
-                <ScalarProperty Name="url10" ColumnName="url10" />
-                <ScalarProperty Name="url11" ColumnName="url11" />
-                <ScalarProperty Name="url12" ColumnName="url12" />
-                <ScalarProperty Name="url13" ColumnName="url13" />
-                <ScalarProperty Name="url14" ColumnName="url14" />
-                <ScalarProperty Name="url15" ColumnName="url15" />
-                <ScalarProperty Name="url16" ColumnName="url16" />
-                <ScalarProperty Name="url17" ColumnName="url17" />
-                <ScalarProperty Name="url18" ColumnName="url18" />
-                <ScalarProperty Name="url19" ColumnName="url19" />
-                <ScalarProperty Name="url20" ColumnName="url20" />
-                <ScalarProperty Name="url21" ColumnName="url21" />
-                <ScalarProperty Name="url22" ColumnName="url22" />
-                <ScalarProperty Name="url23" ColumnName="url23" />
-                <ScalarProperty Name="url24" ColumnName="url24" />
-                <ScalarProperty Name="url25" ColumnName="url25" />
-                <ScalarProperty Name="url26" ColumnName="url26" />
-                <ScalarProperty Name="url27" ColumnName="url27" />
-                <ScalarProperty Name="url28" ColumnName="url28" />
-                <ScalarProperty Name="url29" ColumnName="url29" />
-                <ScalarProperty Name="url30" ColumnName="url30" />
-                <ScalarProperty Name="url31" ColumnName="url31" />
-                <ScalarProperty Name="url32" ColumnName="url32" />
-                <ScalarProperty Name="url33" ColumnName="url33" />
-                <ScalarProperty Name="url34" ColumnName="url34" />
-                <ScalarProperty Name="url35" ColumnName="url35" />
-                <ScalarProperty Name="url36" ColumnName="url36" />
-                <ScalarProperty Name="url37" ColumnName="url37" />
-                <ScalarProperty Name="url38" ColumnName="url38" />
-                <ScalarProperty Name="url39" ColumnName="url39" />
-                <ScalarProperty Name="url40" ColumnName="url40" />
-                <ScalarProperty Name="url41" ColumnName="url41" />
-                <ScalarProperty Name="url42" ColumnName="url42" />
-                <ScalarProperty Name="url43" ColumnName="url43" />
-                <ScalarProperty Name="url44" ColumnName="url44" />
-                <ScalarProperty Name="url45" ColumnName="url45" />
-                <ScalarProperty Name="url46" ColumnName="url46" />
-                <ScalarProperty Name="url47" ColumnName="url47" />
-                <ScalarProperty Name="url48" ColumnName="url48" />
-                <ScalarProperty Name="url49" ColumnName="url49" />
-                <ScalarProperty Name="url50" ColumnName="url50" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="GalleryVideos">
             <EntityTypeMapping TypeName="GKI_DataModel.GalleryVideo">
               <MappingFragment StoreEntitySet="GalleryVideo">
@@ -1959,6 +1875,39 @@
               <MappingFragment StoreEntitySet="gkiRole">
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="GKI_DataModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="GKI_DataModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="GKI_DataModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="GKI_DataModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GKI_DataModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="GKI_DataModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GKI_DataModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="GKI_DataModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="GKI_DataModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="AlbumPhotoes">
+            <EntityTypeMapping TypeName="GKI_DataModel.AlbumPhoto">
+              <MappingFragment StoreEntitySet="AlbumPhoto">
+                <ScalarProperty Name="url1" ColumnName="url1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhotosId" ColumnName="PhotosId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

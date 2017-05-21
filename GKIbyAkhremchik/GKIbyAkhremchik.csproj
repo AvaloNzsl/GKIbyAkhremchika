@@ -224,6 +224,7 @@
     <Compile Include="Controllers\NewsArea\NewsEventController.cs" />
     <Compile Include="Controllers\NewsArea\NewsMusicalController.cs" />
     <Compile Include="Controllers\NewsArea\NewsSchoolController.cs" />
+    <Compile Include="Controllers\TestNewsSchoolViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,7 +244,6 @@
     <Content Include="Views\Account\LogIn.cshtml" />
     <Content Include="Views\NewsSchool\NewsSchoolPage.cshtml" />
     <Content Include="Views\NewsSchool\InsertNewsSchool.cshtml" />
-    <Content Include="Views\NewsSchool\UpdateNewsSchool.cshtml" />
     <Content Include="Views\NewsArt\NewsArtPage.cshtml" />
     <Content Include="Views\NewsArt\InsertNewsArt.cshtml" />
     <Content Include="Views\NewsArt\UpdateNewsArt.cshtml" />
@@ -257,6 +257,12 @@
     <Content Include="Views\GalleryVideo\InsertVideoGallery.cshtml" />
     <Content Include="Views\GalleryVideo\UpdateVideoGallery.cshtml" />
     <Content Include="Views\NewsSchool\DetailNewsSchool.cshtml" />
+    <Content Include="Views\TestNewsSchoolView\Create.cshtml" />
+    <Content Include="Views\TestNewsSchoolView\Delete.cshtml" />
+    <Content Include="Views\TestNewsSchoolView\Details.cshtml" />
+    <Content Include="Views\TestNewsSchoolView\Edit.cshtml" />
+    <Content Include="Views\TestNewsSchoolView\Index.cshtml" />
+    <Content Include="Views\NewsSchool\UpdateNewsSchool.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

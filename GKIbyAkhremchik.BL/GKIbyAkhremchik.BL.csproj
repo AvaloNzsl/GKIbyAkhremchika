@@ -94,6 +94,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperConfiguration\NewsSchoolMapping.cs" />
+    <Compile Include="AutoMapperConfiguration\IAutoConfiguration.cs" />
     <Compile Include="Gallery\GalleryService.cs" />
     <Compile Include="Gallery\IGalleryService.cs" />
     <Compile Include="News\INewsService.cs" />

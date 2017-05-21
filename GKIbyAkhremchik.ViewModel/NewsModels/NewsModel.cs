@@ -1,17 +1,20 @@
 ﻿using GKIbyAkhremchik.ViewModel.Gallery;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace GKIbyAkhremchik.ViewModel.NewsModels
 {
     public class NewsModel
     {
         [Display(Name = "ID")]
-        public int NewsId { get; set; }
+        public int NewsSchoolId { get; set; }
         [Display(Name = "Заголовок")]
         public string Title { get; set; }
         [Display(Name = "Дата")]
-        public Nullable<DateTime> Date { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        public Nullable<System.DateTime> Date { get; set; }
         [Display(Name = "Фото мероприятия")]
         public string Img_Title { get; set; }
         [Display(Name = "Краткое описание")]

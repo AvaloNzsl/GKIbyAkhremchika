@@ -20,10 +20,11 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
 
         // GET: NewsBlog by Admin
         private INewsService _newsService;
-        //private IGalleryService _galleryService;
-        public NewsSchoolController(INewsService newsService)
+        private IGalleryService _galleryService;
+        public NewsSchoolController(INewsService newsService, IGalleryService galleryService)
         {
             _newsService = newsService;
+            _galleryService = galleryService;
         }
         public ActionResult NewsSchoolPage()
         {
@@ -51,21 +52,25 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
             //ViewBag.GalleryPhotoId = new SelectList(db.GalleryPhotoes, "GalleryPhotoId", "Title", newsSchool.GalleryPhotoId);
             return View(news);
         }
-
-        public ActionResult UpdateNewsSchoolS(int id)
+        
+        public ActionResult UpdateNewsSchool(int id)
         {
-            var newsmodel = _newsService.GetNewsSchoolByIdWithModel(id);/*GetNewsSchoolById*/
+            var newsmodel = _newsService.GetNewsSchoolById(id);
+            ViewBag.GalleryPhotoId = _galleryService.GetPhotosList(newsmodel);
+            ViewBag.GalleryVideoId = _galleryService.GetVideosList(newsmodel);
             return View(newsmodel);
         }
         [HttpPost]
-        public ActionResult UpdateNewsSchoolS(/*NewsSchool*/NewsModel news)
+        public ActionResult UpdateNewsSchool(NewsModel news)
         {
             if (ModelState.IsValid)
             {
-                _newsService.UpdateNewsWithModel(news);/*UpdateNews*/
+                _newsService.UpdateNews(news);
                 _newsService.Save();
                 return RedirectToAction("NewsSchoolPage");
             }
+            ViewBag.GalleryPhotoId = _galleryService.GetPhotosList(news);
+            ViewBag.GalleryVideoId = _galleryService.GetVideosList(news);
             return View(news);
         }
 
@@ -77,7 +82,7 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
 
         public ActionResult Delete(int id)
         {
-            NewsSchool delete = _newsService.GetNewsSchoolById(id);
+            NewsModel delete = _newsService.GetNewsSchoolById(id);
             _newsService.DeleteNews(id, school);
             _newsService.Save();
 

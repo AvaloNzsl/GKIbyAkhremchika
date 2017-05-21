@@ -11,8 +11,8 @@ namespace GKIbyAkhremchik.BL.News
         IEnumerable<NewsModel> GetAll(string nNews);
         IEnumerable<NewsEventModel> GetEvent();
 
-        NewsSchool GetNewsSchoolById(int id);
-        void UpdateNews(NewsSchool update);
+        NewsModel GetNewsSchoolById(int id);
+        void UpdateNews(NewsModel update);
         NewsArt GetNewsArtById(int id);
         void UpdateNews(NewsArt update);
         NewsMusical GetNewsMusicalById(int id);
@@ -25,8 +25,5 @@ namespace GKIbyAkhremchik.BL.News
         void DeleteNews(int id, string nameDepart);
 
         void Save();
-
-        NewsModel GetNewsSchoolByIdWithModel(int id);
-        void UpdateNewsWithModel(NewsModel update);
     }
 }

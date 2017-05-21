@@ -206,6 +206,12 @@
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RolesTable\AdminRole.cs" />
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>GKIDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>GKIDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>

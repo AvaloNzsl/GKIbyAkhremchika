@@ -4,8 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d59aeb37bd5c417ea9b867dffe9ed79f" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="GKI_DataModel.AlbumPhoto" Width="1.5" PointX="6.125" PointY="3.125" IsExpanded="true" />
+      <Diagram DiagramId="d59aeb37bd5c417ea9b867dffe9ed79f" Name="Diagram1" ZoomLevel="39">
         <EntityTypeShape EntityType="GKI_DataModel.GalleryVideo" Width="1.5" PointX="11.375" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="GKI_DataModel.gkiGraduate" Width="1.5" PointX="14.375" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="GKI_DataModel.gkiParent" Width="1.5" PointX="25.75" PointY="8.5" IsExpanded="true" />
@@ -64,18 +63,17 @@
         <AssociationConnector Association="GKI_DataModel.FK_NewsSchool_GalleryVideo" />
         <EntityTypeShape EntityType="GKI_DataModel.GalleryPhoto" Width="1.5" PointX="8.75" PointY="6.75" />
         <EntityTypeShape EntityType="GKI_DataModel.gkiRole" Width="1.5" PointX="24.5" PointY="2.375" />
-        <AssociationConnector Association="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1" />
         <AssociationConnector Association="GKI_DataModel.FK_NewsArt_GalleryPhoto" />
         <AssociationConnector Association="GKI_DataModel.FK_NewsEvent_GalleryPhoto" />
         <AssociationConnector Association="GKI_DataModel.FK_NewsMusical_GalleryPhoto" />
         <AssociationConnector Association="GKI_DataModel.FK_NewsSchool_GalleryPhoto" ManuallyRouted="true" >
-          <ConnectorPoint PointX="8.75" PointY="9.165205195853888" />
-          <ConnectorPoint PointX="8.375" PointY="9.165205195853888" />
-          <ConnectorPoint PointX="8.375" PointY="16.330835722722746" />
-          <ConnectorPoint PointX="12.98437575" PointY="16.330835722722746" />
-          <ConnectorPoint PointX="12.98437575" PointY="15.816793619791666" />
+          <ConnectorPoint PointX="9.16504203125" PointY="9.8840950520833335" />
+          <ConnectorPoint PointX="9.16504203125" PointY="15.723043619791667" />
+          <ConnectorPoint PointX="12" PointY="15.723043619791667" />
         </AssociationConnector>
         <AssociationConnector Association="GKI_DataModel.FK_gkiUsers_gkiRole" />
+        <EntityTypeShape EntityType="GKI_DataModel.AlbumPhoto" Width="1.5" PointX="6.5" PointY="7.375" />
+        <AssociationConnector Association="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

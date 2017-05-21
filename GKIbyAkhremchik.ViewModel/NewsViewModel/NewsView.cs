@@ -13,7 +13,9 @@ namespace GKIbyAkhremchik.ViewModel.NewsViewModel
         [Display(Name = "Заголовок")]
         public string Title { get; set; }
         [Display(Name = "Дата")]
-        public Nullable<DateTime> Date { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        public Nullable<System.DateTime> Date { get; set; }
         [Display(Name = "Фото мероприятия")]
         public string Img_Title { get; set; }
         [Display(Name = "Краткое описание")]

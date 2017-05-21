@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using GKIbyAkhremchik.ViewModel.NewsModels;
 using GKIbyAkhremchik.ViewModel.NewsViewModel;
 using GKIbyAkhremchik.DAL;
-using System.Linq;
 using GKIbyAkhremchik.ViewModel.Gallery;
 using GKIbyAkhremchik.DAL.UnitService;
 using AutoMapper;
+using GKIbyAkhremchik.BL.AutoMapperConfiguration;
 
 namespace GKIbyAkhremchik.BL.News
 {
     public class NewsService : INewsService
     {
+        //mapping configuration
+        private NewsSchoolMapping _schoolMap = new NewsSchoolMapping();
+        //mapping configuration
+
         private UnitOfWork _contextUnit;
         public NewsService(UnitOfWork contextUnit)
         {
@@ -21,46 +25,16 @@ namespace GKIbyAkhremchik.BL.News
         public IEnumerable<NewsModel> GetAll(string nameNews)
         {
             var news = new List<NewsModel>();
-
             if (nameNews == "school")
             {
+                _schoolMap.MapConfigDB();
                 var school = _contextUnit.SchoolNews.GetAllNews();
-                foreach (var n in school)
-                {
-                    GalleryVideo video;
-                    GalleryVideoModel vi;
-                    if (n.GalleryVideoId != null)
-                    {
-                        video = _contextUnit.VideoGallery.GetGalleryById(n.GalleryVideoId.Value);
-                        vi = new GalleryVideoModel { Title = video.Title };
-                    }
-                    else
-                        vi = new GalleryVideoModel { Title = "" };
-
-                    GalleryPhoto photo;
-                    GalleryPhotoModel pho;
-                    if (n.GalleryVideoId != null)
-                    {
-                        photo = _contextUnit.PhotoesGallery.GetGalleryById(n.GalleryPhotoId.Value);
-                        pho = new GalleryPhotoModel { Title = photo.Title };
-                    }
-                    else
-                        pho = new GalleryPhotoModel { Title = "" };
-
-                    news.Add(new NewsModel
-                    {
-                        NewsId = n.NewsSchoolId,
-                        Title = n.Title,
-                        Img_Title = n.Img_Title,
-                        Date = n.Date,
-                        SmallText = n.SmallText,
-                        FullText = n.FullText,
-                        GalleryPhotoId = n.GalleryPhotoId,
-                        GalleryPhoto = pho,
-                        GalleryVideoId = n.GalleryVideoId,
-                        GalleryVideo = vi
-                    });
-                }
+                //Mapper.Initialize(config => {
+                //    config.CreateMap<NewsSchool, NewsModel>();
+                //    config.CreateMap<GalleryPhoto, GalleryPhotoModel>();
+                //    config.CreateMap<GalleryVideo, GalleryVideoModel>();
+                //});
+                news = Mapper.Map<IEnumerable<NewsSchool>, List<NewsModel>>(school);
             }
             if (nameNews == "art")
             {
@@ -69,7 +43,7 @@ namespace GKIbyAkhremchik.BL.News
                 {
                     news.Add(new NewsModel
                     {
-                        NewsId = n.NewsArtId,
+                        NewsSchoolId = n.NewsArtId,
                         Title = n.Title,
                         Img_Title = n.Img_Title,
                         Date = n.Date,
@@ -87,7 +61,7 @@ namespace GKIbyAkhremchik.BL.News
                 {
                     news.Add(new NewsModel
                     {
-                        NewsId = n.NewsMusicalId,
+                        NewsSchoolId = n.NewsMusicalId,
                         Title = n.Title,
                         Img_Title = n.Img_Title,
                         Date = n.Date,
@@ -102,6 +76,12 @@ namespace GKIbyAkhremchik.BL.News
             //else HttpNotFount();
             return news;
         }
+
+        private void MapConfig(NewsSchool newsSchool)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<NewsEventModel> GetEvent()
         {
             var news = new List<NewsEventModel>();
@@ -186,13 +166,20 @@ namespace GKIbyAkhremchik.BL.News
             _contextUnit.EventNews.AddNews(news);
         }
 
-        public NewsSchool GetNewsSchoolById(int id)
+
+        public NewsModel GetNewsSchoolById(int id)
         {
-            return _contextUnit.SchoolNews.GetNewsById(id);
+            _schoolMap.MapConfigDB();
+            var school = _contextUnit.SchoolNews.GetNewsById(id);
+            var model = Mapper.Map<NewsSchool, NewsModel>(school);
+            return model;
         }
-        public void UpdateNews(NewsSchool update)
+        public void UpdateNews(NewsModel update)
         {
-            _contextUnit.SchoolNews.UpdateNews(update);
+            _schoolMap.MapConfigModel();
+
+            var updateNews= Mapper.Map<NewsModel, NewsSchool>(update);
+            _contextUnit.SchoolNews.UpdateNews(updateNews);
         }
 
         public NewsArt GetNewsArtById(int id)
@@ -233,22 +220,5 @@ namespace GKIbyAkhremchik.BL.News
         public void Save() { _contextUnit.Save(); }
 
 
-
-        public NewsModel GetNewsSchoolByIdWithModel(int id)
-        {
-            var school = _contextUnit.SchoolNews.GetNewsById(id);
-            Mapper.Initialize(config => {
-            config.CreateMap<NewsSchool, NewsModel>();
-                config.CreateMap<GalleryPhoto, GalleryPhotoModel>();
-                    config.CreateMap<GalleryVideo, GalleryVideoModel>();
-            });
-            var model = Mapper.Map<NewsSchool, NewsModel>(school);
-            return model;
-        }
-        public void UpdateNewsWithModel(NewsModel update)
-        {
-             
-            _contextUnit.SchoolNews.UpdateNews(Mapper.Map<NewsModel, NewsSchool>(update));
-        }
     }
 }
