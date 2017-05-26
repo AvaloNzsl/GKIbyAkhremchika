@@ -1,4 +1,4 @@
-﻿@model GKIbyAkhremchik.ViewModel.NewsViewModel.NewsView
+﻿@model GKIbyAkhremchik.ViewModel.NewsModels.NewsModel
 
 @{
     ViewBag.Title = "DetailNewsSchool";
@@ -7,9 +7,17 @@
 <h2>DetailNewsSchool</h2>
 
 <div>
-    <h4>NewsView</h4>
+    <h4>NewsModel</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsSchoolId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsSchoolId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
@@ -26,12 +34,13 @@
             @Html.DisplayFor(model => model.Date)
         </dd>
 
-        <dt>
+        <dt> 
             @Html.DisplayNameFor(model => model.Img_Title)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Img_Title)
+            <img src="~/images/schoolDepart/@ViewBag.Path/@Model.Img_Title"
+                 alt="" style="width:500px;height:350px;">            
         </dd>
 
         <dt>
@@ -51,24 +60,29 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.GalleryPhotoId)
+            Фотогалерея 
+            #@Html.DisplayNameFor(model => model.GalleryPhoto.GalleryPhotoId) |
+            @Html.DisplayFor(model => model.GalleryPhoto.GalleryPhotoId):
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GalleryPhotoId)
+            @Html.DisplayFor(model => model.GalleryPhoto.Title)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.GalleryVideoId)
+            Видеогалерея 
+            #@Html.DisplayNameFor(model => model.GalleryVideo.GalleryVideoId) |
+            @Html.DisplayFor(model => model.GalleryVideo.GalleryVideoId): 
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GalleryVideoId)
+            @Html.DisplayFor(model => model.GalleryVideo.Title)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактирование", "UpdateNewsSchool", new { id = Model.NewsSchoolId }) |
+    @Html.ActionLink("В Мусорку", "Delete", new { id = Model.NewsSchoolId }) |
+    @Html.ActionLink("Вернуться", "NewsSchoolPage")
 </p>

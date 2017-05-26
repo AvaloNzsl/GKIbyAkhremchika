@@ -1,5 +1,6 @@
 ﻿using GKIbyAkhremchik.BL.News;
 using GKIbyAkhremchik.DAL;
+using GKIbyAkhremchik.ViewModel.NewsModels;
 using GKIbyAkhremchik.ViewModel.NewsViewModel;
 using System.Web.Mvc;
 
@@ -34,7 +35,7 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult InsertNewsMusical(NewsView news)
+        public ActionResult InsertNewsMusical(NewsModel news)
         {
             if (ModelState.IsValid)
             {

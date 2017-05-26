@@ -273,6 +273,7 @@
   <ItemGroup>
     <Folder Include="Controllers\AccountArea\" />
     <Folder Include="Controllers\AdminArea\" />
+    <Folder Include="images\schoolDepart\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

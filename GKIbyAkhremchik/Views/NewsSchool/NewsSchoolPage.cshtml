@@ -57,7 +57,12 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Img_Title)
+                @*@Html.DisplayFor(modelItem => item.Img_Title)*@
+                @if (item.Img_Title != null)
+                {
+<img src="~/images/schoolDepart/@item.Date.ToString().Substring(0,10).@item.Title.Substring(0,8).Replace(' ','_')/@item.Img_Title" 
+                         alt="" style="width:100px;height:60px;">
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SmallText)

@@ -1,10 +1,8 @@
 ﻿using GKIbyAkhremchik.BL.Gallery;
 using GKIbyAkhremchik.BL.News;
-using GKIbyAkhremchik.DAL;
 using GKIbyAkhremchik.ViewModel.NewsModels;
-using GKIbyAkhremchik.ViewModel.NewsViewModel;
-using System.Data.Entity;
-using System.Linq;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 
 namespace GKIbyAkhremchik.Controllers.NewsArea
@@ -34,55 +32,79 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
 
         public ActionResult InsertNewsSchool()
         {
-            //ViewBag.GalleryVideoId = new SelectList(_galleryService.GetGalleryVideo(), "GalleryVideoId", "Title");
-            //ViewBag.GalleryPhotoId = new SelectList(db.GalleryPhotoes, "GalleryPhotoId", "Title");
+            ViewBag.GalleryPhotoId = _galleryService.GetPhotosList();
+            ViewBag.GalleryVideoId = _galleryService.GetVideosList();
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult InsertNewsSchool(NewsView news)
+        public ActionResult InsertNewsSchool(NewsModel newsmodel, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                _newsService.AddNews(news, school);
+                if (upload != null) newsmodel.Img_Title = upload.FileName;
+                _newsService.AddNews(newsmodel, school);
                 _newsService.Save();
+
+                if (upload != null && newsmodel.Date != null && newsmodel.Title != null)
+                {
+                    string path = _newsService.PathCreate(newsmodel, upload, school);
+                    Directory.CreateDirectory(Server.MapPath(path));
+                    upload.SaveAs(Server.MapPath(path + upload.FileName));
+                }
+
                 return RedirectToAction("NewsSchoolPage");
             }
-            //ViewBag.GalleryVideoId = new SelectList(_galleryService.GetGalleryVideo(), "GalleryVideoId", "Title", _galleryService.GetGalleryVideo());
-            //ViewBag.GalleryPhotoId = new SelectList(db.GalleryPhotoes, "GalleryPhotoId", "Title", newsSchool.GalleryPhotoId);
-            return View(news);
+            ViewBag.GalleryPhotoId = _galleryService.GetPhotosList(newsmodel);
+            ViewBag.GalleryVideoId = _galleryService.GetVideosList(newsmodel);
+            return View(newsmodel);
         }
-        
+
         public ActionResult UpdateNewsSchool(int id)
         {
-            var newsmodel = _newsService.GetNewsSchoolById(id);
+            var newsmodel = _newsService.GetNewsSchoolById(id, school);
             ViewBag.GalleryPhotoId = _galleryService.GetPhotosList(newsmodel);
             ViewBag.GalleryVideoId = _galleryService.GetVideosList(newsmodel);
             return View(newsmodel);
         }
         [HttpPost]
-        public ActionResult UpdateNewsSchool(NewsModel news)
+        public ActionResult UpdateNewsSchool(NewsModel newsmodel, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                _newsService.UpdateNews(news);
+                if (upload != null) {
+                    string path = _newsService.PathCreate(newsmodel, upload, school);
+                    FileInfo file = new FileInfo(Server.MapPath(path + newsmodel.Img_Title));
+                    if (!(bool)Directory.Exists(Server.MapPath(path)))
+                    {
+                        Directory.CreateDirectory(Server.MapPath(path));
+                    }
+                    else if (file.Exists)
+                    {
+                        file.Delete();
+                    }
+                    upload.SaveAs(Server.MapPath(path + upload.FileName));
+                    newsmodel.Img_Title = upload.FileName;
+                }
+                _newsService.UpdateNews(newsmodel, school);
                 _newsService.Save();
                 return RedirectToAction("NewsSchoolPage");
             }
-            ViewBag.GalleryPhotoId = _galleryService.GetPhotosList(news);
-            ViewBag.GalleryVideoId = _galleryService.GetVideosList(news);
-            return View(news);
+            ViewBag.GalleryPhotoId = _galleryService.GetPhotosList(newsmodel);
+            ViewBag.GalleryVideoId = _galleryService.GetVideosList(newsmodel);
+            return View(newsmodel);
         }
 
         public ActionResult DetailNewsSchool(int id)
         {
-            var newsmodel = _newsService.GetNewsSchoolById(id);
+            var newsmodel = _newsService.GetNewsSchoolById(id, school);
+            ViewBag.Path = _newsService.Path(newsmodel);
             return View(newsmodel);
         }
 
         public ActionResult Delete(int id)
         {
-            NewsModel delete = _newsService.GetNewsSchoolById(id);
+            NewsModel delete = _newsService.GetNewsSchoolById(id, school);
             _newsService.DeleteNews(id, school);
             _newsService.Save();
 

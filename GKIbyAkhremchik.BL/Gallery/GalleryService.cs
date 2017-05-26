@@ -114,7 +114,25 @@ namespace GKIbyAkhremchik.BL.Gallery
 
         public void Save() { _contextUnit.Save(); }
 
-
+        public SelectList GetPhotosList(NewsModel news)
+        {
+            var photo = _contextUnit.PhotoesGallery.GetAllGallery();
+            SelectList gallery = new SelectList(
+                photo,
+                "GalleryPhotoId",
+                "Title",
+                news.GalleryPhotoId);
+            return gallery;
+        }
+        public SelectList GetPhotosList()
+        {
+            var photo = _contextUnit.PhotoesGallery.GetAllGallery();
+            SelectList gallery = new SelectList(
+                photo,
+                "GalleryPhotoId",
+                "Title");
+            return gallery;
+        }
         public SelectList GetVideosList(NewsModel news)
         {
             SelectList gallery = new SelectList(
@@ -123,26 +141,13 @@ namespace GKIbyAkhremchik.BL.Gallery
                 "Title",
                 news.GalleryVideoId);
             return gallery;
-
         }
-        public SelectList GetPhotosList(NewsModel news)
+        public SelectList GetVideosList()
         {
-            var photo = _contextUnit.PhotoesGallery.GetAllGallery();
-            //var list = new List<GalleryPhoto>();
-            //foreach (var item in photo)
-            //{
-            //    list.Add(new GalleryPhoto
-            //    {
-            //        GalleryPhotoId = item.GalleryPhotoId,
-            //        Title = item.Title
-            //    });
-            //}
-            //list.Add(new GalleryPhoto { GalleryPhotoId = 0, Title = "" });
             SelectList gallery = new SelectList(
-                photo,
-                "GalleryPhotoId",
-                "Title",
-                news.GalleryPhotoId);
+                _contextUnit.VideoGallery.GetAllGallery(),
+                "GalleryVideoId",
+                "Title");
             return gallery;
         }
     }

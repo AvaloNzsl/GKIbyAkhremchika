@@ -28,7 +28,9 @@ namespace GKIbyAkhremchik.BL.Gallery
 
         void Save();
 
-        SelectList GetVideosList(NewsModel news);
         SelectList GetPhotosList(NewsModel news);
+        SelectList GetPhotosList();
+        SelectList GetVideosList(NewsModel news);
+        SelectList GetVideosList();
     }
 }
