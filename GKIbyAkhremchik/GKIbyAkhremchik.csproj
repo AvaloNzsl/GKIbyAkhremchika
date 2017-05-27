@@ -191,6 +191,9 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Footer\footerMain.css" />
+    <Content Include="Content\Header\headerMain.css" />
+    <Content Include="Content\Main\contentHome.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -198,8 +201,43 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="image\Admin\AdminPage.png" />
+    <Content Include="image\Admin\Photo.png" />
+    <Content Include="image\Admin\user.png" />
+    <Content Include="image\Admin\user1.png" />
     <Content Include="image\Avatar\Avalon.jpg" />
     <Content Include="image\Avatar\manager.jpg" />
+    <Content Include="image\backgroundImg\adminPage.png" />
+    <Content Include="image\backgroundImg\loginPage.png" />
+    <Content Include="image\content\news\newsArtist\belPoet.png" />
+    <Content Include="image\content\news\newsArtist\lightKristal.png" />
+    <Content Include="image\content\news\newsArtist\lyadoSkulpt.png" />
+    <Content Include="image\content\news\newsMusic\goToZalesie.png" />
+    <Content Include="image\content\news\newsMusic\Margolina.png" />
+    <Content Include="image\content\news\newsMusic\perazvoni.png" />
+    <Content Include="image\content\news\newsSchool\8marta17.png" />
+    <Content Include="image\content\news\newsSchool\Armyane.png" />
+    <Content Include="image\content\news\newsSchool\DaySpring.png" />
+    <Content Include="image\content_promo\DaysOpens.png" />
+    <Content Include="image\content_promo\fifth.jpg" />
+    <Content Include="image\content_promo\first.jpg" />
+    <Content Include="image\content_promo\fouth.jpg" />
+    <Content Include="image\content_promo\second.jpg" />
+    <Content Include="image\content_promo\third.jpg" />
+    <Content Include="image\footer\banners\mchs.gif" />
+    <Content Include="image\footer\banners\minesterstvo.png" />
+    <Content Include="image\footer\banners\pravo.gif" />
+    <Content Include="image\footer\banners\pravo.png" />
+    <Content Include="image\footer\banners\prezident.png" />
+    <Content Include="image\header\borderImg.png" />
+    <Content Include="image\header\headerImg.png" />
+    <Content Include="image\Icons\enter.png" />
+    <Content Include="image\Icons\map.png" />
+    <Content Include="image\Icons\plus.png" />
+    <Content Include="image\Icons\search.png" />
+    <Content Include="image\logo.png" />
+    <Content Include="image\logo\logoWhite.png" />
+    <Content Include="image\logo\logo_white.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -210,6 +248,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\scriptJS\slideEffect.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +302,7 @@
     <Content Include="Views\TestNewsSchoolView\Edit.cshtml" />
     <Content Include="Views\TestNewsSchoolView\Index.cshtml" />
     <Content Include="Views\NewsSchool\UpdateNewsSchool.cshtml" />
+    <Content Include="Views\Shared\_LayoutMain.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

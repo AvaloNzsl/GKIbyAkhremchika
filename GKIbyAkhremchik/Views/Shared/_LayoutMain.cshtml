@@ -1,0 +1,151 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@RenderBody()
+@section HeaderMain{
+    <div class="header">
+        <div class="header_title">
+            <ul class="header_bar">
+                <li class="nav_right">
+                    <div class="drop_horizontal"><div class="drop_word">Search</div></div>
+                    <a class="header_bar_link" href="#">
+                        <img src="~/image/Icons/search.png" alt="search" width="20" height="20" />
+                    </a>
+                </li>
+                <li class="nav_right">
+                    <div class="drop_horizontal"><div class="drop_word" style="width: 88px;">Карта сайта</div></div>
+                    <a class="header_bar_link" href="#">
+                        <img src="~/image/Icons/map.png" alt="sitemmap" width="20" height="20" />
+                    </a>
+                </li>
+                <li class="nav_right">
+                    <div class="drop_horizontal"><div class="drop_word">Вход</div></div>
+                    <a class="header_bar_link" href="~/Account/LogIn">
+                        <img src="~/image/Icons/enter.png"
+                             alt="enter" width="20" height="20" />
+                    </a>
+                </li>
+            </ul>
+            <div class="logo_png">
+                <img src="~/image/logo/logoWhite.png"
+                     alt="ГУО Гимназия-колледж искусств имени И.О. Ахремчика»" width="446" height="100" />
+            </div>
+        </div>
+        <div class="header_nav">
+            <ul class="header_nav_line">
+                <li class="nav_list_left" style="margin-left:20px">
+                    <a href="~/Home/HomePage" class="header_link">главная</a>
+                </li>
+                <li class="nav_list_left">
+                    <a href="#" class="header_link ">одно окно <small>&#9660;</small></a>
+                    <div class="dropdown_link">
+                        <a href="#">Админнистрация</a>
+                        <a href="#">Перечинь графиков</a>
+                        <a href="#">Административные процедуры</a>
+                        <a href="#">Контакты</a>
+                        <a href="#">Обратная связь</a>
+                    </div>
+                </li>
+                <li class="nav_list_left">
+                    <a href="#" class="header_link">Для Абитуриентов<small>&#9660;</small></a>
+                    <div class="dropdown_link">
+                        <a href="#">Приём в Гимназию</a>
+                        <a href="#">Приём в Колледж</a>
+                    </div>
+                </li>
+                <li class="nav_list_left">
+                    <a href="#" class="header_link">учащимся и родителям <small>&#9660;</small></a>
+                    <div class="dropdown_link">
+                        <a href="#">Педагогическая практика</a>
+                        <a href="#">СППС</a>
+                        <a href="#">Психология</a>
+                        <a href="#">Материально техничекая база</a>
+                        <a href="#">Цена бесплатной поездки?</a>
+                        <a href="#">Опасные картинки</a>
+                        <a href="#">Перечень документов</a>
+                    </div>
+                </li>
+                <li class="nav_list_left">
+                    <a href="#" class="header_link">платные услуги <small>&#9660;</small></a>
+                    <div class="dropdown_link">
+                        <a href="#">Общеобразовательное направление</a>
+                        <a href="#">Музыкального направление</a>
+                        <a href="#">Художественное направление</a>
+                        <a href="#">Попечительский совет</a>
+                        <a href="#">Перечень документов</a>
+                    </div>
+                </li>
+                <li class="nav_list_right" style="margin-right:69px">
+                    <a href="#" class="header_link">музыкальное направление <small>&#9660;</small></a>
+                    <div class="dropdown_link">
+                        <a href="#">Фортепиано</a>
+                        <a href="#">Дирижирование</a>
+                        <a href="#">Оркестровые струнно-смычковые инструменты</a>
+                        <a href="#">Оркестровые духовые и ударные инструменты</a>
+                        <a href="#">Интсрументы народного оркестра</a>
+                        <a href="#">Музыкально-теоретические дисциплины</a>
+                        <a href="#">Республиканский конкурс имени Л.И. Марголиной</a>
+                        <a href="#">Республиканский фестиваль-конкурс "Перазвоны"</a>
+                    </div>
+                </li>
+                <li class="nav_list_right">
+                    <a href="#" class="header_link">художественное направление <small>&#9660;</small></a>
+                    <div class="dropdown_link">
+                        <a href="#">Живопись</a>
+                        <a href="#">Декоративно-прикладное искусство</a>
+                        <a href="#">Скульптура</a>
+                        <a href="#">Композиция</a>
+                        <a href="#">Рисунок</a>
+                        <a href="#">Культурная инициатива "Время Магнатов"</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="shadow"></div>
+}
+@RenderSection("Content", false)
+@section FooterMain{
+    <footer>
+        <div class="footer_end">
+            <div class="titres">
+                <div class="text">
+                    <br><br><br>
+                    ГУО «Гимназия-колледж искусств имени И.О.Ахремчика»<br>
+                    +375 17 000-00-00<br>
+                    Режим работы: пн-пт. с 00.00 - 00.00<br>
+                    <br>
+                    All rights reserved. Copyright &copy gki.by 2010-2017
+                </div>
+            </div>
+            <div class="titres">
+                <div class="banners">
+                    <a href="#" class="banner">
+                        <img src="~/image/footer/banners/prezident.png" alt="Официальный сайт президента Республики Беларусь" />
+                    </a>
+                    <a href="#" class="banner">
+                        <img src="~/image/footer/banners/minesterstvo.png" alt="Министерство образования Республики Беларусь" />
+                    </a>
+                    <a href="#" class="banner">
+                        <img src="~/image/footer/banners/pravo.png" alt="Национальный правовой Интернет-портал" />
+                    </a>
+                    <a href="#" class="banner" style="margin-left: 100px;">
+                        <img src="~/image/footer/banners/pravo.gif" alt="Детский правовой сайт" />
+                    </a>
+                    <a href="#" class="banner">
+                        <img src="~/image/footer/banners/mchs.gif" alt="Министерство по чрезвычайным ситуациям Республики Беларусь" />
+                    </a>
+                </div>
+            </div>
+            <div class="titres">
+                <div class="text" style="text-align: right;">
+                    <br><br><br>
+                    Республика Беларусь<br>
+                    220114, г. Минск, ул. Макаёнка, 14<br>
+                    Адрес электронной почты: rki@tut.by<br>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+}

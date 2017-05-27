@@ -1,6 +1,7 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Helvetica Neue, Arial;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -15,4 +16,17 @@ select,
 textarea {
     max-width: 280px;
 }
+.clear{	clear: both;}
+ul{	list-style-type: none;}
+
+/*	FULL SCREEN
+	width = 1366
+	height = 2200
+*/
+
+
+
+
+
+
 

@@ -1,11 +1,152 @@
 ﻿
 @{
     ViewBag.Title = "HomePage";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
 }
 
-<h2>HomePage</h2>
+@section Content{
+    <!-- ALL TIME CHANGES -->
+    <div class="content">
+        <!-- ALL TIME CHANGES -->
+        <div class="content__section_promo">
+            <!--FOR MAIN PAGE*/-->
+            <div class="slides slideAnimation">
+                <img src="~/image/content_promo/DaysOpens.png" width="1000" height="350" />
+                <div class="textSlide">Caption Text</div>
+            </div>
+            <div class="slides slideAnimation">
+                <img src="~/image/content_promo/first.jpg" width="1000" height="350" />
+                <div class="textSlide">Caption Two</div>
+            </div>
+        </div>
+        <div style="text-align:center">
+            <span class="lineSlide"></span>
+            <span class="lineSlide"></span>
+        </div>
+
+        <div class="content_nav">
+            <!--FOR MAIN PAGE*/-->
+            <ul class="content_nav_list">
+                <li><a href="#" class="content_link">Новости школы</a></li>
+                <li><a href="#" class="content_link">Фотогаллерея</a></li>
+                <li><a href="#" class="content_link">Проект МЫ-ДЛЯ ДЕТЕЙ</a></li>
+                <li><a href="#" class="content_link">Творческие коллективы</a></li>
+                <li><a href="#" class="content_link">Видеогаллерея</a></li>
+            </ul>
+        </div>
+        <div class="news_content">
+            <!--FOR MAIN PAGE*/-->
+            <table class="school">
+                <!-- table-->
+                <tr>
+                    <!-- tr-->
+                    <td class="add_news">
+                        <ul class="titleImg">
+                            <a href="#">
+                                <img src="~/image/content/news/newsSchool/Armyane.png"
+                                     alt="Визит" class="ImgCenter" />
+                            </a>
+                            <div class="overlayText overlayBg">
+                                Визит Министерства образования Республики Армении
+                            </div>
+                            <li class="titleTxt">
+                                <a href="#">
+                                    <!-- max length 120 -->
+                                    Визит Министерства образования Республики Армении
+                                    и сотрудниками Национального института образования Республики Беларусь
+                                </a>
+                            </li>
+                            <li class="titleDate">&#128197; 20 марта 2017</li>
+                            <li class="titleDepart">&#10037; <a href="#">Новости Школы</a></li>
+                        </ul>
+                    </td><!-- td-->
+                </tr>
+            </table>
+
+            <table class="art">
+                <tr>
+                    <!-- tr-->
+                    <td class="add_news">
+                        <ul class="titleImg">
+                            <a href="#">
+                                <img src="~/image/content/news/newsArtist/belPoet.png"
+                                     alt="Тыдзень роднай мовы з сучаснымі беларускімі паэтамі"
+                                     class="ImgCenter" />
+                            </a>
+                            <li class="titleTxt">
+                                <a href="#">
+                                    <!-- max length 120 -->
+                                    Тыдзень роднай мовы з сучаснымі беларускімі паэтамі
+                                </a>
+                            </li>
+                            <li class="titleDate">&#128197; 12 марта 2017</li>
+                            <li class="titleDepart">&#10037; <a href="#">Новости Ходожественного направления</a></li>
+                        </ul>
+                    </td><!-- td-->
+                </tr>
+            </table>
+            <table class="music">
+                <tr>
+                    <!-- tr-->
+                    <td class="add_news">
+                        <ul class="titleImg">
+                            <a href="#">
+                                <img src="~/image/content/news/newsMusic/Margolina.png"
+                                     alt="VI Республиканского конкурса пианистов имени Л.И. Марголиной"
+                                     class="ImgCenter" />
+                            </a>
+                            <li class="titleTxt">
+                                <a href="#">
+                                    <!-- max length 120 -->
+                                    VI Республиканского конкурса пианистов имени Л.И. Марголиной
+                                </a>
+                            </li>
+                            <li class="titleDate">&#128197; 01 апреля 2017</li>
+                            <li class="titleDepart">&#10037; <a href="#">Новости Музыкального направления</a></li>
+                        </ul>
+                    </td><!-- td-->
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- ALL TIME CHANGES -->
 
 
 
-@Html.ActionLink("Вход", "LogIn", "Account")
 
+    <div class="footer_nav">
+        <hr>
+        <div class="left_group">
+            <ul class="footer_nav_list">
+                <br>
+                <li class="footer_list"><a href="#" class="footer_link">Структура сайта</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">Админнистрация</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">Платные услуги</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">Контакты</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">График проведения</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">Наша История</a></li>
+            </ul>
+            <ul class="footer_nav_list line_1">
+                <br>
+                <li class="footer_list"><a href="#" class="footer_link">Учащимся и Родителям</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">График приёма граждан</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">Перечень административных норм</a></li>
+            </ul>
+            <ul class="footer_nav_list line_1">
+                <br>
+                <li class="footer_list"><a href="#" class="footer_link">Художественное направление</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">Музыкальное направление</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">Новости школы</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">Фотогаллерея</a></li>
+                <li class="footer_list"><a href="#" class="footer_link">Видеогаллерея</a></li>
+            </ul>
+        </div>
+        <div class="right_group line_2">
+            <div class="presentation">
+                <iframe width="380" height="200" 
+                        src="https://www.youtube.com/embed/LHKEJT-g2LA" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+}

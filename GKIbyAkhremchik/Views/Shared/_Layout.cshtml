@@ -3,38 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <title>Гимназия-колледж искусств имени И.О.Ахремчика</title>
+    <!-- css -->
+    <link href="~/Content/Header/headerMain.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Main/contentHome.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Footer/footerMain.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/scriptJS/slideEffect.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("GKI", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
-        </div>
-    </div>
+    @RenderSection("HeaderMain", false)
 
-    <div class="container body-content">
+
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        @RenderSection("Content", false)
+
+
+    @RenderSection("FooterMain", false)
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
