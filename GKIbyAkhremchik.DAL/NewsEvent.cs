@@ -14,7 +14,7 @@ namespace GKIbyAkhremchik.DAL
     
     public partial class NewsEvent
     {
-        public int NewsEventId { get; set; }
+        public int NewsId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Img { get; set; }
@@ -24,7 +24,7 @@ namespace GKIbyAkhremchik.DAL
         public Nullable<int> GalleryPhotoId { get; set; }
         public Nullable<int> GalleryVideoId { get; set; }
     
-        public virtual GalleryVideo GalleryVideo { get; set; }
         public virtual GalleryPhoto GalleryPhoto { get; set; }
+        public virtual GalleryVideo GalleryVideo { get; set; }
     }
 }

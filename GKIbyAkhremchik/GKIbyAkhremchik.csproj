@@ -303,6 +303,7 @@
     <Content Include="Views\TestNewsSchoolView\Index.cshtml" />
     <Content Include="Views\NewsSchool\UpdateNewsSchool.cshtml" />
     <Content Include="Views\Shared\_LayoutMain.cshtml" />
+    <Content Include="Views\Home\School.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

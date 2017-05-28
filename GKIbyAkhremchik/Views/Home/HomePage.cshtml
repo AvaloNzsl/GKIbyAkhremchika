@@ -1,23 +1,32 @@
-﻿
+﻿@model IEnumerable<GKIbyAkhremchik.ViewModel.NewsModels.NewsModel>
+
 @{
     ViewBag.Title = "HomePage";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
 }
+@section cssSection{
+    <link href="~/Content/Main/contentHome.css" rel="stylesheet" type="text/css" />
+}
+@section jScript{
+    @*<script src="~/Scripts/scriptJS/slideEffect.js"></script>*@
+}
+
 
 @section Content{
     <!-- ALL TIME CHANGES -->
     <div class="content">
         <!-- ALL TIME CHANGES -->
         <div class="content__section_promo">
+            <img src="~/image/content_promo/DaysOpens.png" width="1000" height="350" />
             <!--FOR MAIN PAGE*/-->
-            <div class="slides slideAnimation">
-                <img src="~/image/content_promo/DaysOpens.png" width="1000" height="350" />
-                <div class="textSlide">Caption Text</div>
-            </div>
-            <div class="slides slideAnimation">
-                <img src="~/image/content_promo/first.jpg" width="1000" height="350" />
-                <div class="textSlide">Caption Two</div>
-            </div>
+            @*<div class="slides slideAnimation">
+                    <img src="~/image/content_promo/DaysOpens.png" width="1000" height="350" />
+                    <div class="textSlide">Caption Text</div>
+                </div>
+                <div class="slides slideAnimation">
+                    <img src="~/image/content_promo/first.jpg" width="1000" height="350" />
+                    <div class="textSlide">Caption Two</div>
+                </div>*@
         </div>
         <div style="text-align:center">
             <span class="lineSlide"></span>
@@ -36,32 +45,35 @@
         </div>
         <div class="news_content">
             <!--FOR MAIN PAGE*/-->
-            <table class="school">
-                <!-- table-->
-                <tr>
-                    <!-- tr-->
-                    <td class="add_news">
-                        <ul class="titleImg">
-                            <a href="#">
-                                <img src="~/image/content/news/newsSchool/Armyane.png"
-                                     alt="Визит" class="ImgCenter" />
-                            </a>
-                            <div class="overlayText overlayBg">
-                                Визит Министерства образования Республики Армении
-                            </div>
-                            <li class="titleTxt">
+            @{
+                Html.RenderPartial("School", Model);
+            }
+            @*<table class="school">
+                    <!-- table-->
+                    <tr>
+                        <!-- tr-->
+                        <td class="add_news">
+                            <ul class="titleImg">
                                 <a href="#">
-                                    <!-- max length 120 -->
-                                    Визит Министерства образования Республики Армении
-                                    и сотрудниками Национального института образования Республики Беларусь
+                                    <img src="~/image/content/news/newsSchool/Armyane.png"
+                                         alt="Визит" class="ImgCenter" />
                                 </a>
-                            </li>
-                            <li class="titleDate">&#128197; 20 марта 2017</li>
-                            <li class="titleDepart">&#10037; <a href="#">Новости Школы</a></li>
-                        </ul>
-                    </td><!-- td-->
-                </tr>
-            </table>
+                                <div class="overlayText overlayBg">
+                                    Визит Министерства образования Республики Армении
+                                </div>
+                                <li class="titleTxt">
+                                    <a href="#">
+                                        <!-- max length 120 -->
+                                        Визит Министерства образования Республики Армении
+                                        и сотрудниками Национального института образования Республики Беларусь
+                                    </a>
+                                </li>
+                                <li class="titleDate">&#128197; 20 марта 2017</li>
+                                <li class="titleDepart">&#10037; <a href="#">Новости Школы</a></li>
+                            </ul>
+                        </td><!-- td-->
+                    </tr>
+                </table>*@
 
             <table class="art">
                 <tr>
@@ -118,7 +130,7 @@
         <hr>
         <div class="left_group">
             <ul class="footer_nav_list">
-                <br>
+                <br />
                 <li class="footer_list"><a href="#" class="footer_link">Структура сайта</a></li>
                 <li class="footer_list"><a href="#" class="footer_link">Админнистрация</a></li>
                 <li class="footer_list"><a href="#" class="footer_link">Платные услуги</a></li>
@@ -127,7 +139,7 @@
                 <li class="footer_list"><a href="#" class="footer_link">Наша История</a></li>
             </ul>
             <ul class="footer_nav_list line_1">
-                <br>
+                <br />
                 <li class="footer_list"><a href="#" class="footer_link">Учащимся и Родителям</a></li>
                 <li class="footer_list"><a href="#" class="footer_link">График приёма граждан</a></li>
                 <li class="footer_list"><a href="#" class="footer_link">Перечень административных норм</a></li>
@@ -143,7 +155,7 @@
         </div>
         <div class="right_group line_2">
             <div class="presentation">
-                <iframe width="380" height="200" 
+                <iframe width="380" height="200"
                         src="https://www.youtube.com/embed/LHKEJT-g2LA" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>

@@ -9,21 +9,23 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
 {
     public class NewsSchoolController : Controller
     {
-        protected internal string school = "school";
-        // GET: NewsBlog
-        public ActionResult NewsSchool()
-        {
-            return View();
-        }
-
-        // GET: NewsBlog by Admin
         private INewsService _newsService;
         private IGalleryService _galleryService;
         public NewsSchoolController(INewsService newsService, IGalleryService galleryService)
         {
             _newsService = newsService;
             _galleryService = galleryService;
+        }    
+        protected internal string school = "school";
+
+        // GET: NewsBlog
+        public ActionResult School()
+        {
+            var news = _newsService.GetAll(school);
+            return View(news);
         }
+
+        // GET: NewsBlog by Admin
         public ActionResult NewsSchoolPage()
         {
             var news = _newsService.GetAll(school);

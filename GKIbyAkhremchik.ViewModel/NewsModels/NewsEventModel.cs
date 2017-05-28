@@ -7,7 +7,7 @@ namespace GKIbyAkhremchik.ViewModel.NewsModels
     public class NewsEventModel
     {
         [Display(Name = "ID")]
-        public int NewsEventId { get; set; }
+        public int NewsId { get; set; }
         [Display(Name = "Заголовок")]
         public string Title { get; set; }
         [Display(Name = "Описание")]

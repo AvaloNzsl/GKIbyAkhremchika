@@ -104,27 +104,15 @@
     <Compile Include="Configurations\User\ProfileEntityTypeConfiguration.cs" />
     <Compile Include="Context\IGalleryContext.cs" />
     <Compile Include="Context\INewsContext.cs" />
-    <Compile Include="Gallery\PhotoAlbum.cs" />
-    <Compile Include="Gallery\PhotoGallery.cs" />
-    <Compile Include="Gallery\VideoGallery.cs" />
-    <Compile Include="NewsTable\ArtNews.cs" />
-    <Compile Include="NewsTable\EventNews.cs" />
-    <Compile Include="NewsTable\MusicalNews.cs" />
-    <Compile Include="Repositories\AlbumPhotoRepository.cs" />
-    <Compile Include="Repositories\GalleryPhotoRepository.cs" />
-    <Compile Include="Repositories\GalleryVideoRepository.cs" />
-    <Compile Include="Repositories\NewsArtRepository.cs" />
-    <Compile Include="Repositories\NewsEventRepository.cs" />
-    <Compile Include="Repositories\NewsMusicalRepository.cs" />
-    <Compile Include="Repositories\NewsSchoolRepository.cs" />
-    <Compile Include="Context\UserContext.cs" />
     <Compile Include="GalleryPhoto.cs">
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GalleryVideo.cs">
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="GKIDbContext.cs" />
+    <Compile Include="Gallery\PhotoAlbum.cs" />
+    <Compile Include="Gallery\PhotoGallery.cs" />
+    <Compile Include="Gallery\VideoGallery.cs" />
     <Compile Include="GKIDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -176,8 +164,9 @@
     <Compile Include="NewsSchool.cs">
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="NewsTable\SchoolNews.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NewsTable\ArtNews.cs" />
+    <Compile Include="NewsTable\EventNews.cs" />
+    <Compile Include="NewsTable\MusicalNews.cs" />
     <Compile Include="qCity.cs">
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>
@@ -205,13 +194,18 @@
     <Compile Include="qWork.cs">
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\AlbumPhotoRepository.cs" />
+    <Compile Include="Repositories\GalleryPhotoRepository.cs" />
+    <Compile Include="Repositories\GalleryVideoRepository.cs" />
+    <Compile Include="Repositories\NewsArtRepository.cs" />
+    <Compile Include="Repositories\NewsEventRepository.cs" />
+    <Compile Include="Repositories\NewsMusicalRepository.cs" />
+    <Compile Include="Repositories\NewsSchoolRepository.cs" />
+    <Compile Include="Context\UserContext.cs" />
+    <Compile Include="GKIDbContext.cs" />
+    <Compile Include="NewsTable\SchoolNews.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolesTable\AdminRole.cs" />
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>GKIDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>GKIDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>GKIDataModel.tt</DependentUpon>
     </Compile>
@@ -223,17 +217,18 @@
     <Compile Include="UsersTable\Sex.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="GKIDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>GKIDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="GKIDataModel.edmx.diagram">
       <DependentUpon>GKIDataModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="GKIDataModel.Context.tt">
@@ -247,10 +242,6 @@
       <LastGenOutput>GKIDataModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

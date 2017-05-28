@@ -30,6 +30,7 @@ namespace GKIbyAkhremchik.DAL
         public string Description { get; set; }
         public int PhotosId { get; set; }
     
+        public virtual AlbumPhoto AlbumPhoto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NewsArt> NewsArts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -38,6 +39,5 @@ namespace GKIbyAkhremchik.DAL
         public virtual ICollection<NewsMusical> NewsMusicals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NewsSchool> NewsSchools { get; set; }
-        public virtual AlbumPhoto AlbumPhoto { get; set; }
     }
 }

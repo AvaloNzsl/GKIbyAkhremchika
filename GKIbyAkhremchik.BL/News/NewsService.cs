@@ -58,7 +58,7 @@ namespace GKIbyAkhremchik.BL.News
             {
                 news.Add(new NewsEventModel
                 {
-                    NewsEventId = n.NewsEventId,
+                    NewsId = n.NewsId,
                     Title = n.Title,
                     Img = n.Img,
                     DateStart = n.DateStart,

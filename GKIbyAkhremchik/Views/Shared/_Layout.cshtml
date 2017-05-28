@@ -6,14 +6,13 @@
     <title>Гимназия-колледж искусств имени И.О.Ахремчика</title>
     <!-- css -->
     <link href="~/Content/Header/headerMain.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Main/contentHome.css" rel="stylesheet" type="text/css" />
+    @RenderSection("cssSection", false)
     <link href="~/Content/Footer/footerMain.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 
     @*<script src="~/Scripts/bootstrap.min.js"></script>*@
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <script src="~/Scripts/scriptJS/slideEffect.js"></script>
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
 </head>
 <body>
     @RenderSection("HeaderMain", false)
@@ -25,6 +24,7 @@
 
     @RenderSection("FooterMain", false)
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    @RenderSection("jScript", false)
+    @*<script src="~/Scripts/modernizr-2.6.2.js"></script>*@
 </body>
 </html>

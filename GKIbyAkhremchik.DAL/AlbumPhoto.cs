@@ -20,9 +20,9 @@ namespace GKIbyAkhremchik.DAL
             this.GalleryPhotoes = new HashSet<GalleryPhoto>();
         }
     
-        public int PhotosId { get; set; }
+        public int AlbumPhotoId { get; set; }
         public string Name { get; set; }
-        public string url1 { get; set; }
+        public string Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GalleryPhoto> GalleryPhotoes { get; set; }

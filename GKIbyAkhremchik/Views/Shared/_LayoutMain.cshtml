@@ -2,6 +2,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @RenderBody()
+@section cssSection{
+    <link href="~/Content/Header/headerMain.css" rel="stylesheet" type="text/css" />
+    @RenderSection("cssSection", false)
+    <link href="~/Content/Footer/footerMain.css" rel="stylesheet" type="text/css" />
+}
+@RenderSection("jScript", false)
 @section HeaderMain{
     <div class="header">
         <div class="header_title">

@@ -4,29 +4,41 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d59aeb37bd5c417ea9b867dffe9ed79f" Name="Diagram1" ZoomLevel="39">
-        <EntityTypeShape EntityType="GKI_DataModel.GalleryVideo" Width="1.5" PointX="11.375" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.gkiGraduate" Width="1.5" PointX="14.375" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.gkiParent" Width="1.5" PointX="25.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.gkiProfile" Width="1.5" PointX="19.375" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.gkiStudent" Width="1.5" PointX="25.5" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.gkiTeacher" Width="1.5" PointX="18.625" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.gkiUser" Width="1.5" PointX="22.375" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.gkiWorker" Width="1.5" PointX="21.25" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.NewsArt" Width="1.5" PointX="9.375" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.NewsEvent" Width="1.5" PointX="14.875" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.NewsMusical" Width="1.5" PointX="14.25" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.NewsSchool" Width="1.5" PointX="12" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.qCity" Width="1.5" PointX="16.75" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.qDepartment" Width="1.5" PointX="31.875" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.qDescipline" Width="1.5" PointX="16.625" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.qGroup" Width="1.5" PointX="28.375" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.qLanguage" Width="1.5" PointX="16.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.qProfession" Width="1.5" PointX="26.75" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.qSex" Width="1.5" PointX="16.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.qSpecialization" Width="1.5" PointX="28.375" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.qWork" Width="1.5" PointX="23.875" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GKI_DataModel.sysdiagram" Width="1.5" PointX="21.25" PointY="2.125" IsExpanded="true" />
+      <Diagram DiagramId="8a16703b1ec64b328a8461d31ecc616d" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="GKI_DataModel.AlbumPhoto" Width="1.5" PointX="10.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.GalleryPhoto" Width="1.5" PointX="13" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.GalleryVideo" Width="1.5" PointX="13" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.gkiGraduate" Width="1.5" PointX="9.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.gkiParent" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.gkiProfile" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.gkiRole" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.gkiStudent" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.gkiTeacher" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.gkiUser" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.gkiWorker" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.NewsArt" Width="1.5" PointX="15.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.NewsEvent" Width="1.5" PointX="18.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.NewsMusical" Width="1.5" PointX="15.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.NewsSchool" Width="1.5" PointX="15.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.qCity" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.qDepartment" Width="1.5" PointX="6" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.qDescipline" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.qGroup" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.qLanguage" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.qProfession" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.qSex" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.qSpecialization" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.qWork" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GKI_DataModel.sysdiagram" Width="1.5" PointX="9.75" PointY="11.875" IsExpanded="true" />
+        <AssociationConnector Association="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto" ManuallyRouted="false" />
+        <AssociationConnector Association="GKI_DataModel.FK_NewsArt_GalleryPhoto" ManuallyRouted="false" />
+        <AssociationConnector Association="GKI_DataModel.FK_NewsEvent_GalleryPhoto" ManuallyRouted="false" />
+        <AssociationConnector Association="GKI_DataModel.FK_NewsMusical_GalleryPhoto" ManuallyRouted="false" />
+        <AssociationConnector Association="GKI_DataModel.FK_NewsSchool_GalleryPhoto" ManuallyRouted="false" />
+        <AssociationConnector Association="GKI_DataModel.FK_NewsArt_GalleryVideo" ManuallyRouted="false" />
+        <AssociationConnector Association="GKI_DataModel.FK_NewsEvent_GalleryVideo" ManuallyRouted="false" />
+        <AssociationConnector Association="GKI_DataModel.FK_NewsMusical_GalleryVideo" ManuallyRouted="false" />
+        <AssociationConnector Association="GKI_DataModel.FK_NewsSchool_GalleryVideo" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiParent_gkiParent" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiParent_gkiStudent" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiParent_gkiUsers" ManuallyRouted="false" />
@@ -35,45 +47,18 @@
         <AssociationConnector Association="GKI_DataModel.FK_gkiProfile_qLanguage" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiProfile_qSex" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiUsers_gkiProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="GKI_DataModel.FK_gkiUsers_gkiRole" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiStudent_gkiUsers" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiStudent_qGroup" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiStudent_qSpecialization" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiTeacher_gkiUsers" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiTeacher_qDescipline" ManuallyRouted="false" />
-        <AssociationConnector Association="GKI_DataModel.FK_gkiTeacher_qProfession" ManuallyRouted="true" >
-          <ConnectorPoint PointX="27.78125" PointY="14.25" />
-          <ConnectorPoint PointX="27.78125" PointY="11.7968775" />
-          <ConnectorPoint PointX="27.083333333333332" PointY="11.7968775" />
-          <ConnectorPoint PointX="26.916666666666668" PointY="11.7968775" />
-          <ConnectorPoint PointX="24.739583333333332" PointY="11.7968775" />
-          <ConnectorPoint PointX="24.572916666666668" PointY="11.7968775" />
-          <ConnectorPoint PointX="22.645833333333332" PointY="11.7968775" />
-          <ConnectorPoint PointX="22.479166666666668" PointY="11.7968775" />
-          <ConnectorPoint PointX="20.125" PointY="11.7968775" />
-        </AssociationConnector>
+        <AssociationConnector Association="GKI_DataModel.FK_gkiTeacher_qProfession" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiTeacher_qWork" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiWorker_gkiUsers" ManuallyRouted="false" />
-        <AssociationConnector Association="GKI_DataModel.FK_gkiWorker_qProfession" ManuallyRouted="false" >
-        </AssociationConnector>
+        <AssociationConnector Association="GKI_DataModel.FK_gkiWorker_qProfession" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_gkiWorker_qWork" ManuallyRouted="false" />
         <AssociationConnector Association="GKI_DataModel.FK_qSpecialization_qDepartment" ManuallyRouted="false" />
-        <AssociationConnector Association="GKI_DataModel.FK_NewsArt_GalleryVideo" />
-        <AssociationConnector Association="GKI_DataModel.FK_NewsEvent_GalleryVideo" />
-        <AssociationConnector Association="GKI_DataModel.FK_NewsMusical_GalleryVideo" />
-        <AssociationConnector Association="GKI_DataModel.FK_NewsSchool_GalleryVideo" />
-        <EntityTypeShape EntityType="GKI_DataModel.GalleryPhoto" Width="1.5" PointX="8.75" PointY="6.75" />
-        <EntityTypeShape EntityType="GKI_DataModel.gkiRole" Width="1.5" PointX="24.5" PointY="2.375" />
-        <AssociationConnector Association="GKI_DataModel.FK_NewsArt_GalleryPhoto" />
-        <AssociationConnector Association="GKI_DataModel.FK_NewsEvent_GalleryPhoto" />
-        <AssociationConnector Association="GKI_DataModel.FK_NewsMusical_GalleryPhoto" />
-        <AssociationConnector Association="GKI_DataModel.FK_NewsSchool_GalleryPhoto" ManuallyRouted="true" >
-          <ConnectorPoint PointX="9.16504203125" PointY="9.8840950520833335" />
-          <ConnectorPoint PointX="9.16504203125" PointY="15.723043619791667" />
-          <ConnectorPoint PointX="12" PointY="15.723043619791667" />
-        </AssociationConnector>
-        <AssociationConnector Association="GKI_DataModel.FK_gkiUsers_gkiRole" />
-        <EntityTypeShape EntityType="GKI_DataModel.AlbumPhoto" Width="1.5" PointX="6.5" PointY="7.375" />
-        <AssociationConnector Association="GKI_DataModel.FK_GalleryPhoto_AlbumPhoto1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
