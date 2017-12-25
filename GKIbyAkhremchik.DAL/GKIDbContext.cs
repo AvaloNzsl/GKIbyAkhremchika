@@ -10,9 +10,14 @@ namespace GKIbyAkhremchik.DAL
 
     public partial class GKIDbContext: DbContext
     {
+        //Connect to the database using Entity Framework
+        //data context is used - the output from the DbContext
         public GKIDbContext()
             : base("name=GKI_DataEntities")
         {
+            //connection to the database GKI_DataEntities
+            //the connection string is stored Web.config in the project
+            //in the section configuration - where the connection string to the database is determined
         }
         public static GKIDbContext Create()
         {

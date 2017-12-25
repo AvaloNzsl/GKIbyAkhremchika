@@ -9,6 +9,7 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
 {
     public class NewsSchoolController : Controller
     {
+        //access to project logic
         private INewsService _newsService;
         private IGalleryService _galleryService;
         public NewsSchoolController(INewsService newsService, IGalleryService galleryService)
@@ -48,6 +49,7 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
                 _newsService.AddNews(newsmodel, school);
                 _newsService.Save();
 
+                //verification and creation of photo storage directory
                 if (upload != null && newsmodel.Date != null && newsmodel.Title != null)
                 {
                     string path = _newsService.PathCreate(newsmodel, upload, school);
@@ -75,6 +77,7 @@ namespace GKIbyAkhremchik.Controllers.NewsArea
             if (ModelState.IsValid)
             {
                 if (upload != null) {
+                    //update the directory with photos
                     string path = _newsService.PathCreate(newsmodel, upload, school);
                     FileInfo file = new FileInfo(Server.MapPath(path + newsmodel.Img_Title));
                     if (!(bool)Directory.Exists(Server.MapPath(path)))

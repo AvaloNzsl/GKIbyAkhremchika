@@ -20,12 +20,14 @@ namespace GKIbyAkhremchik.BL.News
         private NewsMusicalMapping _musicalMap = new NewsMusicalMapping();
         //mapping configuration
 
+        //access to the database
         private UnitOfWork _contextUnit;
         public NewsService(UnitOfWork contextUnit)
         {
             _contextUnit = contextUnit;
         }
 
+        //news list logic
         public IEnumerable<NewsModel> GetAll(string nameNews)
         {
             var news = new List<NewsModel>();
@@ -72,6 +74,7 @@ namespace GKIbyAkhremchik.BL.News
             return news;
         }
 
+        //the logic of realisation new news 
         public void AddNews(NewsModel insert, string nameDepart)
         {
             if (nameDepart == "school")
@@ -109,7 +112,7 @@ namespace GKIbyAkhremchik.BL.News
             _contextUnit.EventNews.AddNews(news);
         }
 
-
+        //the logic of get news by ID
         public NewsModel GetNewsSchoolById(int id, string nameDepart)
         {
             NewsModel news = new NewsModel();

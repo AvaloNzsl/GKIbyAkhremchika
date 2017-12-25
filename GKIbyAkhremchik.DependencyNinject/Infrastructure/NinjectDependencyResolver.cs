@@ -32,6 +32,7 @@ namespace GKIbyAkhremchik.DependencyNinject.Infrastructure
 
         private void AddBindings()
         {
+            //binding between the interface and the classes of these interfaces
             kernel.Bind<INewsService>().To<NewsService>();
             kernel.Bind<INewsContext<NewsSchool>>().To<NewsSchoolRepository>();
             kernel.Bind<INewsContext<NewsArt>>().To<NewsArtRepository>();

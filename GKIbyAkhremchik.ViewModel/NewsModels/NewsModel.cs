@@ -1,7 +1,6 @@
 ﻿using GKIbyAkhremchik.ViewModel.Gallery;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
 namespace GKIbyAkhremchik.ViewModel.NewsModels
 {

@@ -6,6 +6,7 @@ namespace GKIbyAkhremchik.Controllers
 {
     public class HomeController : Controller
     {
+        //initializing objects with access business logic
         private INewsService _newsService;
         private IGalleryService _galleryService;
         public HomeController(INewsService newsService, IGalleryService galleryService)
@@ -13,7 +14,10 @@ namespace GKIbyAkhremchik.Controllers
             _newsService = newsService;
             _galleryService = galleryService;
         }
+        //news category
         protected internal string school = "school";
+        protected internal string art = "art";
+        protected internal string music = "music";
 
         // GET: Home
         public ActionResult HomePage()
@@ -28,6 +32,7 @@ namespace GKIbyAkhremchik.Controllers
             var news = _newsService.GetAll(school);
             return View(news);
         }
+
 
     }
 }
